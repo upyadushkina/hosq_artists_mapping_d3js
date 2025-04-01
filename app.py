@@ -66,6 +66,21 @@ st.markdown(f"""
     .stCheckbox > label {{
       color: {PAGE_TEXT_COLOR} !important;
     }}
+
+    /* Текст внутри выбранных элементов в multiselect */
+    [data-baseweb="select"] div[role="option"] {
+      color: #E8DED3 !important;
+    }
+    
+    /* Текст в поле, где показываются выбранные теги */
+    [data-baseweb="select"] span {
+      color: #E8DED3 !important;
+    }
+    
+    /* Placeholder ("Choose...") — чтобы он был другим цветом */
+    [data-baseweb="select"] input {
+      color: #4C4646 !important;
+    }
   </style>
 """, unsafe_allow_html=True)
 
