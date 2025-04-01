@@ -146,6 +146,7 @@ for _, row in df.iterrows():
             add_node(country_id, country, 'country')
             add_node(city_id, city, 'city')
             add_link(artist_id, city_id)
+            add_link(artist_id, country_id)
             add_link(city_id, country_id)
             filter_options['country'].add(country)
             filter_options['city'].add(city)
