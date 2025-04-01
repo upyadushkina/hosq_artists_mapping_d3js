@@ -3,6 +3,7 @@ import streamlit.components.v1 as components
 import pandas as pd
 import json
 from collections import defaultdict
+import base64
 
 # === Цветовая схема ===
 PAGE_BG_COLOR = "#262123"
@@ -28,6 +29,7 @@ HIGHLIGHT_EDGE_COLOR = "#6A50FF"
 TEXT_FONT = "Lexend"
 DEFAULT_PHOTO = "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png"
 
+# === Настройки страницы ===
 st.set_page_config(page_title="HOSQ Artist Graph", layout="wide")
 st.markdown(f"""
     <style>
@@ -139,7 +141,9 @@ d3_data = {
     "artists": artist_info
 }
 
+# === Граф как HTML с base64 ===
 d3_json = json.dumps(d3_data)
+b64_data = base64.b64encode(d3_json.encode("utf-8")).decode("utf-8")
 
 html_template = """
 <!DOCTYPE html>
@@ -149,10 +153,10 @@ html_template = """
   <script src='https://d3js.org/d3.v7.min.js'></script>
   <link href='https://fonts.googleapis.com/css2?family=Lexend&display=swap' rel='stylesheet'>
   <style>
-    html, body {{ margin: 0; padding: 0; height: 100%; background: {bg_color}; }}
-    svg {{ width: 100vw; height: 100vh; }}
-    .node {{ cursor: pointer; }}
-    .popup {{
+    html, body {{{{ margin: 0; padding: 0; height: 100%; background: {bg_color}; }}}}
+    svg {{{{ width: 100vw; height: 100vh; }}}}
+    .node {{{{ cursor: pointer; }}}}
+    .popup {{{{
       position: absolute;
       background-color: {bg_color};
       color: {text_color};
@@ -163,12 +167,12 @@ html_template = """
       z-index: 10;
       width: 220px;
       text-align: center;
-    }}
-    .popup img {{
+    }}}}
+    .popup img {{{{
       max-width: 100%;
       border-radius: 5px;
       margin-top: 8px;
-    }}
+    }}}}
   </style>
 </head>
 <body>
@@ -200,7 +204,7 @@ const node = svg.append("g")
   .attr("class", "node")
   .on("click", onClick);
 
-simulation.on("tick", () => {
+simulation.on("tick", () => {{
   link
     .attr("x1", d => d.source.x)
     .attr("y1", d => d.source.y)
@@ -210,29 +214,27 @@ simulation.on("tick", () => {
   node
     .attr("cx", d => d.x)
     .attr("cy", d => d.y);
-});
+}});
 
-function onClick(event, d) {
+function onClick(event, d) {{
   if (!d.id.startsWith("artist::")) return;
   const artist = data.artists[d.id];
   const popup = document.getElementById("popup");
   popup.innerHTML = `
-    <strong>${artist.name}</strong><br>
-    <img src="${artist.photo}" alt="photo"><br>
-    ${artist.telegram ? `<div>📱 ${artist.telegram}</div>` : ''}
-    ${artist.email ? `<div>✉️ ${artist.email}</div>` : ''}
+    <strong>${{artist.name}}</strong><br>
+    <img src=\"${{artist.photo}}\" alt=\"photo\"><br>
+    ${{artist.telegram ? `<div>📱 ${{artist.telegram}}</div>` : ''}}
+    ${{artist.email ? `<div>✉️ ${{artist.email}}</div>` : ''}}
   `;
   popup.style.left = (event.pageX + 20) + "px";
   popup.style.top = (event.pageY - 20) + "px";
   popup.style.display = "block";
-}
+}}
 </script>
 </body>
 </html>
 """
 
-import base64
-b64_data = base64.b64encode(d3_json.encode("utf-8")).decode("utf-8")
 html_filled = html_template.format(
     b64_data=b64_data,
     bg_color=GRAPH_BG_COLOR,
