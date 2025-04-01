@@ -159,6 +159,18 @@ const node = g.append("g")
     link.attr("display", l => allVisible.has(l.source.id) && allVisible.has(l.target.id) ? null : "none");
   });
 
+  const labels = g.append("g")
+  .selectAll("text")
+  .data(data.nodes)
+  .enter().append("text")
+  .text(d => d.label)
+  .attr("font-size", 12)
+  .attr("text-anchor", "middle")
+  .attr("dy", 18)
+  .attr("fill", "{{ popup_text }}")
+  .attr("pointer-events", "none")
+  .style("font-family", "Lexend");
+
 function drag(simulation) {
   function dragstarted(event, d) {
     if (!event.active) simulation.alphaTarget(0.3).restart();
@@ -225,6 +237,10 @@ simulation.on("tick", () => {
   node
     .attr("cx", d => d.x)
     .attr("cy", d => d.y);
+
+  labels
+    .attr("x", d => d.x)
+    .attr("y", d => d.y);
 });
   document.getElementById("search-input").addEventListener("input", (e) => {
   const query = e.target.value.toLowerCase();
