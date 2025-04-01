@@ -136,11 +136,20 @@ const node = g.append("g")
     node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
     link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
         .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.2);
+
+    labels
+      .attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5)
+      .attr("display", n => connected.has(n.id) || n.id === d.id ? null : "none");
   })
   .on("mouseout", function(event, d) {
     d3.select("#popup").style("display", "none");
     node.attr("opacity", 1);
     link.attr("stroke", "#322C2E").attr("opacity", 1);
+
+    labels
+    .attr("opacity", 1)
+    .attr("display", null);
+
   })
   .on("click", function(event, d) {
     event.stopPropagation();
@@ -157,6 +166,15 @@ const node = g.append("g")
     const allVisible = new Set([d.id, ...firstDegree, ...secondDegree]);
     node.attr("display", n => allVisible.has(n.id) ? null : "none");
     link.attr("display", l => allVisible.has(l.source.id) && allVisible.has(l.target.id) ? null : "none");
+
+    labels
+    .attr("display", n => allVisible.has(n.id) ? null : "none")
+    .attr("opacity", n => {
+      if (n.id === d.id || firstDegree.has(n.id)) return 1;
+      if (secondDegree.has(n.id)) return 0.5;
+      return 0;
+    });
+
   });
 
 function drag(simulation) {
@@ -212,6 +230,10 @@ function onHover(event, d) {
     node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1);
     link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
         .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1);
+    labels
+      .attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1)
+      .attr("display", n => connected.has(n.id) || n.id === d.id ? null : "none");
+
   }
 }
 
