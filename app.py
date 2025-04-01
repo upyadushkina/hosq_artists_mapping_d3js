@@ -153,8 +153,21 @@ html_template = """
   <script src='https://d3js.org/d3.v7.min.js'></script>
   <link href='https://fonts.googleapis.com/css2?family=Lexend&display=swap' rel='stylesheet'>
   <style>
-    html, body {{{{ margin: 0; padding: 0; height: 100%; background: {bg_color}; }}}}
-    svg {{{{ width: 100vw; height: 100vh; }}}}
+    html, body {{
+        margin: 0;
+        padding: 0;
+        background: {bg_color};
+        overflow: hidden;
+        height: 100%;
+    }}
+    svg {{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+    }}
     .node {{{{ cursor: pointer; }}}}
     .popup {{{{
       position: absolute;
