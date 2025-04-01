@@ -1,7 +1,7 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 import requests
-from streamlit_agraph import agraph, Node, Edge, Config
 
 # === Цветовая схема и параметры ===
 PAGE_BG_COLOR = "#262123"
