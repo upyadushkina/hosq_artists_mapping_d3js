@@ -61,10 +61,11 @@
     color: #E8DED3;
     z-index: 100;
   " />
-  
+
 <svg></svg>
 <div id='popup' class='popup' style='display:none;'></div>
 <script>
+let fixedPopup = false;
 const data = JSON.parse(atob('{{ b64_data }}'));
 
 const svg = d3.select("svg")
@@ -72,43 +73,23 @@ const svg = d3.select("svg")
     g.attr("transform", event.transform);
   }))
   .on("click", () => {
-    //d3.select("#popup").style("display", "none");
-    //node.attr("display", null).attr("opacity", 1);
-    //link.attr("display", null).attr("stroke", "#322C2E").attr("opacity", 1);
-
+    fixedPopup = false;
     d3.select("#popup").style("display", "none");
-
-    // Сброс узлов
-    node
-      .attr("display", null)
-      .attr("opacity", 1)
-      .attr("stroke", null)
-      .attr("stroke-width", null);
-  
-    // Сброс связей
-    link
-      .attr("display", null)
-      .attr("stroke", "#322C2E")
-      .attr("opacity", 1);
-  
-    // Сброс поиска
+    node.attr("display", null).attr("opacity", 1).attr("stroke", null).attr("stroke-width", null);
+    link.attr("display", null).attr("stroke", "#322C2E").attr("opacity", 1);
+    labels.attr("display", null).attr("opacity", 1);
     const searchInput = document.getElementById("search-input");
-    if (searchInput) {
-      searchInput.value = "";
-    }
+    if (searchInput) searchInput.value = "";
   });
 
 const width = window.innerWidth;
 const height = window.innerHeight;
-
 const g = svg.append("g");
 
-// Размер графа
 const simulation = d3.forceSimulation(data.nodes)
   .force("link", d3.forceLink(data.links).id(d => d.id).distance(80))
   .force("charge", d3.forceManyBody().strength(-100))
   .force("center", d3.forceCenter(width / 1.7, height / 4))
-  // чем больше значение в strength(0.2), тем сильнее граф тянет узлы друг к другу
   .force("x", d3.forceX(width / 2).strength(0.2))
   .force("y", d3.forceY(height / 2).strength(0.2));
 
@@ -124,58 +105,7 @@ const node = g.append("g")
   .enter().append("circle")
   .attr("r", 10)
   .attr("fill", d => d.color)
-  .attr("class", "node")
-  .call(drag(simulation))
-  .on("mouseover", function(event, d) {
-    onHover(event, d);
-    const connected = new Set();
-    data.links.forEach(link => {
-      if (link.source.id === d.id) connected.add(link.target.id);
-      if (link.target.id === d.id) connected.add(link.source.id);
-    });
-    node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
-    link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
-        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.2);
-
-    labels
-      .attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5)
-      .attr("display", n => connected.has(n.id) || n.id === d.id ? null : "none");
-  })
-  .on("mouseout", function(event, d) {
-    d3.select("#popup").style("display", "none");
-    node.attr("opacity", 1);
-    link.attr("stroke", "#322C2E").attr("opacity", 1);
-
-    labels
-    .attr("opacity", 1)
-    .attr("display", null);
-
-  })
-  .on("click", function(event, d) {
-    event.stopPropagation();
-    const firstDegree = new Set();
-    const secondDegree = new Set();
-    data.links.forEach(link => {
-      if (link.source.id === d.id) firstDegree.add(link.target.id);
-      if (link.target.id === d.id) firstDegree.add(link.source.id);
-    });
-    data.links.forEach(link => {
-      if (firstDegree.has(link.source.id)) secondDegree.add(link.target.id);
-      if (firstDegree.has(link.target.id)) secondDegree.add(link.source.id);
-    });
-    const allVisible = new Set([d.id, ...firstDegree, ...secondDegree]);
-    node.attr("display", n => allVisible.has(n.id) ? null : "none");
-    link.attr("display", l => allVisible.has(l.source.id) && allVisible.has(l.target.id) ? null : "none");
-
-    labels
-    .attr("display", n => allVisible.has(n.id) ? null : "none")
-    .attr("opacity", n => {
-      if (n.id === d.id || firstDegree.has(n.id)) return 1;
-      if (secondDegree.has(n.id)) return 0.5;
-      return 0;
-    });
-
-  });
+  .attr("class", "node");
 
 const labels = g.append("g")
   .selectAll("text")
@@ -190,66 +120,6 @@ const labels = g.append("g")
   .style("font-family", "Lexend")
   .style("opacity", 1);
 
-function drag(simulation) {
-  function dragstarted(event, d) {
-    if (!event.active) simulation.alphaTarget(0.3).restart();
-    d.fx = d.x;
-    d.fy = d.y;
-  }
-  function dragged(event, d) {
-    d.fx = event.x;
-    d.fy = event.y;
-  }
-  function dragended(event, d) {
-    if (!event.active) simulation.alphaTarget(0);
-    d.fx = null;
-    d.fy = null;
-  }
-  return d3.drag()
-    .on("start", dragstarted)
-    .on("drag", dragged)
-    .on("end", dragended);
-}
-
-function onHover(event, d) {
-  const popup = document.getElementById("popup");
-  let html = "";
-
-  if (d.id.startsWith("artist::")) {
-    const artist = data.artists[d.id];
-    html = `
-      <strong>${artist.name}</strong><br>
-      <img src="${artist.photo}" alt="photo"><br>
-      ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram}</span></div>` : ''}
-      ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}
-
-    `;
-  } else {
-    html = `<div><strong>${d.label}</strong></div>`;
-  }
-
-  popup.innerHTML = html;
-  popup.style.left = (event.clientX + 15) + "px";
-  popup.style.top = (event.clientY + 15) + "px";
-  popup.style.display = "block";
-
-  if (!d.id.startsWith("artist::")) {
-    const connected = new Set();
-    data.links.forEach(link => {
-      if (link.source.id === d.id) connected.add(link.target.id);
-      if (link.target.id === d.id) connected.add(link.source.id);
-    });
-
-    node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1);
-    link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
-        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1);
-    labels
-      .attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1)
-      .attr("display", n => connected.has(n.id) || n.id === d.id ? null : "none");
-
-  }
-}
-
 simulation.on("tick", () => {
   link
     .attr("x1", d => d.source.x)
@@ -260,8 +130,23 @@ simulation.on("tick", () => {
   node
     .attr("cx", d => d.x)
     .attr("cy", d => d.y);
+
+  labels
+    .attr("x", d => d.x)
+    .attr("y", d => d.y + 18)
+    .style("opacity", function(d, i) {
+      const nodeEl = node.nodes()[i];
+      return nodeEl && nodeEl.style.display !== "none"
+        ? d3.select(nodeEl).style("opacity")
+        : 0;
+    })
+    .style("display", function(d, i) {
+      const nodeEl = node.nodes()[i];
+      return nodeEl && nodeEl.style.display !== "none" ? null : "none";
+    });
 });
-  document.getElementById("search-input").addEventListener("input", (e) => {
+
+document.getElementById("search-input").addEventListener("input", (e) => {
   const query = e.target.value.toLowerCase();
   node.attr("stroke", d => {
     return d.id.startsWith("artist::") && d.label.toLowerCase().includes(query)
@@ -271,8 +156,11 @@ simulation.on("tick", () => {
     return d.id.startsWith("artist::") && d.label.toLowerCase().includes(query)
       ? 3 : null;
   });
+  labels.attr("stroke", d => {
+    return d.id.startsWith("artist::") && d.label.toLowerCase().includes(query)
+      ? "#6A50FF" : null;
+  });
 });
-  
 </script>
 </body>
 </html>
