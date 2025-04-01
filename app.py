@@ -156,7 +156,14 @@ html_template = f"""
 <html>
 <head>
   <meta charset='utf-8'>
-  <script src='https://d3js.org/d3.v7.min.js'></script>
+  <script src='https://d3js.org/d3.v7.min.js'>window.addEventListener("load", () => {
+  const iframe = window.frameElement;
+  if (iframe) {
+    iframe.style.height = window.innerHeight + "px";
+  }
+});
+
+</script>
   <link href='https://fonts.googleapis.com/css2?family=Lexend&display=swap' rel='stylesheet'>
   <style>
     html, body {{{{
