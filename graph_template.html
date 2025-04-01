@@ -247,6 +247,10 @@ simulation.on("tick", () => {
       return nodeEl && nodeEl.style.display !== "none"
         ? d3.select(nodeEl).style("opacity")
         : 0;
+    })
+    .style("display", function(d, i) {
+      const nodeEl = node.nodes()[i];
+      return nodeEl && nodeEl.style.display !== "none" ? null : "none";
     });
 });
   document.getElementById("search-input").addEventListener("input", (e) => {
