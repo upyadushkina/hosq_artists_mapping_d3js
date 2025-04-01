@@ -28,9 +28,8 @@ EDGE_COLOR = "#4C4646"
 HIGHLIGHT_EDGE_COLOR = "#6A50FF"
 TEXT_FONT = "Lexend"
 DEFAULT_PHOTO = "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png"
-
-POPUP_BG_COLOR = "#262123"  # background color for popup
-POPUP_TEXT_COLOR = "#E8DED3"  # text color for popup
+POPUP_BG_COLOR = "#262123"
+POPUP_TEXT_COLOR = "#E8DED3"
 
 
 def get_google_drive_image_url(url):
@@ -41,16 +40,20 @@ def get_google_drive_image_url(url):
 
 st.set_page_config(page_title="HOSQ Artist Graph", layout="wide")
 st.markdown(f"""
-    <style>
-    html, body, .stApp, main, section {{
-        background-color: {PAGE_BG_COLOR} !important;
-        color: {PAGE_TEXT_COLOR} !important;
-        font-family: '{TEXT_FONT}', sans-serif;
+  <style>
+    section[data-testid="stSidebar"] * {{ font-family: '{TEXT_FONT}', sans-serif; }}
+    section[data-testid="stSidebar"] .stMultiSelect label,
+    section[data-testid="stSidebar"] h1, h2, h3 {{
+      color: {PAGE_TEXT_COLOR} !important;
+      font-size: 0.9rem;
     }}
-    header, footer {{
-        background-color: {PAGE_BG_COLOR} !important;
+    section[data-testid="stSidebar"] .stMultiSelect > div {{ font-size: 80% !important; }}
+    .stMultiSelect [data-baseweb="tag"] {{
+      background-color: {SIDEBAR_TAG_BG_COLOR} !important;
+      color: {SIDEBAR_TAG_TEXT_COLOR} !important;
+      font-size: 80% !important;
     }}
-    </style>
+  </style>
 """, unsafe_allow_html=True)
 
 # Load and process CSV
@@ -74,6 +77,8 @@ nodes, links, artist_info = [], [], {}
 node_ids, edge_ids = set(), set()
 filter_options = defaultdict(set)
 
+artist_links_map = defaultdict(set)
+
 def add_node(id, label, group):
     if id not in node_ids:
         nodes.append({"id": id, "label": label, "group": group, "color": category_colors.get(group, '#888888')})
@@ -84,6 +89,10 @@ def add_link(source, target):
     if key not in edge_ids:
         links.append({"source": source, "target": target})
         edge_ids.add(key)
+        if source.startswith("artist::"):
+            artist_links_map[source].add(target)
+        elif target.startswith("artist::"):
+            artist_links_map[target].add(source)
 
 for _, row in df.iterrows():
     artist_id = f"artist::{row['name']}"
@@ -130,21 +139,26 @@ for category, options in filter_options.items():
         default=[]
     )
 
-def node_passes_filter(node_id):
-    if not node_id.startswith("artist::"):
-        return True
+def artist_passes_filter(artist_id):
     for cat, selected_vals in selected.items():
         if not selected_vals:
             continue
-        artist_links = [l["target"] for l in links if l["source"] == node_id]
-        relevant = [f"{cat}::{val}" for val in selected_vals]
-        if not any(val in artist_links for val in relevant):
+        relevant = {f"{cat}::{val}" for val in selected_vals}
+        if not artist_links_map[artist_id].intersection(relevant):
             return False
     return True
 
-visible_nodes = [n for n in nodes if node_passes_filter(n["id"])]
-visible_node_ids = set(n["id"] for n in visible_nodes)
-visible_links = [l for l in links if l["source"] in visible_node_ids and l["target"] in visible_node_ids]
+visible_artist_ids = {a for a in artist_info if artist_passes_filter(a)}
+visible_related_ids = set(visible_artist_ids)
+
+for link in links:
+    if link["source"] in visible_artist_ids:
+        visible_related_ids.add(link["target"])
+    if link["target"] in visible_artist_ids:
+        visible_related_ids.add(link["source"])
+
+visible_nodes = [n for n in nodes if n["id"] in visible_related_ids]
+visible_links = [l for l in links if l["source"] in visible_related_ids and l["target"] in visible_related_ids]
 
 d3_data = {
     "nodes": visible_nodes,
