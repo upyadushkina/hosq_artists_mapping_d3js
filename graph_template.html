@@ -65,6 +65,7 @@
 <svg></svg>
 <div id='popup' class='popup' style='display:none;'></div>
 <script>
+let fixedPopup = false;
 const data = JSON.parse(atob('{{ b64_data }}'));
 
 const svg = d3.select("svg")
@@ -72,6 +73,7 @@ const svg = d3.select("svg")
     g.attr("transform", event.transform);
   }))
   .on("click", () => {
+    fixedPopup = false;
     d3.select("#popup").style("display", "none");
     node.attr("display", null).attr("opacity", 1).attr("stroke", null).attr("stroke-width", null);
     link.attr("display", null).attr("stroke", "#322C2E").attr("opacity", 1);
@@ -106,19 +108,11 @@ const node = g.append("g")
   .attr("class", "node")
   .call(drag(simulation))
   .on("mouseover", function(event, d) {
+    if (fixedPopup) return;
     onHover(event, d);
-    const connected = new Set();
-    data.links.forEach(link => {
-      if (link.source.id === d.id) connected.add(link.target.id);
-      if (link.target.id === d.id) connected.add(link.source.id);
-    });
-    node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
-    link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
-        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.2);
-    labels.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5)
-          .attr("display", n => connected.has(n.id) || n.id === d.id ? null : "none");
   })
   .on("mouseout", function(event, d) {
+    if (fixedPopup) return;
     d3.select("#popup").style("display", "none");
     node.attr("opacity", 1);
     link.attr("stroke", "#322C2E").attr("opacity", 1);
@@ -126,6 +120,24 @@ const node = g.append("g")
   })
   .on("click", function(event, d) {
     event.stopPropagation();
+    fixedPopup = true;
+
+    const popup = document.getElementById("popup");
+    let html = "";
+    if (d.id.startsWith("artist::")) {
+      const artist = data.artists[d.id];
+      html = `<strong>${artist.name}</strong><br>
+        <img src="${artist.photo}" alt="photo"><br>
+        ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram}</span></div>` : ''}
+        ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}`;
+    } else {
+      html = `<div><strong>${d.label}</strong></div>`;
+    }
+    popup.innerHTML = html;
+    popup.style.left = (event.clientX + 15) + "px";
+    popup.style.top = (event.clientY + 15) + "px";
+    popup.style.display = "block";
+
     const firstDegree = new Set();
     const secondDegree = new Set();
     data.links.forEach(link => {
@@ -137,95 +149,17 @@ const node = g.append("g")
       if (firstDegree.has(link.target.id)) secondDegree.add(link.source.id);
     });
     const allVisible = new Set([d.id, ...firstDegree, ...secondDegree]);
-    node.attr("display", n => allVisible.has(n.id) ? null : "none");
-    link.attr("display", l => allVisible.has(l.source.id) && allVisible.has(l.target.id) ? null : "none");
-    labels.attr("display", n => allVisible.has(n.id) ? null : "none");
+
+    node.attr("display", n => allVisible.has(n.id) ? null : "none")
+        .attr("opacity", n => firstDegree.has(n.id) || n.id === d.id ? 1 : secondDegree.has(n.id) ? 0.5 : 1);
+
+    link.attr("display", l => allVisible.has(l.source.id) && allVisible.has(l.target.id) ? null : "none")
+        .attr("stroke", l => (l.source.id === d.id || l.target.id === d.id || firstDegree.has(l.source.id) || firstDegree.has(l.target.id)) ? "#6A50FF" : "#322C2E")
+        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id || firstDegree.has(l.source.id) || firstDegree.has(l.target.id)) ? 1 : 0.3);
+
+    labels.attr("display", n => allVisible.has(n.id) ? null : "none")
+          .attr("opacity", n => firstDegree.has(n.id) || n.id === d.id ? 1 : 0.5);
   });
-
-const labels = g.append("g")
-  .selectAll("text")
-  .data(data.nodes)
-  .enter().append("text")
-  .text(d => d.label)
-  .attr("font-size", 8)
-  .attr("text-anchor", "middle")
-  .attr("dy", 18)
-  .attr("fill", "{{ popup_text }}")
-  .attr("pointer-events", "none")
-  .style("font-family", "Lexend")
-  .style("opacity", 1);
-
-function drag(simulation) {
-  function dragstarted(event, d) {
-    if (!event.active) simulation.alphaTarget(0.3).restart();
-    d.fx = d.x;
-    d.fy = d.y;
-  }
-  function dragged(event, d) {
-    d.fx = event.x;
-    d.fy = event.y;
-  }
-  function dragended(event, d) {
-    if (!event.active) simulation.alphaTarget(0);
-    d.fx = null;
-    d.fy = null;
-  }
-  return d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended);
-}
-
-function onHover(event, d) {
-  const popup = document.getElementById("popup");
-  let html = "";
-  if (d.id.startsWith("artist::")) {
-    const artist = data.artists[d.id];
-    html = `<strong>${artist.name}</strong><br>
-      <img src="${artist.photo}" alt="photo"><br>
-      ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram}</span></div>` : ''}
-      ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}`;
-  } else {
-    html = `<div><strong>${d.label}</strong></div>`;
-  }
-  popup.innerHTML = html;
-  popup.style.left = (event.clientX + 15) + "px";
-  popup.style.top = (event.clientY + 15) + "px";
-  popup.style.display = "block";
-
-  if (!d.id.startsWith("artist::")) {
-    const connected = new Set();
-    data.links.forEach(link => {
-      if (link.source.id === d.id) connected.add(link.target.id);
-      if (link.target.id === d.id) connected.add(link.source.id);
-    });
-    node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1);
-    link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
-        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1);
-    labels.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1)
-          .attr("display", n => connected.has(n.id) || n.id === d.id ? null : "none");
-  }
-}
-
-simulation.on("tick", () => {
-  link.attr("x1", d => d.source.x).attr("y1", d => d.source.y).attr("x2", d => d.target.x).attr("y2", d => d.target.y);
-  node.attr("cx", d => d.x).attr("cy", d => d.y);
-  labels.attr("x", d => d.x)
-        .attr("y", d => d.y + 18)
-        .style("opacity", function(d, i) {
-          const nodeEl = node.nodes()[i];
-          return nodeEl && nodeEl.style.display !== "none"
-            ? d3.select(nodeEl).style("opacity")
-            : 0;
-        })
-        .style("display", function(d, i) {
-          const nodeEl = node.nodes()[i];
-          return nodeEl && nodeEl.style.display !== "none" ? null : "none";
-        });
-});
-
-document.getElementById("search-input").addEventListener("input", (e) => {
-  const query = e.target.value.toLowerCase();
-  node.attr("stroke", d => d.id.startsWith("artist::") && d.label.toLowerCase().includes(query) ? "#6A50FF" : null);
-  node.attr("stroke-width", d => d.id.startsWith("artist::") && d.label.toLowerCase().includes(query) ? 3 : null);
-});
 </script>
 </body>
 </html>
