@@ -8,49 +8,49 @@ d3_html = """
   <meta charset="utf-8">
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: #262123;
-      overflow: hidden;
-    }
-    svg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 1;
-      display: block;
-      background-color: #262123;
-    }
-    .node {
-      fill: #4C4646;
-      cursor: pointer;
-    }
-    .link {
-      stroke: #4C4646;
-      stroke-opacity: 0.6;
-    }
-    .popup {
-      position: absolute;
-      background-color: #4C4646;
-      color: #E8DED3;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      font-family: sans-serif;
-      z-index: 10;
-      width: 200px;
-      text-align: center;
-    }
-    .popup img {
-      max-width: 100%;
-      border-radius: 5px;
-      margin-top: 8px;
-    }
-  </style>
+  html, body, #root, .stApp, main {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #262123 !important;
+    overflow: hidden;
+  }
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: block;
+    background-color: #262123;
+  }
+  .node {
+    fill: #4C4646;
+    cursor: pointer;
+  }
+  .link {
+    stroke: #4C4646;
+    stroke-opacity: 0.6;
+  }
+  .popup {
+    position: absolute;
+    background-color: #4C4646;
+    color: #E8DED3;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    font-family: sans-serif;
+    z-index: 10;
+    width: 200px;
+    text-align: center;
+  }
+  .popup img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 8px;
+  }
+</style>
 </head>
 <body>
 <svg></svg>
