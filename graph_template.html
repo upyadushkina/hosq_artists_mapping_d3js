@@ -49,6 +49,18 @@
   </style>
 </head>
 <body>
+  <input id="search-input" placeholder="Search artist..." style="
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-family: 'Lexend', sans-serif;
+    border: none;
+    background-color: #4C4646;
+    color: #E8DED3;
+    z-index: 100;
+  " />
 <svg></svg>
 <div id='popup' class='popup' style='display:none;'></div>
 <script>
@@ -192,6 +204,18 @@ simulation.on("tick", () => {
     .attr("cx", d => d.x)
     .attr("cy", d => d.y);
 });
+  document.getElementById("search-input").addEventListener("input", (e) => {
+  const query = e.target.value.toLowerCase();
+  node.attr("stroke", d => {
+    return d.id.startsWith("artist::") && d.label.toLowerCase().includes(query)
+      ? "#6A50FF" : null;
+  });
+  node.attr("stroke-width", d => {
+    return d.id.startsWith("artist::") && d.label.toLowerCase().includes(query)
+      ? 3 : null;
+  });
+});
+  
 </script>
 </body>
 </html>
