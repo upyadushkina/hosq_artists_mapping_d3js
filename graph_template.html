@@ -61,20 +61,7 @@
     color: #E8DED3;
     z-index: 100;
   " />
-
-  <button id="reset-view" style="
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 20;
-    background-color: #4C4646;
-    color: #E8DED3;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-family: 'Lexend', sans-serif;
-    cursor: pointer;
-  ">Reset View</button>
+  
 <svg></svg>
 <div id='popup' class='popup' style='display:none;'></div>
 <script>
@@ -88,6 +75,12 @@ const svg = d3.select("svg")
     d3.select("#popup").style("display", "none");
     node.attr("display", null).attr("opacity", 1);
     link.attr("display", null).attr("stroke", "#322C2E").attr("opacity", 1);
+
+    // Сброс input-поиска
+    const searchInput = document.getElementById("search-input");
+    if (searchInput) {
+      searchInput.value = "";
+    }
   });
 
 const width = window.innerWidth;
