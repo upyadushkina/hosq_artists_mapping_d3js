@@ -61,7 +61,7 @@ const svg = d3.select("svg")
   .on("click", () => {
     d3.select("#popup").style("display", "none");
     node.attr("display", null).attr("opacity", 1);
-    link.attr("display", null).attr("stroke", "#4C4646").attr("opacity", 1);
+    link.attr("display", null).attr("stroke", "#322C2E").attr("opacity", 1);
   });
 
 const width = window.innerWidth;
@@ -82,7 +82,7 @@ const link = g.append("g")
   .selectAll("line")
   .data(data.links)
   .enter().append("line")
-  .attr("stroke", "#4C4646");
+  .attr("stroke", "#322C2E");
 
 const node = g.append("g")
   .selectAll("circle")
@@ -100,13 +100,13 @@ const node = g.append("g")
       if (link.target.id === d.id) connected.add(link.source.id);
     });
     node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
-    link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#4C4646")
+    link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
         .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.2);
   })
   .on("mouseout", function(event, d) {
     d3.select("#popup").style("display", "none");
     node.attr("opacity", 1);
-    link.attr("stroke", "#4C4646").attr("opacity", 1);
+    link.attr("stroke", "#322C2E").attr("opacity", 1);
   })
   .on("click", function(event, d) {
     event.stopPropagation();
@@ -175,7 +175,7 @@ function onHover(event, d) {
     });
 
     node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1);
-    link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#4C4646")
+    link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
         .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1);
   }
 }
