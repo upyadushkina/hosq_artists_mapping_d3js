@@ -66,9 +66,10 @@ st.markdown(f"""
     .stCheckbox > label {{
       color: {PAGE_TEXT_COLOR} !important;
     }}
-    input[type="checkbox"]:checked + div {{
-      background-color: {SIDEBAR_TAG_BG_COLOR} !important;
-    }}
+    [data-baseweb="checkbox"] > label > div:first-child {
+          background-color: {SIDEBAR_TAG_BG_COLOR} !important;
+          border-color: {SIDEBAR_TAG_BG_COLOR} !important;
+    }
   </style>
 """, unsafe_allow_html=True)
 
