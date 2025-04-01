@@ -125,15 +125,6 @@ const node = g.append("g")
     link.attr("display", l => allVisible.has(l.source.id) && allVisible.has(l.target.id) ? null : "none");
   });
 
-      data.links.forEach(link => {
-        if (firstDegree.has(link.source.id)) secondDegree.add(link.target.id);
-        if (firstDegree.has(link.target.id)) secondDegree.add(link.source.id);
-      });
-
-      const allVisible = new Set([d.id, ...firstDegree, ...secondDegree]);
-
-      node.attr("display", n => allVisible.has(n.id) ? null : "none");
-      link.attr("display", l => allVisible.has(l.source.id) && allVisible.has(l.target.id) ? null : "none");
     }
   });
 
