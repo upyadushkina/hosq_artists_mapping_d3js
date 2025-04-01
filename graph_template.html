@@ -87,6 +87,7 @@ const node = g.append("g")
   .attr("class", "node")
   .call(drag(simulation))
   .on("mouseover", onHover)
+  .on("mouseout", () => d3.select("#popup").style("display", "none"))
   .on("click", (event) => event.stopPropagation());
 
 function drag(simulation) {
