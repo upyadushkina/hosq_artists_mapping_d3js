@@ -3,6 +3,7 @@ import streamlit.components.v1 as components
 import pandas as pd
 import json
 from collections import defaultdict
+from streamlit.components.v1 import html
 
 # === Цветовая схема ===
 PAGE_BG_COLOR = "#262123"
@@ -141,7 +142,9 @@ d3_data = {
 }
 
 # === D3 визуализация ===
-components.html(f"""
+d3_json = json.dumps(d3_data)
+
+html_content = f"""
 <!DOCTYPE html>
 <html>
 <head>
@@ -149,9 +152,13 @@ components.html(f"""
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
   <style>
-    html, body {{ margin: 0; padding: 0; height: 100%; background: {GRAPH_BG_COLOR}; }}
-    svg {{ width: 100vw; height: 100vh; }}
-    .node {{ cursor: pointer; }}
+    html, body {{
+      margin: 0; padding: 0; height: 100%;
+      background: {GRAPH_BG_COLOR};
+    }}
+    svg {{
+      width: 100vw; height: 100vh;
+    }}
     .popup {{
       position: absolute;
       background-color: {GRAPH_BG_COLOR};
@@ -175,7 +182,8 @@ components.html(f"""
 <svg></svg>
 <div id="popup" class="popup" style="display:none;"></div>
 <script>
-const data = {json.dumps(d3_data)};
+const data = {d3_json};
+
 const svg = d3.select("svg");
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -197,7 +205,6 @@ const node = svg.append("g")
   .enter().append("circle")
   .attr("r", 10)
   .attr("fill", d => d.color)
-  .attr("class", "node")
   .on("click", onClick);
 
 simulation.on("tick", () => {
@@ -229,4 +236,6 @@ function onClick(event, d) {
 </script>
 </body>
 </html>
-""", height=1000, scrolling=False)
+"""
+
+html(html_content, height=1000, scrolling=False)
