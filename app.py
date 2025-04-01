@@ -3,7 +3,6 @@ import streamlit.components.v1 as components
 import pandas as pd
 import json
 from collections import defaultdict
-from streamlit.components.v1 import html
 
 # === Цветовая схема ===
 PAGE_BG_COLOR = "#262123"
@@ -29,7 +28,6 @@ HIGHLIGHT_EDGE_COLOR = "#6A50FF"
 TEXT_FONT = "Lexend"
 DEFAULT_PHOTO = "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png"
 
-# === Настройка страницы ===
 st.set_page_config(page_title="HOSQ Artist Graph", layout="wide")
 st.markdown(f"""
     <style>
@@ -141,28 +139,23 @@ d3_data = {
     "artists": artist_info
 }
 
-# === D3 визуализация ===
 d3_json = json.dumps(d3_data)
 
-html_content = f"""
+html_template = """
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+  <meta charset='utf-8'>
+  <script src='https://d3js.org/d3.v7.min.js'></script>
+  <link href='https://fonts.googleapis.com/css2?family=Lexend&display=swap' rel='stylesheet'>
   <style>
-    html, body {{
-      margin: 0; padding: 0; height: 100%;
-      background: {GRAPH_BG_COLOR};
-    }}
-    svg {{
-      width: 100vw; height: 100vh;
-    }}
+    html, body {{ margin: 0; padding: 0; height: 100%; background: {bg_color}; }}
+    svg {{ width: 100vw; height: 100vh; }}
+    .node {{ cursor: pointer; }}
     .popup {{
       position: absolute;
-      background-color: {GRAPH_BG_COLOR};
-      color: {PAGE_TEXT_COLOR};
+      background-color: {bg_color};
+      color: {text_color};
       padding: 10px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -180,10 +173,9 @@ html_content = f"""
 </head>
 <body>
 <svg></svg>
-<div id="popup" class="popup" style="display:none;"></div>
+<div id='popup' class='popup' style='display:none;'></div>
 <script>
-const data = {d3_json};
-
+const data = JSON.parse(atob('{b64_data}'));
 const svg = d3.select("svg");
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -197,7 +189,7 @@ const link = svg.append("g")
   .selectAll("line")
   .data(data.links)
   .enter().append("line")
-  .attr("stroke", "{EDGE_COLOR}");
+  .attr("stroke", "{edge_color}");
 
 const node = svg.append("g")
   .selectAll("circle")
@@ -205,6 +197,7 @@ const node = svg.append("g")
   .enter().append("circle")
   .attr("r", 10)
   .attr("fill", d => d.color)
+  .attr("class", "node")
   .on("click", onClick);
 
 simulation.on("tick", () => {
@@ -238,4 +231,13 @@ function onClick(event, d) {
 </html>
 """
 
-html(html_content, height=1000, scrolling=False)
+import base64
+b64_data = base64.b64encode(d3_json.encode("utf-8")).decode("utf-8")
+html_filled = html_template.format(
+    b64_data=b64_data,
+    bg_color=GRAPH_BG_COLOR,
+    text_color=PAGE_TEXT_COLOR,
+    edge_color=EDGE_COLOR
+)
+
+components.html(html_filled, height=1000, scrolling=False)
