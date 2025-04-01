@@ -1,6 +1,26 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
+# === Цветовая схема ===
+PAGE_BG_COLOR = "#262123"
+PAGE_TEXT_COLOR = "#E8DED3"
+
+# Настройка страницы
+st.set_page_config(page_title="HOSQ D3 Graph", layout="wide")
+
+# Стилизация оболочки Streamlit
+st.markdown(f"""
+    <style>
+    html, body, .stApp, main, section {{
+        background-color: {PAGE_BG_COLOR} !important;
+        color: {PAGE_TEXT_COLOR} !important;
+    }}
+    header, footer {{
+        background-color: {PAGE_BG_COLOR} !important;
+    }}
+    </style>
+""", unsafe_allow_html=True)
+
 d3_html = """
 <!DOCTYPE html>
 <html>
