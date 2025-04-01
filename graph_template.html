@@ -90,6 +90,8 @@ const svg = d3.select("svg")
       .attr("display", null)
       .attr("stroke", "#322C2E")
       .attr("opacity", 1);
+
+    labels.attr("display", l => allVisible.has(l.id) ? null : "none");
   
     // Сброс поиска
     const searchInput = document.getElementById("search-input");
