@@ -29,8 +29,8 @@ HIGHLIGHT_EDGE_COLOR = "#6A50FF"
 TEXT_FONT = "Lexend"
 DEFAULT_PHOTO = "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png"
 
-POPUP_BG_COLOR = "#262123"  # background color for popup
-POPUP_TEXT_COLOR = "#E8DED3"  # text color for popup
+POPUP_BG_COLOR = "#E8DED3"  # background color for popup
+POPUP_TEXT_COLOR = "#262123"  # text color for popup
 
 
 def get_google_drive_image_url(url):
