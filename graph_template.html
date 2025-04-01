@@ -78,8 +78,6 @@ const svg = d3.select("svg")
     node.attr("display", null).attr("opacity", 1).attr("stroke", null).attr("stroke-width", null);
     link.attr("display", null).attr("stroke", "#322C2E").attr("opacity", 1);
     labels.attr("display", null).attr("opacity", 1);
-    const searchInput = document.getElementById("search-input");
-    if (searchInput) searchInput.value = "";
   });
 
 const width = window.innerWidth;
@@ -108,33 +106,21 @@ const node = g.append("g")
   .attr("class", "node")
   .on("mouseover", function(event, d) {
     if (fixedPopup) return;
-    const popup = document.getElementById("popup");
-    let html = "";
-    if (d.id.startsWith("artist::")) {
-      const artist = data.artists[d.id];
-      html = `<strong>${artist.name}</strong><br>
-        <img src="${artist.photo}" alt="photo"><br>
-        ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram}</span></div>` : ''}
-        ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}`;
-    } else {
-      html = `<div><strong>${d.label}</strong></div>`;
-    }
-    popup.innerHTML = html;
-    popup.style.left = (event.clientX + 15) + "px";
-    popup.style.top = (event.clientY + 15) + "px";
-    popup.style.display = "block";
+
+    showPopup(event, d);
 
     const connected = new Set();
     data.links.forEach(link => {
       if (link.source.id === d.id) connected.add(link.target.id);
       if (link.target.id === d.id) connected.add(link.source.id);
     });
+
     node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
+    labels.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
     link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
         .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.2);
-    labels.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
   })
-  .on("mouseout", function(event, d) {
+  .on("mouseout", function() {
     if (fixedPopup) return;
     d3.select("#popup").style("display", "none");
     node.attr("opacity", 1);
@@ -144,45 +130,61 @@ const node = g.append("g")
   .on("click", function(event, d) {
     event.stopPropagation();
     fixedPopup = true;
+    showPopup(event, d);
 
-    const popup = document.getElementById("popup");
-    let html = "";
-    if (d.id.startsWith("artist::")) {
-      const artist = data.artists[d.id];
-      html = `<strong>${artist.name}</strong><br>
-        <img src="${artist.photo}" alt="photo"><br>
-        ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram}</span></div>` : ''}
-        ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}`;
-    } else {
-      html = `<div><strong>${d.label}</strong></div>`;
-    }
-    popup.innerHTML = html;
-    popup.style.left = (event.clientX + 15) + "px";
-    popup.style.top = (event.clientY + 15) + "px";
-    popup.style.display = "block";
-
-    const firstDegree = new Set();
-    const secondDegree = new Set();
-    data.links.forEach(link => {
-      if (link.source.id === d.id) firstDegree.add(link.target.id);
-      if (link.target.id === d.id) firstDegree.add(link.source.id);
+    const first = new Set();
+    const second = new Set();
+    data.links.forEach(l => {
+      if (l.source.id === d.id) first.add(l.target.id);
+      if (l.target.id === d.id) first.add(l.source.id);
     });
-    data.links.forEach(link => {
-      if (firstDegree.has(link.source.id)) secondDegree.add(link.target.id);
-      if (firstDegree.has(link.target.id)) secondDegree.add(link.source.id);
+    data.links.forEach(l => {
+      if (first.has(l.source.id)) second.add(l.target.id);
+      if (first.has(l.target.id)) second.add(l.source.id);
     });
-    const allVisible = new Set([d.id, ...firstDegree, ...secondDegree]);
 
-    node.attr("display", n => allVisible.has(n.id) ? null : "none")
-        .attr("opacity", n => firstDegree.has(n.id) || n.id === d.id ? 1 : secondDegree.has(n.id) ? 0.5 : 1);
+    const all = new Set([d.id, ...first, ...second]);
+    node.attr("display", n => all.has(n.id) ? null : "none")
+        .attr("opacity", n => first.has(n.id) || n.id === d.id ? 1 : second.has(n.id) ? 0.5 : 1);
 
-    link.attr("display", l => allVisible.has(l.source.id) && allVisible.has(l.target.id) ? null : "none")
-        .attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
-        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.3);
+    labels.attr("display", n => all.has(n.id) ? null : "none")
+          .attr("opacity", n => first.has(n.id) || n.id === d.id ? 1 : 0.5);
 
-    labels.attr("display", n => allVisible.has(n.id) ? null : "none")
-          .attr("opacity", n => firstDegree.has(n.id) || n.id === d.id ? 1 : 0.5);
+    link.attr("display", l => all.has(l.source.id) && all.has(l.target.id) ? null : "none")
+        .attr("stroke", l => (l.source.id === d.id || l.target.id === d.id || first.has(l.source.id) || first.has(l.target.id)) ? "#6A50FF" : "#322C2E")
+        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id || first.has(l.source.id) || first.has(l.target.id)) ? 1 : 0.3);
   });
+
+const labels = g.append("g")
+  .selectAll("text")
+  .data(data.nodes)
+  .enter().append("text")
+  .text(d => d.label)
+  .attr("font-size", 8)
+  .attr("text-anchor", "middle")
+  .attr("dy", 18)
+  .attr("fill", "{{ popup_text }}")
+  .attr("pointer-events", "none")
+  .style("font-family", "Lexend")
+  .style("opacity", 1);
+
+function showPopup(event, d) {
+  const popup = document.getElementById("popup");
+  let html = "";
+  if (d.id.startsWith("artist::")) {
+    const artist = data.artists[d.id];
+    html = `<strong>${artist.name}</strong><br>
+      <img src="${artist.photo}" alt="photo"><br>
+      ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram}</span></div>` : ''}
+      ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}`;
+  } else {
+    html = `<div><strong>${d.label}</strong></div>`;
+  }
+  popup.innerHTML = html;
+  popup.style.left = (event.clientX + 15) + "px";
+  popup.style.top = (event.clientY + 15) + "px";
+  popup.style.display = "block";
+}
 </script>
 </body>
 </html>
