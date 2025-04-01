@@ -13,33 +13,44 @@
   </script>
   <link href='https://fonts.googleapis.com/css2?family=Lexend&display=swap' rel='stylesheet'>
   <style>
-    html, body {
-      margin: 0; padding: 0; height: 100%; background: #262123;
-      overflow: hidden;
+    :root {
+      --popup-bg: {{ popup_bg }};
+      --popup-text: {{ popup_text }};
     }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--popup-bg);
+      overflow: hidden;
+      font-family: 'Lexend', sans-serif;
+    }
+
     svg {
-      position: relative;
       width: 100vw;
       height: 100vh;
-      z-index: 1;
+      transform: scale(0.9);
+      transform-origin: center;
     }
-    .node { cursor: pointer; }
+
     .popup {
       position: absolute;
-      background-color: #262123;
-      color: #E8DED3;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      font-family: 'Lexend', sans-serif;
+      background-color: var(--popup-bg);
+      color: var(--popup-text);
+      padding: 8px;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
       z-index: 10;
-      width: 220px;
+      width: 200px;
       text-align: center;
+      font-size: 14px;
     }
+
     .popup img {
       max-width: 100%;
-      border-radius: 5px;
+      border-radius: 6px;
       margin-top: 8px;
+      margin-bottom: 4px;
     }
   </style>
 </head>
@@ -108,15 +119,22 @@ simulation.on("tick", () => {
 });
 
 function onClick(event, d) {
-  if (!d.id.startsWith("artist::")) return;
-  const artist = data.artists[d.id];
   const popup = document.getElementById("popup");
-  popup.innerHTML = `
-    <strong>${artist.name}</strong><br>
-    <img src="${artist.photo}" alt="photo"><br>
-    ${artist.telegram ? `<div>📱 ${artist.telegram}</div>` : ''}
-    ${artist.email ? `<div>✉️ ${artist.email}</div>` : ''}
-  `;
+  let html = "";
+
+  if (d.id.startsWith("artist::")) {
+    const artist = data.artists[d.id];
+    html = `
+      <strong>${artist.name}</strong><br>
+      <img src="${artist.photo}" alt="photo"><br>
+      ${artist.telegram ? `<div>📱 ${artist.telegram}</div>` : ''}
+      ${artist.email ? `<div>✉️ ${artist.email}</div>` : ''}
+    `;
+  } else {
+    html = `<div><strong>${d.label}</strong></div>`;
+  }
+
+  popup.innerHTML = html;
   popup.style.left = (event.clientX + 20) + "px";
   popup.style.top = (event.clientY + 20) + "px";
   popup.style.display = "block";
