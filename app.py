@@ -1,22 +1,73 @@
 import streamlit as st
-import streamlit.components.v1 as components
+import pandas as pd
+import requests
+from streamlit_agraph import agraph, Node, Edge, Config
 
-# === Цветовая схема ===
+# === Цветовая схема и параметры ===
 PAGE_BG_COLOR = "#262123"
 PAGE_TEXT_COLOR = "#E8DED3"
+SIDEBAR_BG_COLOR = "#262123"
+SIDEBAR_LABEL_COLOR = "#E8DED3"
+SIDEBAR_TAG_TEXT_COLOR = "#E8DED3"
+SIDEBAR_TAG_BG_COLOR = "#6A50FF"
+BUTTON_BG_COLOR = "#262123"
+BUTTON_TEXT_COLOR = "#4C4646"
+BUTTON_CLEAN_TEXT_COLOR = "#E8DED3"
+SIDEBAR_HEADER_COLOR = "#E8DED3"
+SIDEBAR_TOGGLE_ARROW_COLOR = "#E8DED3"
+HEADER_MENU_COLOR = "#262123"
+GRAPH_BG_COLOR = "#262123"
+GRAPH_LABEL_COLOR = "#E8DED3"
+NODE_NAME_COLOR = "#4C4646"
+NODE_CITY_COLOR = "#D3DAE8"
+NODE_FIELD_COLOR = "#EEC0E7"
+NODE_ROLE_COLOR = "#F4C07C"
+EDGE_COLOR = "#4C4646"
+HIGHLIGHT_EDGE_COLOR = "#6A50FF"
+DEFAULT_PHOTO = "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png"
 
-# Настройка страницы
-st.set_page_config(page_title="HOSQ D3 Graph", layout="wide")
+st.set_page_config(page_title="HOSQ Artists Mapping (Agraph)", layout="wide")
 
-# Стилизация оболочки Streamlit
+# === CSS стилизация ===
 st.markdown(f"""
     <style>
-    html, body, .stApp, main, section {{
+    body, .stApp {{
+        background-color: {PAGE_BG_COLOR};
+        color: {PAGE_TEXT_COLOR};
+    }}
+    .stSidebar {{
+        background-color: {SIDEBAR_BG_COLOR} !important;
+    }}
+    .stSidebar label, .stSidebar .css-1n76uvr {{
+        color: {SIDEBAR_LABEL_COLOR} !important;
+    }}
+    .stSidebar h1, .stSidebar h2, .stSidebar h3 {{
+        color: {SIDEBAR_HEADER_COLOR} !important;
+    }}
+    .stSidebar .css-ewr7em svg {{
+        stroke: {SIDEBAR_TOGGLE_ARROW_COLOR} !important;
+    }}
+    .stMultiSelect>div>div {{
         background-color: {PAGE_BG_COLOR} !important;
         color: {PAGE_TEXT_COLOR} !important;
     }}
-    header, footer {{
-        background-color: {PAGE_BG_COLOR} !important;
+    .stMultiSelect [data-baseweb="tag"] {{
+        background-color: {SIDEBAR_TAG_BG_COLOR} !important;
+        color: {SIDEBAR_TAG_TEXT_COLOR} !important;
+    }}
+    .stButton > button {{
+        background-color: {BUTTON_BG_COLOR} !important;
+        color: {BUTTON_CLEAN_TEXT_COLOR} !important;
+        border: none;
+    }}
+    .artist-card * {{
+        color: {PAGE_TEXT_COLOR} !important;
+    }}
+    header {{
+        background-color: {HEADER_MENU_COLOR} !important;
+    }}
+    .vis-network {{
+        background-color: {GRAPH_BG_COLOR} !important;
     }}
     </style>
 """, unsafe_allow_html=True)
