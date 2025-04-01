@@ -1,7 +1,8 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import json
 import pandas as pd
+import json
+from collections import defaultdict
 
 # === Цветовая схема ===
 PAGE_BG_COLOR = "#262123"
@@ -42,26 +43,81 @@ st.markdown(f"""
     </style>
 """, unsafe_allow_html=True)
 
-# === Загрузка графа ===
-with open("graph_data.json", "r", encoding="utf-8") as f:
-    data = json.load(f)
+# === Загрузка и обработка CSV ===
+df = pd.read_csv("Etudes Lab 1 artistis d3js.csv")
+df.fillna('', inplace=True)
 
-nodes = data["nodes"]
-links = data["links"]
-artists = data["artists"]
-filters = data["filters"]
+category_colors = {
+    'artist': NODE_NAME_COLOR,
+    'city': NODE_CITY_COLOR,
+    'country': NODE_CITY_COLOR,
+    'professional field': NODE_FIELD_COLOR,
+    'role': NODE_ROLE_COLOR,
+    'style': PAGE_TEXT_COLOR,
+    'tool': PAGE_TEXT_COLOR,
+    'level': PAGE_TEXT_COLOR,
+    'seeking for': PAGE_TEXT_COLOR,
+}
+
+multi_fields = ['professional field', 'role', 'style', 'tool', 'level', 'seeking for']
+nodes, links, artist_info = [], [], {}
+node_ids, edge_ids = set(), set()
+filter_options = defaultdict(set)
+
+def add_node(id, label, group):
+    if id not in node_ids:
+        nodes.append({"id": id, "label": label, "group": group, "color": category_colors.get(group, '#888888')})
+        node_ids.add(id)
+
+def add_link(source, target):
+    key = f"{source}___{target}"
+    if key not in edge_ids:
+        links.append({"source": source, "target": target})
+        edge_ids.add(key)
+
+for _, row in df.iterrows():
+    artist_id = f"artist::{row['name']}"
+    add_node(artist_id, row['name'], 'artist')
+
+    artist_info[artist_id] = {
+        "name": row['name'],
+        "photo": row['photo url'] if row['photo url'] else DEFAULT_PHOTO,
+        "telegram": row['telegram nickname'],
+        "email": row['email']
+    }
+
+    for field in multi_fields:
+        values = [v.strip() for v in row[field].split(',')] if row[field] else []
+        for val in values:
+            if val:
+                node_id = f"{field}::{val}"
+                add_node(node_id, val, field)
+                add_link(artist_id, node_id)
+                filter_options[field].add(val)
+
+    if row['country and city']:
+        parts = [p.strip() for p in row['country and city'].split(',')]
+        if len(parts) == 2:
+            country, city = parts
+            country_id = f"country::{country}"
+            city_id = f"city::{city}"
+            add_node(country_id, country, 'country')
+            add_node(city_id, city, 'city')
+            add_link(artist_id, city_id)
+            add_link(city_id, country_id)
+            filter_options['country'].add(country)
+            filter_options['city'].add(city)
 
 # === Фильтры ===
 selected = {}
 st.sidebar.header("Фильтры")
-for category, options in filters.items():
+for category, options in filter_options.items():
     selected[category] = st.sidebar.multiselect(
         label=category.title(),
-        options=options,
+        options=sorted(options),
         default=[]
     )
 
-# === Фильтрация узлов ===
 def node_passes_filter(node_id):
     if not node_id.startswith("artist::"):
         return True
@@ -78,14 +134,13 @@ visible_nodes = [n for n in nodes if node_passes_filter(n["id"])]
 visible_node_ids = set(n["id"] for n in visible_nodes)
 visible_links = [l for l in links if l["source"] in visible_node_ids and l["target"] in visible_node_ids]
 
-# === Подготовка данных для D3 ===
 d3_data = {
     "nodes": visible_nodes,
     "links": visible_links,
-    "artists": artists
+    "artists": artist_info
 }
 
-# === Вставка графа ===
+# === D3 визуализация ===
 components.html(f"""
 <!DOCTYPE html>
 <html>
