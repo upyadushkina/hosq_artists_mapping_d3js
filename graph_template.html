@@ -72,8 +72,8 @@ const height = window.innerHeight;
 // Вот какие параметры отвечают за «размер» графа
 const simulation = d3.forceSimulation(data.nodes)
   .force("link", d3.forceLink(data.links).id(d => d.id).distance(60))  // раньше 100
-  .force("charge", d3.forceManyBody().strength(-50))                  // раньше -300
-  .force("center", d3.forceCenter(width / 3, height / 3.2));             // чем больше делитель, тем выше граф
+  .force("charge", d3.forceManyBody().strength(-100))                  // раньше -300
+  .force("center", d3.forceCenter(width / 2, height / 3.2));             // чем больше делитель, тем выше граф
 
 const drag = simulation => {
   function dragstarted(event, d) {
