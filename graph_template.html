@@ -118,12 +118,12 @@ const node = g.append("g")
     labels.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5)
           .attr("display", n => connected.has(n.id) || n.id === d.id ? null : "none");
   })
-  // .on("mouseout", function(event, d) {
-  //   d3.select("#popup").style("display", "none");
-  //   node.attr("opacity", 1);
-  //   link.attr("stroke", "#322C2E").attr("opacity", 1);
-  //   labels.attr("opacity", 1).attr("display", null);
-  // })
+  .on("mouseout", function(event, d) {
+    d3.select("#popup").style("display", "none");
+    node.attr("opacity", 1);
+    link.attr("stroke", "#322C2E").attr("opacity", 1);
+    labels.attr("opacity", 1).attr("display", null);
+  })
   .on("click", function(event, d) {
     event.stopPropagation();
     const firstDegree = new Set();
