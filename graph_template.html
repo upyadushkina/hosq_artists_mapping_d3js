@@ -3,6 +3,7 @@
 <head>
   <meta charset='utf-8'>
   <script src='https://d3js.org/d3.v7.min.js'></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
   <link href='https://fonts.googleapis.com/css2?family=Lexend&display=swap' rel='stylesheet'>
   <style>
     :root {
@@ -61,7 +62,21 @@
     color: #E8DED3;
     z-index: 100;
   " />
-  
+
+  <button id="download-png" style="
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    z-index: 100;
+    background-color: #4C4646;
+    color: #E8DED3;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: 'Lexend', sans-serif;
+    cursor: pointer;
+  ">Download graph PNG</button>
+
 <svg></svg>
 <div id='popup' class='popup' style='display:none;'></div>
 <script>
@@ -237,6 +252,15 @@ simulation.on("tick", () => {
       ? 3 : null;
   });
 });
+
+  document.getElementById("download-png").addEventListener("click", () => {
+    html2canvas(document.querySelector("svg")).then(canvas => {
+      const link = document.createElement("a");
+      link.download = "graph.png";
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  });
   
 </script>
 </body>
