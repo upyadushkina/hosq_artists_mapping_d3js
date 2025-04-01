@@ -12,19 +12,22 @@ d3_html = """
       margin: 0;
       padding: 0;
       height: 100%;
-      background-color: #4C4646;
+      background-color: #262123;
       overflow: hidden;
     }
     svg {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
+      z-index: 1;
       display: block;
+      background-color: #262123;
     }
     .node {
-      fill: #E8DED3;
+      fill: #4C4646;
       cursor: pointer;
-      stroke: white;
-      stroke-width: 1.5px;
     }
     .link {
       stroke: #4C4646;
@@ -63,15 +66,18 @@ const links = [
   {source: "A", target: "C"}
 ];
 
-const svg = d3.select("svg");
+// Устанавливаем размеры SVG как переменные
+const screenWidth = window.innerWidth;
+const screenHeight = window.innerHeight;
 
-const width = window.innerWidth;
-const height = window.innerHeight;
+const svg = d3.select("svg")
+  .attr("width", screenWidth)
+  .attr("height", screenHeight);
 
 const simulation = d3.forceSimulation(nodes)
   .force("link", d3.forceLink(links).id(d => d.id).distance(100))
   .force("charge", d3.forceManyBody().strength(-300))
-  .force("center", d3.forceCenter(width / 2, height / 2));
+  .force("center", d3.forceCenter(screenWidth / 2, screenHeight / 2));
 
 const link = svg.append("g")
   .selectAll("line")
@@ -151,4 +157,4 @@ function onNodeClick(event, clickedNode) {
 </html>
 """
 
-components.html(d3_html, height=800)
+components.html(d3_html, height=1000)
