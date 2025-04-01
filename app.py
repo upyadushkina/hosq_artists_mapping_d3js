@@ -66,13 +66,6 @@ st.markdown(f"""
       font-family: '{TEXT_FONT}', sans-serif;
       color: #4C4646 !important;
     }}
-    .stMultiSelect [data-baseweb="select"] div[role="option"] {{
-      font-family: '{TEXT_FONT}', sans-serif;
-      color: #4C4646 !important;
-    }}
-    .stMultiSelect [data-baseweb="select"] span {{
-      font-family: '{TEXT_FONT}', sans-serif;
-      color: #4C4646 !important;
     }}
     .stMultiSelect [data-baseweb="tag"] {{
       background-color: {SIDEBAR_TAG_BG_COLOR} !important;
