@@ -72,11 +72,26 @@ const svg = d3.select("svg")
     g.attr("transform", event.transform);
   }))
   .on("click", () => {
-    d3.select("#popup").style("display", "none");
-    node.attr("display", null).attr("opacity", 1);
-    link.attr("display", null).attr("stroke", "#322C2E").attr("opacity", 1);
+    //d3.select("#popup").style("display", "none");
+    //node.attr("display", null).attr("opacity", 1);
+    //link.attr("display", null).attr("stroke", "#322C2E").attr("opacity", 1);
 
-    // Сброс input-поиска
+    d3.select("#popup").style("display", "none");
+
+    // Сброс узлов
+    node
+      .attr("display", null)
+      .attr("opacity", 1)
+      .attr("stroke", null)
+      .attr("stroke-width", null);
+  
+    // Сброс связей
+    link
+      .attr("display", null)
+      .attr("stroke", "#4C4646")
+      .attr("opacity", 1);
+  
+    // Сброс поиска
     const searchInput = document.getElementById("search-input");
     if (searchInput) {
       searchInput.value = "";
