@@ -164,7 +164,7 @@ html_template = f"""
       overflow: hidden;
     }}}}
     svg {{{{
-      position: fixed;
+      position: relative;
       top: 0;
       left: 0;
       width: 100vw;
@@ -274,4 +274,4 @@ function onClick(event, d) {{{{
 </html>
 """
 
-components.html(html_template, height=1400, scrolling=True)
+components.html(html_template, height=1400, scrolling=False)
