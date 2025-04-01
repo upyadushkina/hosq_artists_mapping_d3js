@@ -1,0 +1,4229 @@
+{
+  "nodes": [
+    {
+      "id": "artist::Aleksander Plotnikov",
+      "label": "Aleksander Plotnikov",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "professional field::Perfomance",
+      "label": "Perfomance",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "professional field::Theater",
+      "label": "Theater",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "professional field::Directing",
+      "label": "Directing",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "role::curator",
+      "label": "curator",
+      "group": "role",
+      "color": "#F4C07C"
+    },
+    {
+      "id": "country::Armenia",
+      "label": "Armenia",
+      "group": "country",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "city::Yerevan",
+      "label": "Yerevan",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Aleksandr Bochkov",
+      "label": "Aleksandr Bochkov",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "professional field::Sound and Music",
+      "label": "Sound and Music",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "professional field::Visual Technologies",
+      "label": "Visual Technologies",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "professional field::Light",
+      "label": "Light",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "role::participant",
+      "label": "participant",
+      "group": "role",
+      "color": "#F4C07C"
+    },
+    {
+      "id": "style::Minimalism",
+      "label": "Minimalism",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "style::Conceptual",
+      "label": "Conceptual",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "style::Installation",
+      "label": "Installation",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "style::Interactive Art",
+      "label": "Interactive Art",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "style::Video Art",
+      "label": "Video Art",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "style::Sound Art",
+      "label": "Sound Art",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "style::Science Art",
+      "label": "Science Art",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::TouchDesigner",
+      "label": "TouchDesigner",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Modular Synthesizers",
+      "label": "Modular Synthesizers",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "level::Expert",
+      "label": "Expert",
+      "group": "level",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "seeking for::Artistic Collaborations",
+      "label": "Artistic Collaborations",
+      "group": "seeking for",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "seeking for::Technical Collaborators (e.g. programmers",
+      "label": "Technical Collaborators (e.g. programmers",
+      "group": "seeking for",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "seeking for::engineers)",
+      "label": "engineers)",
+      "group": "seeking for",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "seeking for::Exhibition Opportunities",
+      "label": "Exhibition Opportunities",
+      "group": "seeking for",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "seeking for::Audience / Visibility",
+      "label": "Audience / Visibility",
+      "group": "seeking for",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "seeking for::Curators / Producers",
+      "label": "Curators / Producers",
+      "group": "seeking for",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "seeking for::Studio Space",
+      "label": "Studio Space",
+      "group": "seeking for",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "seeking for::Equipment / Tools",
+      "label": "Equipment / Tools",
+      "group": "seeking for",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "seeking for::Learning Opportunities / Workshop",
+      "label": "Learning Opportunities / Workshop",
+      "group": "seeking for",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "artist::Amirhossein Bazgir",
+      "label": "Amirhossein Bazgir",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "professional field::Acting",
+      "label": "Acting",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "country::Iran",
+      "label": "Iran",
+      "group": "country",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "city::Tehran",
+      "label": "Tehran",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Anastasiia Anisimova",
+      "label": "Anastasiia Anisimova",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "style::Theatre",
+      "label": "Theatre",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Ableton Live",
+      "label": "Ableton Live",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Field Recordings",
+      "label": "Field Recordings",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "level::Intermediate",
+      "label": "Intermediate",
+      "group": "level",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "country::Georgia",
+      "label": "Georgia",
+      "group": "country",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "city::Tbilisi",
+      "label": "Tbilisi",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Andrey Tikhonov ",
+      "label": "Andrey Tikhonov ",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Andriesh Gandrabur",
+      "label": "Andriesh Gandrabur",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "professional field::Production",
+      "label": "Production",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "role::hosq team lead",
+      "label": "hosq team lead",
+      "group": "role",
+      "color": "#F4C07C"
+    },
+    {
+      "id": "country::Montenegro",
+      "label": "Montenegro",
+      "group": "country",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "city::Bar",
+      "label": "Bar",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Andronik Khachiian",
+      "label": "Andronik Khachiian",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "professional field::Art Management",
+      "label": "Art Management",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "country::Mexico",
+      "label": "Mexico",
+      "group": "country",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "city::New Mexico City",
+      "label": "New Mexico City",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Anna Vanysheva",
+      "label": "Anna Vanysheva",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "tool::Voice/Vocals",
+      "label": "Voice/Vocals",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "country::Russia",
+      "label": "Russia",
+      "group": "country",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "city::Perm",
+      "label": "Perm",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Anoosh Sarkisyan",
+      "label": "Anoosh Sarkisyan",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "style::Movement",
+      "label": "Movement",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "style::Performing Art",
+      "label": "Performing Art",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Movement",
+      "label": "Movement",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "city::Vanadzor",
+      "label": "Vanadzor",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Anton Khlabov",
+      "label": "Anton Khlabov",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "style::Abstract",
+      "label": "Abstract",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "style::Generative Art",
+      "label": "Generative Art",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "style::Digital Collage",
+      "label": "Digital Collage",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Photography",
+      "label": "Photography",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::AI / Machine Learning",
+      "label": "AI / Machine Learning",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::AfterEffects",
+      "label": "AfterEffects",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Isadora",
+      "label": "Isadora",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Open Frameworks",
+      "label": "Open Frameworks",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Programming",
+      "label": "Programming",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "artist::Anton Shchegolev",
+      "label": "Anton Shchegolev",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Basilio Utekhin",
+      "label": "Basilio Utekhin",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "tool::Video",
+      "label": "Video",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "seeking for::Funding opportunities",
+      "label": "Funding opportunities",
+      "group": "seeking for",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "country::Germany",
+      "label": "Germany",
+      "group": "country",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "city::Berlin",
+      "label": "Berlin",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Caterina Di Gaetano",
+      "label": "Caterina Di Gaetano",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "professional field::Visual Art",
+      "label": "Visual Art",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "tool::Painting",
+      "label": "Painting",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "country::Italia",
+      "label": "Italia",
+      "group": "country",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "city::Napoli",
+      "label": "Napoli",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Christina Danielyan",
+      "label": "Christina Danielyan",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Daria Goffman",
+      "label": "Daria Goffman",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "style::Street Art",
+      "label": "Street Art",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Sculpture",
+      "label": "Sculpture",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "level::Beginner",
+      "label": "Beginner",
+      "group": "level",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "artist::Dima Ustinov",
+      "label": "Dima Ustinov",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Elena Tang",
+      "label": "Elena Tang",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "country::China",
+      "label": "China",
+      "group": "country",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "city::Shanghai",
+      "label": "Shanghai",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Eliza Baghdiyan",
+      "label": "Eliza Baghdiyan",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "tool::Electric Guitar",
+      "label": "Electric Guitar",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Acoustic Instruments",
+      "label": "Acoustic Instruments",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Digital Painting",
+      "label": "Digital Painting",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Digital Fabrication",
+      "label": "Digital Fabrication",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "artist::Eliza Olkinitskaya",
+      "label": "Eliza Olkinitskaya",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "city::Lori/Toumanian",
+      "label": "Lori/Toumanian",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Evgeny Lyalin",
+      "label": "Evgeny Lyalin",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "role::tech team",
+      "label": "tech team",
+      "group": "role",
+      "color": "#F4C07C"
+    },
+    {
+      "id": "artist::Faina Makoeva",
+      "label": "Faina Makoeva",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "style::Dance",
+      "label": "Dance",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "style::Dance Film",
+      "label": "Dance Film",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "style::Documentary",
+      "label": "Documentary",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "style::Verbatim",
+      "label": "Verbatim",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Body",
+      "label": "Body",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "artist::Francesco Rota",
+      "label": "Francesco Rota",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "tool::Max msp",
+      "label": "Max msp",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "artist::Gayane Aslanyan",
+      "label": "Gayane Aslanyan",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Giuseppe Di Bisceglie",
+      "label": "Giuseppe Di Bisceglie",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Gosha Safarov",
+      "label": "Gosha Safarov",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Ilya Moshchitsky",
+      "label": "Ilya Moshchitsky",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Inna Ghazaryan",
+      "label": "Inna Ghazaryan",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Irakli Margishvili",
+      "label": "Irakli Margishvili",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Karen Khachatryan",
+      "label": "Karen Khachatryan",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Kseniia Gribiniuk",
+      "label": "Kseniia Gribiniuk",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Lidiia Griaznova",
+      "label": "Lidiia Griaznova",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "country::UK",
+      "label": "UK",
+      "group": "country",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "city::London",
+      "label": "London",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Lusine Mlke-Galstyan",
+      "label": "Lusine Mlke-Galstyan",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "professional field::Creative Producing",
+      "label": "Creative Producing",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "style::Folk",
+      "label": "Folk",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "style::Neo Classic",
+      "label": "Neo Classic",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "artist::Margarita Sargsyan",
+      "label": "Margarita Sargsyan",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "tool::Different objects (fabric",
+      "label": "Different objects (fabric",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::chair",
+      "label": "chair",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::etc.)",
+      "label": "etc.)",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "artist::Matvei Peshkov",
+      "label": "Matvei Peshkov",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Misak Samokatian",
+      "label": "Misak Samokatian",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Mitya Lyalin",
+      "label": "Mitya Lyalin",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Nadya Krokhina",
+      "label": "Nadya Krokhina",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "style::Permorming Art",
+      "label": "Permorming Art",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::VCV Rack",
+      "label": "VCV Rack",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::DIY Electronics",
+      "label": "DIY Electronics",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Kinect",
+      "label": "Kinect",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::3D Printing",
+      "label": "3D Printing",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Tattoing 🤯",
+      "label": "Tattoing 🤯",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "seeking for::Cultural Exchange",
+      "label": "Cultural Exchange",
+      "group": "seeking for",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "city::Moscow",
+      "label": "Moscow",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Narek Buniatyan",
+      "label": "Narek Buniatyan",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "professional field::Installation Art",
+      "label": "Installation Art",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "artist::Nasrin Shojaei",
+      "label": "Nasrin Shojaei",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "tool::Space",
+      "label": "Space",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "artist::Nastya Babaeva",
+      "label": "Nastya Babaeva",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "style::Sound Documentaries",
+      "label": "Sound Documentaries",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "style::Doc-drama",
+      "label": "Doc-drama",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Verbatim",
+      "label": "Verbatim",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Theatrical Trainings",
+      "label": "Theatrical Trainings",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "seeking for::Insights",
+      "label": "Insights",
+      "group": "seeking for",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "artist::Nikita Maksimenko",
+      "label": "Nikita Maksimenko",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "professional field::Technical Production",
+      "label": "Technical Production",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "artist::Nino Giorgadze",
+      "label": "Nino Giorgadze",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Oleg Iakovlev",
+      "label": "Oleg Iakovlev",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "professional field::Documentary movie making",
+      "label": "Documentary movie making",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "country::Israel",
+      "label": "Israel",
+      "group": "country",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "city::Ramat Gan",
+      "label": "Ramat Gan",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Pauline Korygina",
+      "label": "Pauline Korygina",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Pouya Jafari",
+      "label": "Pouya Jafari",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Robert Poghosyan ",
+      "label": "Robert Poghosyan ",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "professional field::Stage Design and Decorations",
+      "label": "Stage Design and Decorations",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "style::Set/Stage Design",
+      "label": "Set/Stage Design",
+      "group": "style",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Hand Skills",
+      "label": "Hand Skills",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Imagination 🙃",
+      "label": "Imagination 🙃",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "artist::Salvatore Silvestri",
+      "label": "Salvatore Silvestri",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "tool::Logic Pro",
+      "label": "Logic Pro",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "tool::Synth",
+      "label": "Synth",
+      "group": "tool",
+      "color": "#E8DED3"
+    },
+    {
+      "id": "artist::Seda Grigoryan",
+      "label": "Seda Grigoryan",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Sergei Komarov",
+      "label": "Sergei Komarov",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Shoghakat Mlke-Galstyan",
+      "label": "Shoghakat Mlke-Galstyan",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "professional field::Choreography",
+      "label": "Choreography",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "artist::Tsolak Mlke-Galstyan",
+      "label": "Tsolak Mlke-Galstyan",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Valeria Khripatch",
+      "label": "Valeria Khripatch",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "professional field::Contemporary Dance",
+      "label": "Contemporary Dance",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "professional field::Physical Theater",
+      "label": "Physical Theater",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    },
+    {
+      "id": "country::France",
+      "label": "France",
+      "group": "country",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "city::Metz",
+      "label": "Metz",
+      "group": "city",
+      "color": "#D3DAE8"
+    },
+    {
+      "id": "artist::Vardges Sayadyan",
+      "label": "Vardges Sayadyan",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Veronika Treumova",
+      "label": "Veronika Treumova",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Vladimir Gurskii",
+      "label": "Vladimir Gurskii",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "artist::Yulia Stepanova",
+      "label": "Yulia Stepanova",
+      "group": "artist",
+      "color": "#4C4646"
+    },
+    {
+      "id": "professional field::Audio-Visual Art",
+      "label": "Audio-Visual Art",
+      "group": "professional field",
+      "color": "#EEC0E7"
+    }
+  ],
+  "links": [
+    {
+      "source": "artist::Aleksander Plotnikov",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Aleksander Plotnikov",
+      "target": "professional field::Theater"
+    },
+    {
+      "source": "artist::Aleksander Plotnikov",
+      "target": "professional field::Directing"
+    },
+    {
+      "source": "artist::Aleksander Plotnikov",
+      "target": "role::curator"
+    },
+    {
+      "source": "artist::Aleksander Plotnikov",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "city::Yerevan",
+      "target": "country::Armenia"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "professional field::Light"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "style::Minimalism"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "style::Installation"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "style::Interactive Art"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "style::Video Art"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "style::Sound Art"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "style::Science Art"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "tool::TouchDesigner"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "tool::Modular Synthesizers"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "level::Expert"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "seeking for::Audience / Visibility"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "seeking for::Equipment / Tools"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Aleksandr Bochkov",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Amirhossein Bazgir",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Amirhossein Bazgir",
+      "target": "professional field::Acting"
+    },
+    {
+      "source": "artist::Amirhossein Bazgir",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Amirhossein Bazgir",
+      "target": "city::Tehran"
+    },
+    {
+      "source": "city::Tehran",
+      "target": "country::Iran"
+    },
+    {
+      "source": "artist::Anastasiia Anisimova",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Anastasiia Anisimova",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Anastasiia Anisimova",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Anastasiia Anisimova",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Anastasiia Anisimova",
+      "target": "style::Sound Art"
+    },
+    {
+      "source": "artist::Anastasiia Anisimova",
+      "target": "style::Theatre"
+    },
+    {
+      "source": "artist::Anastasiia Anisimova",
+      "target": "tool::Ableton Live"
+    },
+    {
+      "source": "artist::Anastasiia Anisimova",
+      "target": "tool::Field Recordings"
+    },
+    {
+      "source": "artist::Anastasiia Anisimova",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Anastasiia Anisimova",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Anastasiia Anisimova",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Anastasiia Anisimova",
+      "target": "seeking for::Audience / Visibility"
+    },
+    {
+      "source": "artist::Anastasiia Anisimova",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Anastasiia Anisimova",
+      "target": "city::Tbilisi"
+    },
+    {
+      "source": "city::Tbilisi",
+      "target": "country::Georgia"
+    },
+    {
+      "source": "artist::Andrey Tikhonov ",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Andrey Tikhonov ",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Andrey Tikhonov ",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Andriesh Gandrabur",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Andriesh Gandrabur",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Andriesh Gandrabur",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Andriesh Gandrabur",
+      "target": "professional field::Production"
+    },
+    {
+      "source": "artist::Andriesh Gandrabur",
+      "target": "role::hosq team lead"
+    },
+    {
+      "source": "artist::Andriesh Gandrabur",
+      "target": "city::Bar"
+    },
+    {
+      "source": "city::Bar",
+      "target": "country::Montenegro"
+    },
+    {
+      "source": "artist::Andronik Khachiian",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Andronik Khachiian",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Andronik Khachiian",
+      "target": "professional field::Art Management"
+    },
+    {
+      "source": "artist::Andronik Khachiian",
+      "target": "role::hosq team lead"
+    },
+    {
+      "source": "artist::Andronik Khachiian",
+      "target": "city::New Mexico City"
+    },
+    {
+      "source": "city::New Mexico City",
+      "target": "country::Mexico"
+    },
+    {
+      "source": "artist::Anna Vanysheva",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Anna Vanysheva",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Anna Vanysheva",
+      "target": "style::Sound Art"
+    },
+    {
+      "source": "artist::Anna Vanysheva",
+      "target": "tool::Ableton Live"
+    },
+    {
+      "source": "artist::Anna Vanysheva",
+      "target": "tool::Voice/Vocals"
+    },
+    {
+      "source": "artist::Anna Vanysheva",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Anna Vanysheva",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Anna Vanysheva",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Anna Vanysheva",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Anna Vanysheva",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Anna Vanysheva",
+      "target": "seeking for::Equipment / Tools"
+    },
+    {
+      "source": "artist::Anna Vanysheva",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Anna Vanysheva",
+      "target": "city::Perm"
+    },
+    {
+      "source": "city::Perm",
+      "target": "country::Russia"
+    },
+    {
+      "source": "artist::Anoosh Sarkisyan",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Anoosh Sarkisyan",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Anoosh Sarkisyan",
+      "target": "style::Minimalism"
+    },
+    {
+      "source": "artist::Anoosh Sarkisyan",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Anoosh Sarkisyan",
+      "target": "style::Movement"
+    },
+    {
+      "source": "artist::Anoosh Sarkisyan",
+      "target": "style::Performing Art"
+    },
+    {
+      "source": "artist::Anoosh Sarkisyan",
+      "target": "tool::Movement"
+    },
+    {
+      "source": "artist::Anoosh Sarkisyan",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Anoosh Sarkisyan",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Anoosh Sarkisyan",
+      "target": "seeking for::Audience / Visibility"
+    },
+    {
+      "source": "artist::Anoosh Sarkisyan",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Anoosh Sarkisyan",
+      "target": "city::Vanadzor"
+    },
+    {
+      "source": "city::Vanadzor",
+      "target": "country::Armenia"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "style::Abstract"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "style::Minimalism"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "style::Generative Art"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "style::Digital Collage"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "style::Interactive Art"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "style::Video Art"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "tool::Photography"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "tool::AI / Machine Learning"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "tool::AfterEffects"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "tool::Isadora"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "tool::Open Frameworks"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "tool::Programming"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "level::Expert"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Anton Khlabov",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Anton Shchegolev",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Anton Shchegolev",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Anton Shchegolev",
+      "target": "role::curator"
+    },
+    {
+      "source": "artist::Anton Shchegolev",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "style::Generative Art"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "style::Video Art"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "tool::TouchDesigner"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "tool::Photography"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "tool::Video"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "seeking for::Funding opportunities"
+    },
+    {
+      "source": "artist::Basilio Utekhin",
+      "target": "city::Berlin"
+    },
+    {
+      "source": "city::Berlin",
+      "target": "country::Germany"
+    },
+    {
+      "source": "artist::Caterina Di Gaetano",
+      "target": "professional field::Visual Art"
+    },
+    {
+      "source": "artist::Caterina Di Gaetano",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Caterina Di Gaetano",
+      "target": "style::Abstract"
+    },
+    {
+      "source": "artist::Caterina Di Gaetano",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Caterina Di Gaetano",
+      "target": "style::Installation"
+    },
+    {
+      "source": "artist::Caterina Di Gaetano",
+      "target": "tool::Photography"
+    },
+    {
+      "source": "artist::Caterina Di Gaetano",
+      "target": "tool::Painting"
+    },
+    {
+      "source": "artist::Caterina Di Gaetano",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Caterina Di Gaetano",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Caterina Di Gaetano",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Caterina Di Gaetano",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Caterina Di Gaetano",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Caterina Di Gaetano",
+      "target": "city::Napoli"
+    },
+    {
+      "source": "city::Napoli",
+      "target": "country::Italia"
+    },
+    {
+      "source": "artist::Christina Danielyan",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Christina Danielyan",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Christina Danielyan",
+      "target": "style::Performing Art"
+    },
+    {
+      "source": "artist::Christina Danielyan",
+      "target": "tool::Voice/Vocals"
+    },
+    {
+      "source": "artist::Christina Danielyan",
+      "target": "tool::Photography"
+    },
+    {
+      "source": "artist::Christina Danielyan",
+      "target": "tool::AI / Machine Learning"
+    },
+    {
+      "source": "artist::Christina Danielyan",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Christina Danielyan",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Christina Danielyan",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Christina Danielyan",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Christina Danielyan",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Christina Danielyan",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Christina Danielyan",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "style::Digital Collage"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "style::Installation"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "style::Interactive Art"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "style::Street Art"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "tool::TouchDesigner"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "tool::Field Recordings"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "tool::Photography"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "tool::AI / Machine Learning"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "tool::Painting"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "tool::Sculpture"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "level::Beginner"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "seeking for::Equipment / Tools"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Daria Goffman",
+      "target": "city::Tbilisi"
+    },
+    {
+      "source": "artist::Dima Ustinov",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Dima Ustinov",
+      "target": "role::curator"
+    },
+    {
+      "source": "artist::Dima Ustinov",
+      "target": "city::Berlin"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "style::Abstract"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "style::Minimalism"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "style::Installation"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "style::Video Art"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "tool::Voice/Vocals"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "tool::Photography"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "tool::Painting"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "tool::Video"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "level::Expert"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Elena Tang",
+      "target": "city::Shanghai"
+    },
+    {
+      "source": "city::Shanghai",
+      "target": "country::China"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "style::Interactive Art"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "style::Sound Art"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "tool::Electric Guitar"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "tool::Acoustic Instruments"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "tool::Voice/Vocals"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "tool::Painting"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "tool::Digital Painting"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "tool::Digital Fabrication"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "level::Expert"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Eliza Baghdiyan",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Eliza Olkinitskaya",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Eliza Olkinitskaya",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Eliza Olkinitskaya",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Eliza Olkinitskaya",
+      "target": "city::Lori/Toumanian"
+    },
+    {
+      "source": "city::Lori/Toumanian",
+      "target": "country::Armenia"
+    },
+    {
+      "source": "artist::Evgeny Lyalin",
+      "target": "professional field::Production"
+    },
+    {
+      "source": "artist::Evgeny Lyalin",
+      "target": "role::tech team"
+    },
+    {
+      "source": "artist::Evgeny Lyalin",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "style::Abstract"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "style::Sound Art"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "style::Dance"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "style::Dance Film"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "style::Documentary"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "style::Verbatim"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "tool::Ableton Live"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "tool::Field Recordings"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "tool::Body"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "tool::Movement"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "tool::Video"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "seeking for::Audience / Visibility"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "seeking for::Equipment / Tools"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Faina Makoeva",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "style::Installation"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "style::Interactive Art"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "style::Sound Art"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "tool::Ableton Live"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "tool::Field Recordings"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "tool::Max msp"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "level::Beginner"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Francesco Rota",
+      "target": "city::Napoli"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "style::Sound Art"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "tool::Ableton Live"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "tool::Acoustic Instruments"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "seeking for::Audience / Visibility"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "seeking for::Equipment / Tools"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Gayane Aslanyan",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "style::Installation"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "style::Sound Art"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "tool::Ableton Live"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "tool::Acoustic Instruments"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "tool::Field Recordings"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "tool::Modular Synthesizers"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "tool::Voice/Vocals"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "seeking for::Audience / Visibility"
+    },
+    {
+      "source": "artist::Giuseppe Di Bisceglie",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Gosha Safarov",
+      "target": "professional field::Directing"
+    },
+    {
+      "source": "artist::Gosha Safarov",
+      "target": "role::tech team"
+    },
+    {
+      "source": "artist::Gosha Safarov",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Ilya Moshchitsky",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Ilya Moshchitsky",
+      "target": "professional field::Theater"
+    },
+    {
+      "source": "artist::Ilya Moshchitsky",
+      "target": "professional field::Directing"
+    },
+    {
+      "source": "artist::Ilya Moshchitsky",
+      "target": "role::curator"
+    },
+    {
+      "source": "artist::Ilya Moshchitsky",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Inna Ghazaryan",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Inna Ghazaryan",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Inna Ghazaryan",
+      "target": "style::Abstract"
+    },
+    {
+      "source": "artist::Inna Ghazaryan",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Inna Ghazaryan",
+      "target": "level::Expert"
+    },
+    {
+      "source": "artist::Inna Ghazaryan",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Inna Ghazaryan",
+      "target": "seeking for::Audience / Visibility"
+    },
+    {
+      "source": "artist::Inna Ghazaryan",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Inna Ghazaryan",
+      "target": "seeking for::Equipment / Tools"
+    },
+    {
+      "source": "artist::Inna Ghazaryan",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Inna Ghazaryan",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "style::Generative Art"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "style::Installation"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "style::Interactive Art"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "style::Video Art"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "style::Sound Art"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "tool::Ableton Live"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "tool::TouchDesigner"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "tool::Electric Guitar"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "tool::Acoustic Instruments"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "tool::Field Recordings"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "tool::Photography"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "tool::AI / Machine Learning"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Irakli Margishvili",
+      "target": "city::Tbilisi"
+    },
+    {
+      "source": "artist::Karen Khachatryan",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Karen Khachatryan",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Karen Khachatryan",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Karen Khachatryan",
+      "target": "style::Installation"
+    },
+    {
+      "source": "artist::Karen Khachatryan",
+      "target": "style::Sound Art"
+    },
+    {
+      "source": "artist::Karen Khachatryan",
+      "target": "tool::Ableton Live"
+    },
+    {
+      "source": "artist::Karen Khachatryan",
+      "target": "tool::Field Recordings"
+    },
+    {
+      "source": "artist::Karen Khachatryan",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Karen Khachatryan",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Karen Khachatryan",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Karen Khachatryan",
+      "target": "seeking for::Equipment / Tools"
+    },
+    {
+      "source": "artist::Karen Khachatryan",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Kseniia Gribiniuk",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Kseniia Gribiniuk",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Kseniia Gribiniuk",
+      "target": "city::Tbilisi"
+    },
+    {
+      "source": "artist::Lidiia Griaznova",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Lidiia Griaznova",
+      "target": "role::curator"
+    },
+    {
+      "source": "artist::Lidiia Griaznova",
+      "target": "city::London"
+    },
+    {
+      "source": "city::London",
+      "target": "country::UK"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "professional field::Creative Producing"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "style::Minimalism"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "style::Interactive Art"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "style::Sound Art"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "style::Folk"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "style::Neo Classic"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "tool::Ableton Live"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "tool::Acoustic Instruments"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "tool::Voice/Vocals"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "seeking for::Equipment / Tools"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Lusine Mlke-Galstyan",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "style::Interactive Art"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "style::Performing Art"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "tool::Voice/Vocals"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "tool::Different objects (fabric"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "tool::chair"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "tool::etc.)"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "level::Expert"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "seeking for::Audience / Visibility"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Margarita Sargsyan",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Matvei Peshkov",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Matvei Peshkov",
+      "target": "style::Abstract"
+    },
+    {
+      "source": "artist::Matvei Peshkov",
+      "target": "style::Generative Art"
+    },
+    {
+      "source": "artist::Matvei Peshkov",
+      "target": "style::Video Art"
+    },
+    {
+      "source": "artist::Matvei Peshkov",
+      "target": "style::Science Art"
+    },
+    {
+      "source": "artist::Matvei Peshkov",
+      "target": "tool::TouchDesigner"
+    },
+    {
+      "source": "artist::Matvei Peshkov",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Matvei Peshkov",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Matvei Peshkov",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Matvei Peshkov",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Matvei Peshkov",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Misak Samokatian",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Misak Samokatian",
+      "target": "role::curator"
+    },
+    {
+      "source": "artist::Misak Samokatian",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Mitya Lyalin",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Mitya Lyalin",
+      "target": "tool::Photography"
+    },
+    {
+      "source": "artist::Mitya Lyalin",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Mitya Lyalin",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Mitya Lyalin",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Mitya Lyalin",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Mitya Lyalin",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Mitya Lyalin",
+      "target": "seeking for::Audience / Visibility"
+    },
+    {
+      "source": "artist::Mitya Lyalin",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Mitya Lyalin",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Mitya Lyalin",
+      "target": "seeking for::Equipment / Tools"
+    },
+    {
+      "source": "artist::Mitya Lyalin",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Mitya Lyalin",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "style::Abstract"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "style::Minimalism"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "style::Generative Art"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "style::Installation"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "style::Interactive Art"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "style::Video Art"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "style::Sound Art"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "style::Permorming Art"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "tool::TouchDesigner"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "tool::Field Recordings"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "tool::Modular Synthesizers"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "tool::Voice/Vocals"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "tool::Sculpture"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "tool::VCV Rack"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "tool::DIY Electronics"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "tool::Kinect"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "tool::3D Printing"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "tool::Tattoing 🤯"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "level::Expert"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "seeking for::Equipment / Tools"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "seeking for::Cultural Exchange"
+    },
+    {
+      "source": "artist::Nadya Krokhina",
+      "target": "city::Moscow"
+    },
+    {
+      "source": "city::Moscow",
+      "target": "country::Russia"
+    },
+    {
+      "source": "artist::Narek Buniatyan",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Narek Buniatyan",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Narek Buniatyan",
+      "target": "professional field::Installation Art"
+    },
+    {
+      "source": "artist::Narek Buniatyan",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Narek Buniatyan",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Nasrin Shojaei",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Nasrin Shojaei",
+      "target": "professional field::Acting"
+    },
+    {
+      "source": "artist::Nasrin Shojaei",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Nasrin Shojaei",
+      "target": "style::Generative Art"
+    },
+    {
+      "source": "artist::Nasrin Shojaei",
+      "target": "style::Installation"
+    },
+    {
+      "source": "artist::Nasrin Shojaei",
+      "target": "style::Interactive Art"
+    },
+    {
+      "source": "artist::Nasrin Shojaei",
+      "target": "tool::Space"
+    },
+    {
+      "source": "artist::Nasrin Shojaei",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Nasrin Shojaei",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Nasrin Shojaei",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Nasrin Shojaei",
+      "target": "city::Tehran"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "style::Interactive Art"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "style::Theatre"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "style::Sound Documentaries"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "style::Doc-drama"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "tool::Field Recordings"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "tool::Verbatim"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "tool::Theatrical Trainings"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "seeking for::Equipment / Tools"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "seeking for::Insights"
+    },
+    {
+      "source": "artist::Nastya Babaeva",
+      "target": "city::Tbilisi"
+    },
+    {
+      "source": "artist::Nikita Maksimenko",
+      "target": "professional field::Technical Production"
+    },
+    {
+      "source": "artist::Nikita Maksimenko",
+      "target": "role::tech team"
+    },
+    {
+      "source": "artist::Nikita Maksimenko",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "style::Abstract"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "style::Minimalism"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "style::Generative Art"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "style::Installation"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "style::Interactive Art"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "style::Video Art"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "tool::TouchDesigner"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "tool::Painting"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "level::Beginner"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "seeking for::Audience / Visibility"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "seeking for::Equipment / Tools"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Nino Giorgadze",
+      "target": "city::Tbilisi"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "professional field::Documentary movie making"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "style::Generative Art"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "style::Digital Collage"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "style::Video Art"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "tool::Acoustic Instruments"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "tool::Photography"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "tool::AI / Machine Learning"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "tool::Video"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "seeking for::Audience / Visibility"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "seeking for::Insights"
+    },
+    {
+      "source": "artist::Oleg Iakovlev",
+      "target": "city::Ramat Gan"
+    },
+    {
+      "source": "city::Ramat Gan",
+      "target": "country::Israel"
+    },
+    {
+      "source": "artist::Pauline Korygina",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Pauline Korygina",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Pauline Korygina",
+      "target": "professional field::Production"
+    },
+    {
+      "source": "artist::Pauline Korygina",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Pauline Korygina",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Pauline Korygina",
+      "target": "style::Digital Collage"
+    },
+    {
+      "source": "artist::Pauline Korygina",
+      "target": "style::Video Art"
+    },
+    {
+      "source": "artist::Pauline Korygina",
+      "target": "style::Science Art"
+    },
+    {
+      "source": "artist::Pauline Korygina",
+      "target": "level::Beginner"
+    },
+    {
+      "source": "artist::Pauline Korygina",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Pauline Korygina",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Pauline Korygina",
+      "target": "city::Tbilisi"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "professional field::Acting"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "style::Generative Art"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "style::Interactive Art"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "tool::Voice/Vocals"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "tool::Photography"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "tool::Painting"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "tool::Sculpture"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "seeking for::Audience / Visibility"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Pouya Jafari",
+      "target": "city::Tehran"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "professional field::Stage Design and Decorations"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "style::Installation"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "style::Sound Art"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "style::Set/Stage Design"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "tool::Ableton Live"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "tool::Electric Guitar"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "tool::Acoustic Instruments"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "tool::Field Recordings"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "tool::Modular Synthesizers"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "tool::Sculpture"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "tool::Hand Skills"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "tool::Imagination 🙃"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "seeking for::Audience / Visibility"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Robert Poghosyan ",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "style::Minimalism"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "style::Installation"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "style::Sound Art"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "tool::Ableton Live"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "tool::Electric Guitar"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "tool::Acoustic Instruments"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "tool::Field Recordings"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "tool::Voice/Vocals"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "tool::Logic Pro"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "tool::Synth"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Salvatore Silvestri",
+      "target": "city::Napoli"
+    },
+    {
+      "source": "artist::Seda Grigoryan",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Seda Grigoryan",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Seda Grigoryan",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Seda Grigoryan",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Sergei Komarov",
+      "target": "professional field::Sound and Music"
+    },
+    {
+      "source": "artist::Sergei Komarov",
+      "target": "role::curator"
+    },
+    {
+      "source": "artist::Sergei Komarov",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Shoghakat Mlke-Galstyan",
+      "target": "professional field::Choreography"
+    },
+    {
+      "source": "artist::Shoghakat Mlke-Galstyan",
+      "target": "professional field::Art Management"
+    },
+    {
+      "source": "artist::Shoghakat Mlke-Galstyan",
+      "target": "role::hosq team lead"
+    },
+    {
+      "source": "artist::Shoghakat Mlke-Galstyan",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Tsolak Mlke-Galstyan",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Tsolak Mlke-Galstyan",
+      "target": "professional field::Choreography"
+    },
+    {
+      "source": "artist::Tsolak Mlke-Galstyan",
+      "target": "professional field::Directing"
+    },
+    {
+      "source": "artist::Tsolak Mlke-Galstyan",
+      "target": "professional field::Art Management"
+    },
+    {
+      "source": "artist::Tsolak Mlke-Galstyan",
+      "target": "role::curator"
+    },
+    {
+      "source": "artist::Tsolak Mlke-Galstyan",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Valeria Khripatch",
+      "target": "professional field::Perfomance"
+    },
+    {
+      "source": "artist::Valeria Khripatch",
+      "target": "professional field::Contemporary Dance"
+    },
+    {
+      "source": "artist::Valeria Khripatch",
+      "target": "professional field::Physical Theater"
+    },
+    {
+      "source": "artist::Valeria Khripatch",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Valeria Khripatch",
+      "target": "city::Metz"
+    },
+    {
+      "source": "city::Metz",
+      "target": "country::France"
+    },
+    {
+      "source": "artist::Vardges Sayadyan",
+      "target": "professional field::Technical Production"
+    },
+    {
+      "source": "artist::Vardges Sayadyan",
+      "target": "role::tech team"
+    },
+    {
+      "source": "artist::Vardges Sayadyan",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "professional field::Visual Technologies"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "style::Conceptual"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "style::Generative Art"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "style::Installation"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "style::Interactive Art"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "style::Science Art"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "tool::TouchDesigner"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "level::Intermediate"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "seeking for::Artistic Collaborations"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "seeking for::Technical Collaborators (e.g. programmers"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "seeking for::engineers)"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "seeking for::Exhibition Opportunities"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "seeking for::Audience / Visibility"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "seeking for::Curators / Producers"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "seeking for::Studio Space"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "seeking for::Equipment / Tools"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "seeking for::Learning Opportunities / Workshop"
+    },
+    {
+      "source": "artist::Veronika Treumova",
+      "target": "city::Moscow"
+    },
+    {
+      "source": "artist::Vladimir Gurskii",
+      "target": "professional field::Production"
+    },
+    {
+      "source": "artist::Vladimir Gurskii",
+      "target": "role::tech team"
+    },
+    {
+      "source": "artist::Vladimir Gurskii",
+      "target": "city::Yerevan"
+    },
+    {
+      "source": "artist::Yulia Stepanova",
+      "target": "professional field::Audio-Visual Art"
+    },
+    {
+      "source": "artist::Yulia Stepanova",
+      "target": "role::participant"
+    },
+    {
+      "source": "artist::Yulia Stepanova",
+      "target": "city::Yerevan"
+    }
+  ],
+  "artists": {
+    "artist::Aleksander Plotnikov": {
+      "name": "Aleksander Plotnikov",
+      "photo": "https://drive.google.com/file/d/1e2AT3q3EBR7naOhBkcGtVfi4_Aw3LfzU/view?usp=drive_link",
+      "telegram": "@ipi_foundation",
+      "email": ""
+    },
+    "artist::Aleksandr Bochkov": {
+      "name": "Aleksandr Bochkov",
+      "photo": "https://drive.google.com/file/d/1FAxlVDoiFwfsKlaKy6HpU5wLUOOCgPFQ/view?usp=drive_link",
+      "telegram": "@narmalna33",
+      "email": "sinxfunction@gmail.com"
+    },
+    "artist::Amirhossein Bazgir": {
+      "name": "Amirhossein Bazgir",
+      "photo": "https://drive.google.com/file/d/18YA_tW2h-YADY1a41LqQLUYYxPyxsbyC/view?usp=drive_link",
+      "telegram": "@amirhossein2335",
+      "email": "amirhoseinbazgir10000@gmail.com"
+    },
+    "artist::Anastasiia Anisimova": {
+      "name": "Anastasiia Anisimova",
+      "photo": "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png",
+      "telegram": "",
+      "email": ""
+    },
+    "artist::Andrey Tikhonov ": {
+      "name": "Andrey Tikhonov ",
+      "photo": "https://drive.google.com/file/d/1boqRg9hogjpi-TVvrkAyKNGUehS85lUt/view?usp=drive_link",
+      "telegram": "@andreymastertela",
+      "email": "andruhatihon@gmail.com"
+    },
+    "artist::Andriesh Gandrabur": {
+      "name": "Andriesh Gandrabur",
+      "photo": "https://drive.google.com/file/d/1vb4ICc-D9ObNS5KB_b25dMYEEcXDSov2/view?usp=drive_link",
+      "telegram": "@gandriesh",
+      "email": ""
+    },
+    "artist::Andronik Khachiian": {
+      "name": "Andronik Khachiian",
+      "photo": "https://drive.google.com/file/d/1pRr9yMo5tOkXtq_aBHorAt_aOLW7kZ-u/view?usp=drive_link",
+      "telegram": "@andronikh",
+      "email": ""
+    },
+    "artist::Anna Vanysheva": {
+      "name": "Anna Vanysheva",
+      "photo": "https://drive.google.com/file/d/1s3nmgRmH9VNjN1NNmsUGKLcAJ-QcE1q8/view?usp=drive_link",
+      "telegram": "@anviamusic",
+      "email": "anviasound@gmail.com"
+    },
+    "artist::Anoosh Sarkisyan": {
+      "name": "Anoosh Sarkisyan",
+      "photo": "https://drive.google.com/file/d/1sD9eJ-gXvTB6xF2bEy9dElI6GHS2qYy0/view?usp=drive_link",
+      "telegram": "anoosar",
+      "email": "saranush98@gmail.com"
+    },
+    "artist::Anton Khlabov": {
+      "name": "Anton Khlabov",
+      "photo": "https://drive.google.com/file/d/1OSd__oa29O7Cw1GEbzZpuit-7FpdsPqV/view?usp=drive_link",
+      "telegram": "@antkant",
+      "email": "antonkhlabov@gmail.com"
+    },
+    "artist::Anton Shchegolev": {
+      "name": "Anton Shchegolev",
+      "photo": "https://drive.google.com/file/d/181YsSniZHupUImr48ZUiem4PUpFSj0uK/view?usp=drive_link",
+      "telegram": "@dumb_gum",
+      "email": ""
+    },
+    "artist::Basilio Utekhin": {
+      "name": "Basilio Utekhin",
+      "photo": "https://drive.google.com/file/d/17YVlnc3mD3JieQ8yN70esh3aYSghDMSh/view?usp=drive_link",
+      "telegram": "@hipoppo",
+      "email": "basil.utekhin@gmail.com"
+    },
+    "artist::Caterina Di Gaetano": {
+      "name": "Caterina Di Gaetano",
+      "photo": "https://drive.google.com/file/d/1Ki9eAjI1AXivek6GqFxilhkvHATtBB4T/view?usp=drive_link",
+      "telegram": "@enkilada",
+      "email": "caterinadigaetano97@gmail.com"
+    },
+    "artist::Christina Danielyan": {
+      "name": "Christina Danielyan",
+      "photo": "https://drive.google.com/file/d/1Y7DOpUh34RTbwf6zvDqWIUDyMgmf62aB/view?usp=drive_link",
+      "telegram": "@ChristinaDanielyan",
+      "email": ""
+    },
+    "artist::Daria Goffman": {
+      "name": "Daria Goffman",
+      "photo": "https://drive.google.com/file/d/1nPGiD8aYWj-15cGEJXL0LDYGyMImK04b/view?usp=drive_link",
+      "telegram": "@gogoffman",
+      "email": "gogoffman@gmail.com"
+    },
+    "artist::Dima Ustinov": {
+      "name": "Dima Ustinov",
+      "photo": "https://drive.google.com/file/d/1_l0EKEq57LQfTXHZNFX3BKCE3H_SAkJG/view?usp=drive_link",
+      "telegram": "@dimaustinov",
+      "email": ""
+    },
+    "artist::Elena Tang": {
+      "name": "Elena Tang",
+      "photo": "https://drive.google.com/file/d/1n7wGyQcD4Y2CIvtnfq3mE60Obd7V1aHG/view?usp=drive_link",
+      "telegram": "@Etonmarsfilm",
+      "email": "etonmarsfilm@gmail.com"
+    },
+    "artist::Eliza Baghdiyan": {
+      "name": "Eliza Baghdiyan",
+      "photo": "https://drive.google.com/file/d/1HBlPCSYKQUEJSdQmBiuqSA_b4y5lywHV/view?usp=drive_link",
+      "telegram": "@ElizaBaghdiyan",
+      "email": "baghdiyaneliza@gmail.com"
+    },
+    "artist::Eliza Olkinitskaya": {
+      "name": "Eliza Olkinitskaya",
+      "photo": "https://drive.google.com/file/d/15C_WpMQsz_FNrXLub_SuzJgwMreN7bDG/view?usp=drive_link",
+      "telegram": "@eli_zao",
+      "email": "eliza.olk@gmail.com"
+    },
+    "artist::Evgeny Lyalin": {
+      "name": "Evgeny Lyalin",
+      "photo": "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png",
+      "telegram": "@evgenylln",
+      "email": ""
+    },
+    "artist::Faina Makoeva": {
+      "name": "Faina Makoeva",
+      "photo": "https://drive.google.com/file/d/1kfyK6Tk94icPcqk-WC8Y3YOJuRjwl46N/view?usp=drive_link",
+      "telegram": "@rogo_pag",
+      "email": "faina.makoeva@gmail.com"
+    },
+    "artist::Francesco Rota": {
+      "name": "Francesco Rota",
+      "photo": "https://drive.google.com/file/d/117cZP_u0Of87Kg9-DhGugzKaIHCAtyb5/view?usp=drive_link",
+      "telegram": "@xeonnes",
+      "email": "ffrancesco.rota@gmail.com"
+    },
+    "artist::Gayane Aslanyan": {
+      "name": "Gayane Aslanyan",
+      "photo": "https://drive.google.com/file/d/1ub7lgYj3FzUlE2KyaRdL4hipshbEdLUc/view?usp=drive_link",
+      "telegram": "@Gaiahne",
+      "email": "gayane.aslanian@gmail.com"
+    },
+    "artist::Giuseppe Di Bisceglie": {
+      "name": "Giuseppe Di Bisceglie",
+      "photo": "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png",
+      "telegram": "",
+      "email": ""
+    },
+    "artist::Gosha Safarov": {
+      "name": "Gosha Safarov",
+      "photo": "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png",
+      "telegram": "@Goshass",
+      "email": ""
+    },
+    "artist::Ilya Moshchitsky": {
+      "name": "Ilya Moshchitsky",
+      "photo": "https://drive.google.com/file/d/1VSb6eP_2VwlboOpyH_atccPncqbGaUvv/view?usp=drive_link",
+      "telegram": "@moschitsky",
+      "email": ""
+    },
+    "artist::Inna Ghazaryan": {
+      "name": "Inna Ghazaryan",
+      "photo": "https://drive.google.com/file/d/1_Elh-AI1HezaV7ubWhBZ8PcYIoGaoEfa/view?usp=sharing",
+      "telegram": "@innaghazarian",
+      "email": "innaghazaryan1@gmail.com"
+    },
+    "artist::Irakli Margishvili": {
+      "name": "Irakli Margishvili",
+      "photo": "https://drive.google.com/file/d/1z-mCNI7rZbPZ8fcMfYZ4OGmUEX35ykWg/view?usp=drive_link",
+      "telegram": "@progenol",
+      "email": "iraklimar@gmail.com"
+    },
+    "artist::Karen Khachatryan": {
+      "name": "Karen Khachatryan",
+      "photo": "https://drive.google.com/file/d/1_CpJW7cj3noWVdVd5r4NXHt0YEDx0CQ1/view?usp=drive_link",
+      "telegram": "@nystagmuskay",
+      "email": "kay.tatrakia@gmail.com"
+    },
+    "artist::Kseniia Gribiniuk": {
+      "name": "Kseniia Gribiniuk",
+      "photo": "https://drive.google.com/file/d/14Tsk5viiV4TesYWEeOeGYP8ANQ_9m2sy/view?usp=drive_link",
+      "telegram": "@cyanmor",
+      "email": "cyan.mor96@gmail.com"
+    },
+    "artist::Lidiia Griaznova": {
+      "name": "Lidiia Griaznova",
+      "photo": "https://drive.google.com/file/d/1prckIeyt8ooQtaAmsCpXrN390OHAaJ_e/view?usp=drive_link",
+      "telegram": "@lidiiagriaznova",
+      "email": ""
+    },
+    "artist::Lusine Mlke-Galstyan": {
+      "name": "Lusine Mlke-Galstyan",
+      "photo": "https://drive.google.com/file/d/1LzKQzibX8dxi6xQKEufHBphX7eqaTIQL/view?usp=drive_link",
+      "telegram": "@callhermoonchild",
+      "email": "lusine.mlke.galstyan@gmail.com"
+    },
+    "artist::Margarita Sargsyan": {
+      "name": "Margarita Sargsyan",
+      "photo": "https://drive.google.com/file/d/1_QG-7OIyHJxV9mO21yDbKDQOClv-Qifo/view?usp=drive_link",
+      "telegram": "@Innocentpersonn",
+      "email": "marg.sargsyan.s@gmail.com"
+    },
+    "artist::Matvei Peshkov": {
+      "name": "Matvei Peshkov",
+      "photo": "https://drive.google.com/file/d/1Ph_0TJ6HW10MIb7lZCwY5J8VfmNKb_zY/view?usp=drive_link",
+      "telegram": "@mattpesh",
+      "email": "matthew.d.peshkov@gmail.com"
+    },
+    "artist::Misak Samokatian": {
+      "name": "Misak Samokatian",
+      "photo": "https://drive.google.com/file/d/1KdH6SRWohIAd_m09tB9ckMxwVziW2n64/view?usp=drive_link",
+      "telegram": "",
+      "email": ""
+    },
+    "artist::Mitya Lyalin": {
+      "name": "Mitya Lyalin",
+      "photo": "https://drive.google.com/file/d/1txazJyrHAInI_QEqaOZ9jJclNvCx852b/view?usp=drive_link",
+      "telegram": "@mitya_lyalin",
+      "email": "mityayko@gmail.com"
+    },
+    "artist::Nadya Krokhina": {
+      "name": "Nadya Krokhina",
+      "photo": "https://drive.google.com/file/d/1iICHkujm0alkH0I_g0C7lcoypSNhQ_8j/view?usp=drive_link",
+      "telegram": "@NadyaXyxu",
+      "email": "nadyaxyxu@gmail.com"
+    },
+    "artist::Narek Buniatyan": {
+      "name": "Narek Buniatyan",
+      "photo": "https://drive.google.com/file/d/12ay-yqOMOxW_i5IlLcwtbv_J4Pxq_Xs0/view?usp=drive_link",
+      "telegram": "@otarararats",
+      "email": "narekbuniatyan7@gmail.com"
+    },
+    "artist::Nasrin Shojaei": {
+      "name": "Nasrin Shojaei",
+      "photo": "https://drive.google.com/file/d/1M3n7v72cUK0iXEkq8xXp1c-0S7WmLdkb/view?usp=drive_link",
+      "telegram": "@Nasr_sho_in_ja_ei",
+      "email": "shojaei.nasrin@gmail.com"
+    },
+    "artist::Nastya Babaeva": {
+      "name": "Nastya Babaeva",
+      "photo": "https://drive.google.com/file/d/1YH21cyJ8TU6Rj7Z5aWh5Zu_8iftYr-qB/view?usp=drive_link",
+      "telegram": "@nastyababaeva",
+      "email": "nastyababaeva98@gmail.com"
+    },
+    "artist::Nikita Maksimenko": {
+      "name": "Nikita Maksimenko",
+      "photo": "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png",
+      "telegram": "@acephallus",
+      "email": ""
+    },
+    "artist::Nino Giorgadze": {
+      "name": "Nino Giorgadze",
+      "photo": "https://drive.google.com/file/d/1sScqwL70VRqlkI7RbbhhC1FNPJeqk3aU/view?usp=drive_link",
+      "telegram": "@himikosun",
+      "email": "nino.giorgadze32@gmail.com"
+    },
+    "artist::Oleg Iakovlev": {
+      "name": "Oleg Iakovlev",
+      "photo": "https://drive.google.com/file/d/1abA8EEkKMVCe66d7HqOhQ4zfJmzEV3Uj/view?usp=drive_link",
+      "telegram": "@photofreedom",
+      "email": "photofreedom@gmail.com"
+    },
+    "artist::Pauline Korygina": {
+      "name": "Pauline Korygina",
+      "photo": "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png",
+      "telegram": "",
+      "email": ""
+    },
+    "artist::Pouya Jafari": {
+      "name": "Pouya Jafari",
+      "photo": "https://drive.google.com/file/d/1XltY3Nzth2mc161zwKGad8HpZfBWgmgt/view?usp=drive_link",
+      "telegram": "@Pooooyyyaaa",
+      "email": "pooya.jafari60@gmail.com"
+    },
+    "artist::Robert Poghosyan ": {
+      "name": "Robert Poghosyan ",
+      "photo": "https://drive.google.com/file/d/1QydZIUtoEqeTlIDlQhtPJVVfGBfZRvzb/view?usp=drive_link",
+      "telegram": "@crossroads_imcs",
+      "email": "robinvancox92@gmail.com"
+    },
+    "artist::Salvatore Silvestri": {
+      "name": "Salvatore Silvestri",
+      "photo": "https://drive.google.com/file/d/19YoNNx_KOwMqHv2Sg6oAGZWtdExsDZ61/view?usp=drive_link",
+      "telegram": "@salvatore_silvestri040704",
+      "email": "salvosilvestri04@gmail.com"
+    },
+    "artist::Seda Grigoryan": {
+      "name": "Seda Grigoryan",
+      "photo": "https://drive.google.com/file/d/1CWpCj19tIJ-qWB5PCGlO2gMXFB_2xDWE/view?usp=drive_link",
+      "telegram": "@cineseda",
+      "email": "sedasgrigoryan@gmail.com"
+    },
+    "artist::Sergei Komarov": {
+      "name": "Sergei Komarov",
+      "photo": "https://drive.google.com/file/d/1prckIeyt8ooQtaAmsCpXrN390OHAaJ_e/view?usp=drive_link",
+      "telegram": "@depth_dept",
+      "email": ""
+    },
+    "artist::Shoghakat Mlke-Galstyan": {
+      "name": "Shoghakat Mlke-Galstyan",
+      "photo": "https://drive.google.com/file/d/1CaN6sFnJ7Xl-yf0uuXeUwcwTooAIX0Da/view?usp=drive_link",
+      "telegram": "@shoghakatmlke",
+      "email": ""
+    },
+    "artist::Tsolak Mlke-Galstyan": {
+      "name": "Tsolak Mlke-Galstyan",
+      "photo": "https://drive.google.com/file/d/1VwkDGGGWG-64twn6rN4QPcZ-IoFjwYOt/view?usp=drive_link",
+      "telegram": "@TsolakMLKEGalstyan",
+      "email": ""
+    },
+    "artist::Valeria Khripatch": {
+      "name": "Valeria Khripatch",
+      "photo": "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png",
+      "telegram": "",
+      "email": ""
+    },
+    "artist::Vardges Sayadyan": {
+      "name": "Vardges Sayadyan",
+      "photo": "https://drive.google.com/file/d/1Wg9bg_nI_l7gjVNjeH1HaWkbJsJ_GKA5/view?usp=drive_link",
+      "telegram": "@foharm",
+      "email": ""
+    },
+    "artist::Veronika Treumova": {
+      "name": "Veronika Treumova",
+      "photo": "https://drive.google.com/file/d/1UlE0ekQ2aRe_QW-2TmMmA4V10FZostCH/view?usp=drive_link",
+      "telegram": "@treverona",
+      "email": "vtreum15@gmail.com"
+    },
+    "artist::Vladimir Gurskii": {
+      "name": "Vladimir Gurskii",
+      "photo": "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png",
+      "telegram": "@Vgurskii",
+      "email": ""
+    },
+    "artist::Yulia Stepanova": {
+      "name": "Yulia Stepanova",
+      "photo": "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png",
+      "telegram": "",
+      "email": ""
+    }
+  },
+  "filters": {
+    "professional field": [
+      "Acting",
+      "Art Management",
+      "Audio-Visual Art",
+      "Choreography",
+      "Contemporary Dance",
+      "Creative Producing",
+      "Directing",
+      "Documentary movie making",
+      "Installation Art",
+      "Light",
+      "Perfomance",
+      "Physical Theater",
+      "Production",
+      "Sound and Music",
+      "Stage Design and Decorations",
+      "Technical Production",
+      "Theater",
+      "Visual Art",
+      "Visual Technologies"
+    ],
+    "role": [
+      "curator",
+      "hosq team lead",
+      "participant",
+      "tech team"
+    ],
+    "country": [
+      "Armenia",
+      "China",
+      "France",
+      "Georgia",
+      "Germany",
+      "Iran",
+      "Israel",
+      "Italia",
+      "Mexico",
+      "Montenegro",
+      "Russia",
+      "UK"
+    ],
+    "city": [
+      "Bar",
+      "Berlin",
+      "London",
+      "Lori/Toumanian",
+      "Metz",
+      "Moscow",
+      "Napoli",
+      "New Mexico City",
+      "Perm",
+      "Ramat Gan",
+      "Shanghai",
+      "Tbilisi",
+      "Tehran",
+      "Vanadzor",
+      "Yerevan"
+    ],
+    "style": [
+      "Abstract",
+      "Conceptual",
+      "Dance",
+      "Dance Film",
+      "Digital Collage",
+      "Doc-drama",
+      "Documentary",
+      "Folk",
+      "Generative Art",
+      "Installation",
+      "Interactive Art",
+      "Minimalism",
+      "Movement",
+      "Neo Classic",
+      "Performing Art",
+      "Permorming Art",
+      "Science Art",
+      "Set/Stage Design",
+      "Sound Art",
+      "Sound Documentaries",
+      "Street Art",
+      "Theatre",
+      "Verbatim",
+      "Video Art"
+    ],
+    "tool": [
+      "3D Printing",
+      "AI / Machine Learning",
+      "Ableton Live",
+      "Acoustic Instruments",
+      "AfterEffects",
+      "Body",
+      "DIY Electronics",
+      "Different objects (fabric",
+      "Digital Fabrication",
+      "Digital Painting",
+      "Electric Guitar",
+      "Field Recordings",
+      "Hand Skills",
+      "Imagination 🙃",
+      "Isadora",
+      "Kinect",
+      "Logic Pro",
+      "Max msp",
+      "Modular Synthesizers",
+      "Movement",
+      "Open Frameworks",
+      "Painting",
+      "Photography",
+      "Programming",
+      "Sculpture",
+      "Space",
+      "Synth",
+      "Tattoing 🤯",
+      "Theatrical Trainings",
+      "TouchDesigner",
+      "VCV Rack",
+      "Verbatim",
+      "Video",
+      "Voice/Vocals",
+      "chair",
+      "etc.)"
+    ],
+    "level": [
+      "Beginner",
+      "Expert",
+      "Intermediate"
+    ],
+    "seeking for": [
+      "Artistic Collaborations",
+      "Audience / Visibility",
+      "Cultural Exchange",
+      "Curators / Producers",
+      "Equipment / Tools",
+      "Exhibition Opportunities",
+      "Funding opportunities",
+      "Insights",
+      "Learning Opportunities / Workshop",
+      "Studio Space",
+      "Technical Collaborators (e.g. programmers",
+      "engineers)"
+    ]
+  }
+}
