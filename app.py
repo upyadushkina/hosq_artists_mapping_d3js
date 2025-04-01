@@ -155,4 +155,4 @@ with open("graph_template.html", "r", encoding="utf-8") as f:
     html_template = f.read()
 
 html_filled = html_template.replace("{{ b64_data }}", b64_data)
-components.html(html_filled, height=1400, scrolling=False)
+components.html(html_filled, height=500, scrolling=False)
