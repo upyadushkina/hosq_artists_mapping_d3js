@@ -159,20 +159,20 @@ html_template = f"""
   <script src='https://d3js.org/d3.v7.min.js'></script>
   <link href='https://fonts.googleapis.com/css2?family=Lexend&display=swap' rel='stylesheet'>
   <style>
-    html, body {{
+    html, body {{{{
       margin: 0; padding: 0; height: 100%; background: {GRAPH_BG_COLOR};
       overflow: hidden;
-    }}
-    svg {{
+    }}}}
+    svg {{{{
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
       z-index: 1;
-    }}
-    .node {{ cursor: pointer; }}
-    .popup {{
+    }}}}
+    .node {{{{ cursor: pointer; }}}}
+    .popup {{{{
       position: absolute;
       background-color: {GRAPH_BG_COLOR};
       color: {PAGE_TEXT_COLOR};
@@ -183,12 +183,12 @@ html_template = f"""
       z-index: 10;
       width: 220px;
       text-align: center;
-    }}
-    .popup img {{
+    }}}}
+    .popup img {{{{
       max-width: 100%;
       border-radius: 5px;
       margin-top: 8px;
-    }}
+    }}}}
   </style>
 </head>
 <body>
@@ -206,26 +206,26 @@ const simulation = d3.forceSimulation(data.nodes)
   .force("charge", d3.forceManyBody().strength(-300))
   .force("center", d3.forceCenter(width / 2, height / 2));
 
-const drag = simulation => {
-  function dragstarted(event, d) {
+const drag = simulation => {{{{
+  function dragstarted(event, d) {{{{
     if (!event.active) simulation.alphaTarget(0.3).restart();
     d.fx = d.x;
     d.fy = d.y;
-  }
-  function dragged(event, d) {
+  }}}}
+  function dragged(event, d) {{{{
     d.fx = event.x;
     d.fy = event.y;
-  }
-  function dragended(event, d) {
+  }}}}
+  function dragended(event, d) {{{{
     if (!event.active) simulation.alphaTarget(0);
     d.fx = null;
     d.fy = null;
-  }
+  }}}}
   return d3.drag()
     .on("start", dragstarted)
     .on("drag", dragged)
     .on("end", dragended);
-};
+}}}};
 
 const link = svg.append("g")
   .selectAll("line")
@@ -243,7 +243,7 @@ const node = svg.append("g")
   .call(drag(simulation))
   .on("click", onClick);
 
-simulation.on("tick", () => {
+simulation.on("tick", () => {{{{
   link
     .attr("x1", d => d.source.x)
     .attr("y1", d => d.source.y)
@@ -253,22 +253,22 @@ simulation.on("tick", () => {
   node
     .attr("cx", d => d.x)
     .attr("cy", d => d.y);
-});
+}}}});
 
-function onClick(event, d) {
+function onClick(event, d) {{{{
   if (!d.id.startsWith("artist::")) return;
   const artist = data.artists[d.id];
   const popup = document.getElementById("popup");
   popup.innerHTML = `
-    <strong>${artist.name}</strong><br>
-    <img src="${artist.photo}" alt="photo"><br>
-    ${artist.telegram ? `<div>📱 ${artist.telegram}</div>` : ''}
-    ${artist.email ? `<div>✉️ ${artist.email}</div>` : ''}
+    <strong>${{artist.name}}<\/strong><br>
+    <img src="${{artist.photo}}" alt="photo"><br>
+    ${{artist.telegram ? `<div>📱 ${{artist.telegram}}</div>` : ''}}
+    ${{artist.email ? `<div>✉️ ${{artist.email}}</div>` : ''}}
   `;
   popup.style.left = (event.clientX + 20) + "px";
   popup.style.top = (event.clientY + 20) + "px";
   popup.style.display = "block";
-}
+}}}}
 </script>
 </body>
 </html>
