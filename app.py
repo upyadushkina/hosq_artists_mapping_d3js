@@ -274,4 +274,4 @@ function onClick(event, d) {{{{
 </html>
 """
 
-components.html(html_template, height=1000, width=300, scrolling=True)
+components.html(html_template, height=1000, scrolling=True)
