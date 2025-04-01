@@ -3,14 +3,6 @@
 <head>
   <meta charset='utf-8'>
   <script src='https://d3js.org/d3.v7.min.js'></script>
-  <script>
-    window.addEventListener("load", () => {
-      const iframe = window.frameElement;
-      if (iframe) {
-        iframe.style.height = window.innerHeight + "px";
-      }
-    });
-  </script>
   <link href='https://fonts.googleapis.com/css2?family=Lexend&display=swap' rel='stylesheet'>
   <style>
     :root {
@@ -24,18 +16,14 @@
       background: var(--popup-bg);
       overflow: hidden;
       font-family: 'Lexend', sans-serif;
+      width: 100vw;
+      height: 100vh;
     }
 
     svg {
       width: 100vw;
       height: 100vh;
-      /* remove this ↓↓↓ */
-      /* transform: scale(0.9); */
-    }
-
-    body, svg {
-      margin: 0;
-      padding: 0;
+      cursor: grab;
     }
 
     .popup {
@@ -49,6 +37,7 @@
       width: 200px;
       text-align: center;
       font-size: 14px;
+      pointer-events: none;
     }
 
     .popup img {
@@ -65,24 +54,42 @@
 <script>
 const data = JSON.parse(atob('{{ b64_data }}'));
 
-window.addEventListener("load", () => {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
+const svg = d3.select("svg")
+  .call(d3.zoom().scaleExtent([0.3, 4]).on("zoom", (event) => {
+    g.attr("transform", event.transform);
+  }))
+  .on("click", () => d3.select("#popup").style("display", "none"));
 
-  const svg = d3.select("svg");
+const width = window.innerWidth;
+const height = window.innerHeight;
 
-  // Вот какие параметры отвечают за «размер» графа
-  const simulation = d3.forceSimulation(data.nodes)
-    .force("link", d3.forceLink(data.links).id(d => d.id).distance(60))  // раньше 100
-    .force("charge", d3.forceManyBody().strength(-100))                  // раньше -300
-    .force("center", d3.forceCenter(width / 2, height / 3.2));             // чем больше делитель, тем выше граф
-    // strength(0.2) — чем выше число, тем сильнее D3 «тянет» узлы обратно в рамки.
-    .force("x", d3.forceX(width / 2).strength(0.2))   // ограничение по X
-    .force("y", d3.forceY(height / 2).strength(0.2)); // ограничение по Y
-                        
-});
-  
-const drag = simulation => {
+const g = svg.append("g");
+
+const simulation = d3.forceSimulation(data.nodes)
+  .force("link", d3.forceLink(data.links).id(d => d.id).distance(60))
+  .force("charge", d3.forceManyBody().strength(-100))
+  .force("center", d3.forceCenter(width / 2, height / 2))
+  .force("x", d3.forceX(width / 2).strength(0.1))
+  .force("y", d3.forceY(height / 2).strength(0.1));
+
+const link = g.append("g")
+  .selectAll("line")
+  .data(data.links)
+  .enter().append("line")
+  .attr("stroke", "#4C4646");
+
+const node = g.append("g")
+  .selectAll("circle")
+  .data(data.nodes)
+  .enter().append("circle")
+  .attr("r", 10)
+  .attr("fill", d => d.color)
+  .attr("class", "node")
+  .call(drag(simulation))
+  .on("mouseover", onHover)
+  .on("click", (event) => event.stopPropagation());
+
+function drag(simulation) {
   function dragstarted(event, d) {
     if (!event.active) simulation.alphaTarget(0.3).restart();
     d.fx = d.x;
@@ -101,37 +108,9 @@ const drag = simulation => {
     .on("start", dragstarted)
     .on("drag", dragged)
     .on("end", dragended);
-};
+}
 
-const link = svg.append("g")
-  .selectAll("line")
-  .data(data.links)
-  .enter().append("line")
-  .attr("stroke", "#4C4646");
-
-const node = svg.append("g")
-  .selectAll("circle")
-  .data(data.nodes)
-  .enter().append("circle")
-  .attr("r", 10)
-  .attr("fill", d => d.color)
-  .attr("class", "node")
-  .call(drag(simulation))
-  .on("click", onClick);
-
-simulation.on("tick", () => {
-  link
-    .attr("x1", d => d.source.x)
-    .attr("y1", d => d.source.y)
-    .attr("x2", d => d.target.x)
-    .attr("y2", d => d.target.y);
-
-  node
-    .attr("cx", d => d.x)
-    .attr("cy", d => d.y);
-});
-
-function onClick(event, d) {
+function onHover(event, d) {
   const popup = document.getElementById("popup");
   let html = "";
 
@@ -148,10 +127,22 @@ function onClick(event, d) {
   }
 
   popup.innerHTML = html;
-  popup.style.left = (event.clientX + 20) + "px";
-  popup.style.top = (event.clientY + 20) + "px";
+  popup.style.left = (event.clientX + 15) + "px";
+  popup.style.top = (event.clientY + 15) + "px";
   popup.style.display = "block";
 }
+
+simulation.on("tick", () => {
+  link
+    .attr("x1", d => d.source.x)
+    .attr("y1", d => d.source.y)
+    .attr("x2", d => d.target.x)
+    .attr("y2", d => d.target.y);
+
+  node
+    .attr("cx", d => d.x)
+    .attr("cy", d => d.y);
+});
 </script>
 </body>
 </html>
