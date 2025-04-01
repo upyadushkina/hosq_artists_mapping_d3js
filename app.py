@@ -8,10 +8,17 @@ d3_html = """
   <meta charset="utf-8">
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
-    body {
-      background-color: #262123;
+    html, body {
       margin: 0;
-      font-family: sans-serif;
+      padding: 0;
+      height: 100%;
+      background-color: #4C4646;
+      overflow: hidden;
+    }
+    svg {
+      width: 100vw;
+      height: 100vh;
+      display: block;
     }
     .node {
       fill: #E8DED3;
@@ -23,19 +30,28 @@ d3_html = """
       stroke: #4C4646;
       stroke-opacity: 0.6;
     }
-    #image-container {
-      text-align: center;
-      margin-top: 20px;
-    }
-    #image-container img {
-      max-width: 300px;
+    .popup {
+      position: absolute;
+      background-color: #4C4646;
+      color: #E8DED3;
+      padding: 10px;
       border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      font-family: sans-serif;
+      z-index: 10;
+      width: 200px;
+      text-align: center;
+    }
+    .popup img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-top: 8px;
     }
   </style>
 </head>
 <body>
-<svg width="600" height="400"></svg>
-<div id="image-container"></div>
+<svg></svg>
+<div id="popup" class="popup" style="display:none;"></div>
 
 <script>
 const nodes = [
@@ -47,9 +63,10 @@ const links = [
   {source: "A", target: "C"}
 ];
 
-const svg = d3.select("svg"),
-      width = +svg.attr("width"),
-      height = +svg.attr("height");
+const svg = d3.select("svg");
+
+const width = window.innerWidth;
+const height = window.innerHeight;
 
 const simulation = d3.forceSimulation(nodes)
   .force("link", d3.forceLink(links).id(d => d.id).distance(100))
@@ -110,25 +127,28 @@ function drag(simulation) {
 }
 
 function onNodeClick(event, clickedNode) {
-  // Reset styles
+  // Reset node size
   node.transition().duration(200).attr("r", 10);
   link.style("stroke", "#4C4646");
 
-  // Highlight clicked node
+  // Highlight clicked node and links
   d3.select(this).transition().duration(200).attr("r", 14);
-
-  // Highlight connected links
   link.filter(d => d.source.id === clickedNode.id || d.target.id === clickedNode.id)
       .style("stroke", "#6A50FF");
 
-  // Show image
-  document.getElementById("image-container").innerHTML = `
-    <img src="https://drive.google.com/thumbnail?id=1nPGiD8aYWj-15cGEJXL0LDYGyMImK04b" alt="Node image">
+  // Show popup near the node
+  const popup = document.getElementById("popup");
+  popup.innerHTML = `
+    <strong>Имя художника</strong><br>
+    <img src="https://drive.google.com/thumbnail?id=1nPGiD8aYWj-15cGEJXL0LDYGyMImK04b">
   `;
+  popup.style.left = (event.pageX + 20) + "px";
+  popup.style.top = (event.pageY - 20) + "px";
+  popup.style.display = "block";
 }
 </script>
 </body>
 </html>
 """
 
-components.html(d3_html, height=600)
+components.html(d3_html, height=800)
