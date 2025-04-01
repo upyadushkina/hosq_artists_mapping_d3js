@@ -29,6 +29,10 @@ HIGHLIGHT_EDGE_COLOR = "#6A50FF"
 TEXT_FONT = "Lexend"
 DEFAULT_PHOTO = "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png"
 
+POPUP_BG_COLOR = "#262123"  # background color for popup
+POPUP_TEXT_COLOR = "#E8DED3"  # text color for popup
+
+
 def get_google_drive_image_url(url):
     if "drive.google.com" in url and "/d/" in url:
         file_id = url.split("/d/")[1].split("/")[0]
@@ -155,4 +159,7 @@ with open("graph_template.html", "r", encoding="utf-8") as f:
     html_template = f.read()
 
 html_filled = html_template.replace("{{ b64_data }}", b64_data)
-components.html(html_filled, height=500, scrolling=False)
+html_filled = html_filled.replace("{{ popup_bg }}", POPUP_BG_COLOR)
+html_filled = html_filled.replace("{{ popup_text }}", POPUP_TEXT_COLOR)
+
+components.html(html_filled, height=1400, scrolling=False)
