@@ -61,11 +61,10 @@
     color: #E8DED3;
     z-index: 100;
   " />
-
+  
 <svg></svg>
 <div id='popup' class='popup' style='display:none;'></div>
 <script>
-let fixedPopup = false;
 const data = JSON.parse(atob('{{ b64_data }}'));
 
 const svg = d3.select("svg")
@@ -73,21 +72,43 @@ const svg = d3.select("svg")
     g.attr("transform", event.transform);
   }))
   .on("click", () => {
-    fixedPopup = false;
+    //d3.select("#popup").style("display", "none");
+    //node.attr("display", null).attr("opacity", 1);
+    //link.attr("display", null).attr("stroke", "#322C2E").attr("opacity", 1);
+
     d3.select("#popup").style("display", "none");
-    node.attr("display", null).attr("opacity", 1).attr("stroke", null).attr("stroke-width", null);
-    link.attr("display", null).attr("stroke", "#322C2E").attr("opacity", 1);
-    labels.attr("display", null).attr("opacity", 1);
+
+    // Сброс узлов
+    node
+      .attr("display", null)
+      .attr("opacity", 1)
+      .attr("stroke", null)
+      .attr("stroke-width", null);
+  
+    // Сброс связей
+    link
+      .attr("display", null)
+      .attr("stroke", "#322C2E")
+      .attr("opacity", 1);
+  
+    // Сброс поиска
+    const searchInput = document.getElementById("search-input");
+    if (searchInput) {
+      searchInput.value = "";
+    }
   });
 
 const width = window.innerWidth;
 const height = window.innerHeight;
+
 const g = svg.append("g");
 
+// Размер графа
 const simulation = d3.forceSimulation(data.nodes)
   .force("link", d3.forceLink(data.links).id(d => d.id).distance(80))
   .force("charge", d3.forceManyBody().strength(-100))
   .force("center", d3.forceCenter(width / 1.7, height / 4))
+  // чем больше значение в strength(0.2), тем сильнее граф тянет узлы друг к другу
   .force("x", d3.forceX(width / 2).strength(0.2))
   .force("y", d3.forceY(height / 2).strength(0.2));
 
@@ -104,87 +125,119 @@ const node = g.append("g")
   .attr("r", 10)
   .attr("fill", d => d.color)
   .attr("class", "node")
+  .call(drag(simulation))
   .on("mouseover", function(event, d) {
-    if (fixedPopup) return;
+    onHover(event, d);
+    const connected = new Set();
+    data.links.forEach(link => {
+      if (link.source.id === d.id) connected.add(link.target.id);
+      if (link.target.id === d.id) connected.add(link.source.id);
+    });
+    node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
+    link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
+        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.2);
+  })
+  .on("mouseout", function(event, d) {
+    d3.select("#popup").style("display", "none");
+    node.attr("opacity", 1);
+    link.attr("stroke", "#322C2E").attr("opacity", 1);
+  })
+  .on("click", function(event, d) {
+    event.stopPropagation();
+    const firstDegree = new Set();
+    const secondDegree = new Set();
+    data.links.forEach(link => {
+      if (link.source.id === d.id) firstDegree.add(link.target.id);
+      if (link.target.id === d.id) firstDegree.add(link.source.id);
+    });
+    data.links.forEach(link => {
+      if (firstDegree.has(link.source.id)) secondDegree.add(link.target.id);
+      if (firstDegree.has(link.target.id)) secondDegree.add(link.source.id);
+    });
+    const allVisible = new Set([d.id, ...firstDegree, ...secondDegree]);
+    node.attr("display", n => allVisible.has(n.id) ? null : "none");
+    link.attr("display", l => allVisible.has(l.source.id) && allVisible.has(l.target.id) ? null : "none");
+  });
 
-    showPopup(event, d);
+function drag(simulation) {
+  function dragstarted(event, d) {
+    if (!event.active) simulation.alphaTarget(0.3).restart();
+    d.fx = d.x;
+    d.fy = d.y;
+  }
+  function dragged(event, d) {
+    d.fx = event.x;
+    d.fy = event.y;
+  }
+  function dragended(event, d) {
+    if (!event.active) simulation.alphaTarget(0);
+    d.fx = null;
+    d.fy = null;
+  }
+  return d3.drag()
+    .on("start", dragstarted)
+    .on("drag", dragged)
+    .on("end", dragended);
+}
 
+function onHover(event, d) {
+  const popup = document.getElementById("popup");
+  let html = "";
+
+  if (d.id.startsWith("artist::")) {
+    const artist = data.artists[d.id];
+    html = `
+      <strong>${artist.name}</strong><br>
+      <img src="${artist.photo}" alt="photo"><br>
+      ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram}</span></div>` : ''}
+      ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}
+
+    `;
+  } else {
+    html = `<div><strong>${d.label}</strong></div>`;
+  }
+
+  popup.innerHTML = html;
+  popup.style.left = (event.clientX + 15) + "px";
+  popup.style.top = (event.clientY + 15) + "px";
+  popup.style.display = "block";
+
+  if (!d.id.startsWith("artist::")) {
     const connected = new Set();
     data.links.forEach(link => {
       if (link.source.id === d.id) connected.add(link.target.id);
       if (link.target.id === d.id) connected.add(link.source.id);
     });
 
-    node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
-    labels.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
+    node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1);
     link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
-        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.2);
-  })
-  .on("mouseout", function() {
-    if (fixedPopup) return;
-    d3.select("#popup").style("display", "none");
-    node.attr("opacity", 1);
-    link.attr("stroke", "#322C2E").attr("opacity", 1);
-    labels.attr("opacity", 1);
-  })
-  .on("click", function(event, d) {
-    event.stopPropagation();
-    fixedPopup = true;
-    showPopup(event, d);
-
-    const first = new Set();
-    const second = new Set();
-    data.links.forEach(l => {
-      if (l.source.id === d.id) first.add(l.target.id);
-      if (l.target.id === d.id) first.add(l.source.id);
-    });
-    data.links.forEach(l => {
-      if (first.has(l.source.id)) second.add(l.target.id);
-      if (first.has(l.target.id)) second.add(l.source.id);
-    });
-
-    const all = new Set([d.id, ...first, ...second]);
-    node.attr("display", n => all.has(n.id) ? null : "none")
-        .attr("opacity", n => first.has(n.id) || n.id === d.id ? 1 : second.has(n.id) ? 0.5 : 1);
-
-    labels.attr("display", n => all.has(n.id) ? null : "none")
-          .attr("opacity", n => first.has(n.id) || n.id === d.id ? 1 : 0.5);
-
-    link.attr("display", l => all.has(l.source.id) && all.has(l.target.id) ? null : "none")
-        .attr("stroke", l => (l.source.id === d.id || l.target.id === d.id || first.has(l.source.id) || first.has(l.target.id)) ? "#6A50FF" : "#322C2E")
-        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id || first.has(l.source.id) || first.has(l.target.id)) ? 1 : 0.3);
-  });
-
-const labels = g.append("g")
-  .selectAll("text")
-  .data(data.nodes)
-  .enter().append("text")
-  .text(d => d.label)
-  .attr("font-size", 8)
-  .attr("text-anchor", "middle")
-  .attr("dy", 18)
-  .attr("fill", "{{ popup_text }}")
-  .attr("pointer-events", "none")
-  .style("font-family", "Lexend")
-  .style("opacity", 1);
-
-function showPopup(event, d) {
-  const popup = document.getElementById("popup");
-  let html = "";
-  if (d.id.startsWith("artist::")) {
-    const artist = data.artists[d.id];
-    html = `<strong>${artist.name}</strong><br>
-      <img src="${artist.photo}" alt="photo"><br>
-      ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram}</span></div>` : ''}
-      ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}`;
-  } else {
-    html = `<div><strong>${d.label}</strong></div>`;
+        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1);
   }
-  popup.innerHTML = html;
-  popup.style.left = (event.clientX + 15) + "px";
-  popup.style.top = (event.clientY + 15) + "px";
-  popup.style.display = "block";
 }
+
+simulation.on("tick", () => {
+  link
+    .attr("x1", d => d.source.x)
+    .attr("y1", d => d.source.y)
+    .attr("x2", d => d.target.x)
+    .attr("y2", d => d.target.y);
+
+  node
+    .attr("cx", d => d.x)
+    .attr("cy", d => d.y);
+});
+  document.getElementById("search-input").addEventListener("input", (e) => {
+  const query = e.target.value.toLowerCase();
+  node.attr("stroke", d => {
+    return d.id.startsWith("artist::") && d.label.toLowerCase().includes(query)
+      ? "#6A50FF" : null;
+  });
+  node.attr("stroke-width", d => {
+    return d.id.startsWith("artist::") && d.label.toLowerCase().includes(query)
+      ? 3 : null;
+  });
+});
+  
 </script>
 </body>
 </html>
