@@ -63,12 +63,6 @@ st.markdown(f"""
       background-color: {SIDEBAR_TAG_BG_COLOR} !important;
       color: {SIDEBAR_TAG_TEXT_COLOR} !important;
     }}
-    .stMultiSelect div[data-baseweb="select"] > div {{
-      color: {PAGE_TEXT_COLOR} !important;
-    }}
-    .stMultiSelect input {{
-      color: {BUTTON_TEXT_COLOR} !important;
-    }}
     .stCheckbox > label {{
       color: {PAGE_TEXT_COLOR} !important;
     }}
@@ -153,7 +147,7 @@ for _, row in df.iterrows():
 
 # Sidebar filters
 selected = {}
-
+st.sidebar.header("Filters")
 for category, options in filter_options.items():
     if category == "role":
         st.sidebar.subheader("Role")
@@ -162,8 +156,7 @@ for category, options in filter_options.items():
     if category in ["level", "role"]:
         selected[category] = [val for val in sorted(options) if st.sidebar.checkbox(val, key=f"{category}_{val}")]
     else:
-        selected[category] = st.sidebar.subheader(category.title())
-        st.sidebar.multiselect(
+        selected[category] = st.sidebar.multiselect(
             label=category.title(),
             options=sorted(options),
             default=[]
