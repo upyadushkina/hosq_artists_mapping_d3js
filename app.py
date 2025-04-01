@@ -82,7 +82,7 @@ category_colors = {
     'style': "#B3A0EB",
     'tool': "#EEC0E7",
     'level': "#B1D3AA",
-    'seeking for': "#D3DAE8",
+    'seeking for': "#EC7F4D",
 }
 
 multi_fields = ['professional field', 'role', 'style', 'tool', 'level', 'seeking for']
