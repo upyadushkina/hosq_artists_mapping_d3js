@@ -77,7 +77,7 @@ const svg = d3.select("svg")
     d3.select("#popup").style("display", "none");
     node.attr("display", null).attr("opacity", 1).attr("stroke", null).attr("stroke-width", null);
     link.attr("display", null).attr("stroke", "#322C2E").attr("opacity", 1);
-    labels.style("display", null).style("opacity", 1);
+    labels.attr("display", null).attr("opacity", 1);
     const searchInput = document.getElementById("search-input");
     if (searchInput) searchInput.value = "";
   });
@@ -160,6 +160,36 @@ const node = g.append("g")
     labels.attr("display", n => allVisible.has(n.id) ? null : "none")
           .attr("opacity", n => firstDegree.has(n.id) || n.id === d.id ? 1 : 0.5);
   });
+
+const labels = g.append("g")
+  .selectAll("text")
+  .data(data.nodes)
+  .enter().append("text")
+  .text(d => d.label)
+  .attr("font-size", 8)
+  .attr("text-anchor", "middle")
+  .attr("dy", 18)
+  .attr("fill", "{{ popup_text }}")
+  .attr("pointer-events", "none")
+  .style("font-family", "Lexend")
+  .style("opacity", 1);
+
+simulation.on("tick", () => {
+  link.attr("x1", d => d.source.x).attr("y1", d => d.source.y).attr("x2", d => d.target.x).attr("y2", d => d.target.y);
+  node.attr("cx", d => d.x).attr("cy", d => d.y);
+  labels.attr("x", d => d.x)
+        .attr("y", d => d.y + 18)
+        .style("opacity", function(d, i) {
+          const nodeEl = node.nodes()[i];
+          return nodeEl && nodeEl.style.display !== "none"
+            ? d3.select(nodeEl).style("opacity")
+            : 0;
+        })
+        .style("display", function(d, i) {
+          const nodeEl = node.nodes()[i];
+          return nodeEl && nodeEl.style.display !== "none" ? null : "none";
+        });
+});
 </script>
 </body>
 </html>
