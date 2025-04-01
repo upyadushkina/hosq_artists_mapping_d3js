@@ -118,19 +118,6 @@ const link = g.append("g")
   .enter().append("line")
   .attr("stroke", "#322C2E");
 
-const labels = g.append("g")
-  .selectAll("text")
-  .data(data.nodes)
-  .enter().append("text")
-  .text(d => d.label)
-  .attr("font-size", 8)
-  .attr("text-anchor", "middle")
-  .attr("dy", 18)
-  .attr("fill", "{{ popup_text }}")
-  .attr("pointer-events", "none")
-  .style("font-family", "Lexend")
-  .style("opacity", 1);
-
 const node = g.append("g")
   .selectAll("circle")
   .data(data.nodes)
@@ -189,6 +176,19 @@ const node = g.append("g")
     });
 
   });
+
+const labels = g.append("g")
+  .selectAll("text")
+  .data(data.nodes)
+  .enter().append("text")
+  .text(d => d.label)
+  .attr("font-size", 8)
+  .attr("text-anchor", "middle")
+  .attr("dy", 18)
+  .attr("fill", "{{ popup_text }}")
+  .attr("pointer-events", "none")
+  .style("font-family", "Lexend")
+  .style("opacity", 1);
 
 function drag(simulation) {
   function dragstarted(event, d) {
