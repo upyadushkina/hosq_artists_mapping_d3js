@@ -155,8 +155,9 @@ function onHover(event, d) {
     html = `
       <strong>${artist.name}</strong><br>
       <img src="${artist.photo}" alt="photo"><br>
-      ${artist.telegram ? `<div>📱 ${artist.telegram}</div>` : ''}
-      ${artist.email ? `<div>✉️ ${artist.email}</div>` : ''}
+      ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram}</span></div>` : ''}
+      ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}
+
     `;
   } else {
     html = `<div><strong>${d.label}</strong></div>`;
