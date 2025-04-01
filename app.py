@@ -67,7 +67,7 @@ st.markdown(f"""
       color: {PAGE_TEXT_COLOR} !important;
     }}
     [data-baseweb="checkbox"] > label > div:first-child {
-          background-color: {SIDEBAR_TAG_BG_COLOR} !important;
+          color: {SIDEBAR_TAG_BG_COLOR} !important;
           border-color: {SIDEBAR_TAG_BG_COLOR} !important;
     }
   </style>
