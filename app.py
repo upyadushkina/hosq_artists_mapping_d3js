@@ -29,6 +29,12 @@ HIGHLIGHT_EDGE_COLOR = "#6A50FF"
 TEXT_FONT = "Lexend"
 DEFAULT_PHOTO = "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png"
 
+def get_google_drive_image_url(url):
+    if "drive.google.com" in url and "/d/" in url:
+        file_id = url.split("/d/")[1].split("/")[0]
+        return f"https://drive.google.com/thumbnail?id={file_id}"
+    return url
+
 # === Настройки страницы ===
 st.set_page_config(page_title="HOSQ Artist Graph", layout="wide")
 st.markdown(f"""
@@ -80,9 +86,11 @@ for _, row in df.iterrows():
     artist_id = f"artist::{row['name']}"
     add_node(artist_id, row['name'], 'artist')
 
+    photo_url = get_google_drive_image_url(row['photo url']) if row['photo url'] else DEFAULT_PHOTO
+
     artist_info[artist_id] = {
         "name": row['name'],
-        "photo": row['photo url'] if row['photo url'] else DEFAULT_PHOTO,
+        "photo": photo_url,
         "telegram": row['telegram nickname'],
         "email": row['email']
     }
@@ -108,151 +116,3 @@ for _, row in df.iterrows():
             add_link(city_id, country_id)
             filter_options['country'].add(country)
             filter_options['city'].add(city)
-
-# === Фильтры ===
-selected = {}
-st.sidebar.header("Фильтры")
-for category, options in filter_options.items():
-    selected[category] = st.sidebar.multiselect(
-        label=category.title(),
-        options=sorted(options),
-        default=[]
-    )
-
-def node_passes_filter(node_id):
-    if not node_id.startswith("artist::"):
-        return True
-    for cat, selected_vals in selected.items():
-        if not selected_vals:
-            continue
-        artist_links = [l["target"] for l in links if l["source"] == node_id]
-        relevant = [f"{cat}::{val}" for val in selected_vals]
-        if not any(val in artist_links for val in relevant):
-            return False
-    return True
-
-visible_nodes = [n for n in nodes if node_passes_filter(n["id"])]
-visible_node_ids = set(n["id"] for n in visible_nodes)
-visible_links = [l for l in links if l["source"] in visible_node_ids and l["target"] in visible_node_ids]
-
-d3_data = {
-    "nodes": visible_nodes,
-    "links": visible_links,
-    "artists": artist_info
-}
-
-# === Граф как HTML с base64 ===
-d3_json = json.dumps(d3_data)
-b64_data = base64.b64encode(d3_json.encode("utf-8")).decode("utf-8")
-
-html_template = """
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset='utf-8'>
-  <script src='https://d3js.org/d3.v7.min.js'></script>
-  <link href='https://fonts.googleapis.com/css2?family=Lexend&display=swap' rel='stylesheet'>
-  <style>
-    html, body {{
-        margin: 0;
-        padding: 0;
-        background: {bg_color};
-        overflow: hidden;
-        height: 100%;
-    }}
-    svg {{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: 1;
-    }}
-    .node {{{{ cursor: pointer; }}}}
-    .popup {{{{
-      position: absolute;
-      background-color: {bg_color};
-      color: {text_color};
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      font-family: 'Lexend', sans-serif;
-      z-index: 10;
-      width: 220px;
-      text-align: center;
-    }}}}
-    .popup img {{{{
-      max-width: 100%;
-      border-radius: 5px;
-      margin-top: 8px;
-    }}}}
-  </style>
-</head>
-<body>
-<svg></svg>
-<div id='popup' class='popup' style='display:none;'></div>
-<script>
-const data = JSON.parse(atob('{b64_data}'));
-const svg = d3.select("svg");
-const width = window.innerWidth;
-const height = window.innerHeight;
-
-const simulation = d3.forceSimulation(data.nodes)
-  .force("link", d3.forceLink(data.links).id(d => d.id).distance(100))
-  .force("charge", d3.forceManyBody().strength(-300))
-  .force("center", d3.forceCenter(width / 2, height / 2));
-
-const link = svg.append("g")
-  .selectAll("line")
-  .data(data.links)
-  .enter().append("line")
-  .attr("stroke", "{edge_color}");
-
-const node = svg.append("g")
-  .selectAll("circle")
-  .data(data.nodes)
-  .enter().append("circle")
-  .attr("r", 10)
-  .attr("fill", d => d.color)
-  .attr("class", "node")
-  .on("click", onClick);
-
-simulation.on("tick", () => {{
-  link
-    .attr("x1", d => d.source.x)
-    .attr("y1", d => d.source.y)
-    .attr("x2", d => d.target.x)
-    .attr("y2", d => d.target.y);
-
-  node
-    .attr("cx", d => d.x)
-    .attr("cy", d => d.y);
-}});
-
-function onClick(event, d) {{
-  if (!d.id.startsWith("artist::")) return;
-  const artist = data.artists[d.id];
-  const popup = document.getElementById("popup");
-  popup.innerHTML = `
-    <strong>${{artist.name}}</strong><br>
-    <img src=\"${{artist.photo}}\" alt=\"photo\"><br>
-    ${{artist.telegram ? `<div>📱 ${{artist.telegram}}</div>` : ''}}
-    ${{artist.email ? `<div>✉️ ${{artist.email}}</div>` : ''}}
-  `;
-  popup.style.left = (event.pageX + 20) + "px";
-  popup.style.top = (event.pageY - 20) + "px";
-  popup.style.display = "block";
-}}
-</script>
-</body>
-</html>
-"""
-
-html_filled = html_template.format(
-    b64_data=b64_data,
-    bg_color=GRAPH_BG_COLOR,
-    text_color=PAGE_TEXT_COLOR,
-    edge_color=EDGE_COLOR
-)
-
-components.html(html_filled, height=1000, scrolling=False)
