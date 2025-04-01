@@ -47,9 +47,11 @@ st.markdown(f"""
       font-family: '{TEXT_FONT}', sans-serif;
     }}
     header, footer {{
+      font-family: '{TEXT_FONT}', sans-serif;
       background-color: {PAGE_BG_COLOR} !important;
     }}
     section[data-testid="stSidebar"] {{
+      font-family: '{TEXT_FONT}', sans-serif;
       background-color: {SIDEBAR_BG_COLOR} !important;
     }}
     section[data-testid="stSidebar"] * {{
@@ -57,25 +59,21 @@ st.markdown(f"""
       color: {PAGE_TEXT_COLOR} !important;
     }}
     section[data-testid="stSidebar"] h1, h2, h3 {{
+      font-family: '{TEXT_FONT}', sans-serif;
       color: {PAGE_TEXT_COLOR} !important;
     }}
     .stMultiSelect [data-baseweb="tag"] {{
       background-color: {SIDEBAR_TAG_BG_COLOR} !important;
+      font-family: '{TEXT_FONT}', sans-serif;
       color: {SIDEBAR_TAG_TEXT_COLOR} !important;
     }}
     .stCheckbox > label {{
       color: {PAGE_TEXT_COLOR} !important;
     }}
-    
-    /* Текст в поле, где показываются выбранные теги */
-    [data-baseweb="select"] span {
-      color: #E8DED3 !important;
-    }
-    
-    /* Placeholder ("Choose...") — чтобы он был другим цветом */
-    [data-baseweb="select"] input {
+    .stMultiSelect [data-baseweb="select"] input {{
+      font-family: '{TEXT_FONT}', sans-serif;
       color: #4C4646 !important;
-    }
+    }} 
   </style>
 """, unsafe_allow_html=True)
 
