@@ -24,7 +24,7 @@ NODE_NAME_COLOR = "#4C4646"
 NODE_CITY_COLOR = "#D3DAE8"
 NODE_FIELD_COLOR = "#EEC0E7"
 NODE_ROLE_COLOR = "#F4C07C"
-EDGE_COLOR = "#4C4646"
+EDGE_COLOR = "#322C2E"
 HIGHLIGHT_EDGE_COLOR = "#6A50FF"
 TEXT_FONT = "Lexend"
 DEFAULT_PHOTO = "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png"
@@ -75,14 +75,14 @@ df.fillna('', inplace=True)
 
 category_colors = {
     'artist': NODE_NAME_COLOR,
-    'city': NODE_CITY_COLOR,
-    'country': NODE_CITY_COLOR,
-    'professional field': NODE_FIELD_COLOR,
-    'role': NODE_ROLE_COLOR,
-    'style': PAGE_TEXT_COLOR,
-    'tool': PAGE_TEXT_COLOR,
-    'level': PAGE_TEXT_COLOR,
-    'seeking for': PAGE_TEXT_COLOR,
+    'city': "#322C2E",
+    'country': "#322C2E",
+    'professional field': "#6A50FF",
+    'role': "#F4C07C",
+    'style': "#B3A0EB",
+    'tool': "#EEC0E7",
+    'level': "#B1D3AA",
+    'seeking for': "#D3DAE8",
 }
 
 multi_fields = ['professional field', 'role', 'style', 'tool', 'level', 'seeking for']
