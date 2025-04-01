@@ -1,7 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-# HTML + D3.js код
 d3_html = """
 <!DOCTYPE html>
 <html>
@@ -9,12 +8,34 @@ d3_html = """
   <meta charset="utf-8">
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
-    .node { fill: #69b3a2; cursor: pointer; }
-    .link { stroke: #999; stroke-opacity: 0.6; }
+    body {
+      background-color: #262123;
+      margin: 0;
+      font-family: sans-serif;
+    }
+    .node {
+      fill: #E8DED3;
+      cursor: pointer;
+      stroke: white;
+      stroke-width: 1.5px;
+    }
+    .link {
+      stroke: #4C4646;
+      stroke-opacity: 0.6;
+    }
+    #image-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    #image-container img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
 <svg width="600" height="400"></svg>
+<div id="image-container"></div>
 
 <script>
 const nodes = [
@@ -36,33 +57,32 @@ const simulation = d3.forceSimulation(nodes)
   .force("center", d3.forceCenter(width / 2, height / 2));
 
 const link = svg.append("g")
-    .attr("stroke", "#aaa")
   .selectAll("line")
   .data(links)
   .enter().append("line")
-    .attr("class", "link");
+  .attr("class", "link");
 
 const node = svg.append("g")
   .selectAll("circle")
   .data(nodes)
   .enter().append("circle")
-    .attr("r", 10)
-    .attr("fill", "#69b3a2")
-    .call(drag(simulation));
+  .attr("r", 10)
+  .attr("class", "node")
+  .call(drag(simulation))
+  .on("click", onNodeClick);
 
-node.append("title")
-    .text(d => d.id);
+node.append("title").text(d => d.id);
 
 simulation.on("tick", () => {
   link
-      .attr("x1", d => d.source.x)
-      .attr("y1", d => d.source.y)
-      .attr("x2", d => d.target.x)
-      .attr("y2", d => d.target.y);
+    .attr("x1", d => d.source.x)
+    .attr("y1", d => d.source.y)
+    .attr("x2", d => d.target.x)
+    .attr("y2", d => d.target.y);
 
   node
-      .attr("cx", d => d.x)
-      .attr("cy", d => d.y);
+    .attr("cx", d => d.x)
+    .attr("cy", d => d.y);
 });
 
 function drag(simulation) {
@@ -84,13 +104,31 @@ function drag(simulation) {
   }
 
   return d3.drag()
-      .on("start", dragstarted)
-      .on("drag", dragged)
-      .on("end", dragended);
+    .on("start", dragstarted)
+    .on("drag", dragged)
+    .on("end", dragended);
+}
+
+function onNodeClick(event, clickedNode) {
+  // Reset styles
+  node.transition().duration(200).attr("r", 10);
+  link.style("stroke", "#4C4646");
+
+  // Highlight clicked node
+  d3.select(this).transition().duration(200).attr("r", 14);
+
+  // Highlight connected links
+  link.filter(d => d.source.id === clickedNode.id || d.target.id === clickedNode.id)
+      .style("stroke", "#6A50FF");
+
+  // Show image
+  document.getElementById("image-container").innerHTML = `
+    <img src="https://drive.google.com/thumbnail?id=1nPGiD8aYWj-15cGEJXL0LDYGyMImK04b" alt="Node image">
+  `;
 }
 </script>
 </body>
 </html>
 """
 
-components.html(d3_html, height=450)
+components.html(d3_html, height=600)
