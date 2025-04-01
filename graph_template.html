@@ -164,12 +164,13 @@ const node = g.append("g")
   .data(data.nodes)
   .enter().append("text")
   .text(d => d.label)
-  .attr("font-size", 12)
+  .attr("font-size", 8)  // полтора раза меньше
   .attr("text-anchor", "middle")
   .attr("dy", 18)
   .attr("fill", "{{ popup_text }}")
   .attr("pointer-events", "none")
-  .style("font-family", "Lexend");
+  .style("font-family", "Lexend")
+  .style("opacity", 1);
 
 function drag(simulation) {
   function dragstarted(event, d) {
@@ -240,7 +241,13 @@ simulation.on("tick", () => {
 
   labels
     .attr("x", d => d.x)
-    .attr("y", d => d.y);
+    .attr("y", d => d.y)
+    .style("opacity", function(d, i) {
+      const nodeEl = node.nodes()[i];
+      return nodeEl && nodeEl.style.display !== "none"
+        ? d3.select(nodeEl).style("opacity")
+        : 0;
+    });
 });
   document.getElementById("search-input").addEventListener("input", (e) => {
   const query = e.target.value.toLowerCase();
