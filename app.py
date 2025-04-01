@@ -62,6 +62,18 @@ st.markdown(f"""
       font-family: '{TEXT_FONT}', sans-serif;
       color: {PAGE_TEXT_COLOR} !important;
     }}
+    .stMultiSelect [data-baseweb="select"] input {{
+      font-family: '{TEXT_FONT}', sans-serif;
+      color: #4C4646 !important;
+    }}
+    .stMultiSelect [data-baseweb="select"] div[role="option"] {{
+      font-family: '{TEXT_FONT}', sans-serif;
+      color: #4C4646 !important;
+    }}
+    .stMultiSelect [data-baseweb="select"] span {{
+      font-family: '{TEXT_FONT}', sans-serif;
+      color: #4C4646 !important;
+    }}
     .stMultiSelect [data-baseweb="tag"] {{
       background-color: {SIDEBAR_TAG_BG_COLOR} !important;
       font-family: '{TEXT_FONT}', sans-serif;
@@ -69,21 +81,6 @@ st.markdown(f"""
     }}
     .stCheckbox > label {{
       color: {PAGE_TEXT_COLOR} !important;
-    }}
-    .stMultiSelect [data-baseweb="select"] input {{
-      font-family: '{TEXT_FONT}', sans-serif;
-      background-color: {PAGE_TEXT_COLOR} !important;
-      color: #4C4646 !important;
-    }}
-    .stMultiSelect [data-baseweb="select"] div[role="option"] {{
-      font-family: '{TEXT_FONT}', sans-serif;
-      background-color: {PAGE_TEXT_COLOR} !important;
-      color: #4C4646 !important;
-    }}
-    .stMultiSelect [data-baseweb="select"] span {{
-      font-family: '{TEXT_FONT}', sans-serif;
-      background-color: {PAGE_TEXT_COLOR} !important;
-      color: #4C4646 !important;
     }}
   </style>
 """, unsafe_allow_html=True)
