@@ -42,7 +42,7 @@
 
     .popup img {
       max-width: 100%;
-      border-radius: 6px;
+      border-radius: 2px;
       margin-top: 8px;
       margin-bottom: 4px;
     }
@@ -66,11 +66,11 @@ const height = window.innerHeight;
 const g = svg.append("g");
 
 const simulation = d3.forceSimulation(data.nodes)
-  .force("link", d3.forceLink(data.links).id(d => d.id).distance(60))
+  .force("link", d3.forceLink(data.links).id(d => d.id).distance(80))
   .force("charge", d3.forceManyBody().strength(-100))
   .force("center", d3.forceCenter(width / 2, height / 4))
-  .force("x", d3.forceX(width / 2).strength(0.3))
-  .force("y", d3.forceY(height / 2).strength(0.3));
+  .force("x", d3.forceX(width / 2).strength(0.2))
+  .force("y", d3.forceY(height / 2).strength(0.2));
 
 const link = g.append("g")
   .selectAll("line")
