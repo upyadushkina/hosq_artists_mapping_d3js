@@ -279,6 +279,6 @@ function onClick(event, d) {
 }
 </script>
 </body>
-</html>""".replace('}', '}}').replace('{{{{', '{').replace('}}}}', '}')
+</html>"""
 
 components.html(html_template, height=1400, scrolling=False)
