@@ -58,7 +58,11 @@ const svg = d3.select("svg")
   .call(d3.zoom().scaleExtent([0.3, 4]).on("zoom", (event) => {
     g.attr("transform", event.transform);
   }))
-  .on("click", () => d3.select("#popup").style("display", "none"));
+  .on("click", () => {
+    d3.select("#popup").style("display", "none");
+    node.attr("display", null).attr("opacity", 1);
+    link.attr("display", null).attr("stroke", "#4C4646").attr("opacity", 1);
+  });
 
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -70,7 +74,7 @@ const simulation = d3.forceSimulation(data.nodes)
   .force("link", d3.forceLink(data.links).id(d => d.id).distance(80))
   .force("charge", d3.forceManyBody().strength(-100))
   .force("center", d3.forceCenter(width / 2, height / 4))
-// чем больше значение в strength(0.2), тем сильнее граф тянет узлы друг к другу
+  // чем больше значение в strength(0.2), тем сильнее граф тянет узлы друг к другу
   .force("x", d3.forceX(width / 2).strength(0.2))
   .force("y", d3.forceY(height / 2).strength(0.2));
 
@@ -90,7 +94,28 @@ const node = g.append("g")
   .call(drag(simulation))
   .on("mouseover", onHover)
   .on("mouseout", () => d3.select("#popup").style("display", "none"))
-  .on("click", (event) => event.stopPropagation());
+  .on("click", function(event, d) {
+    event.stopPropagation();
+    if (!d.id.startsWith("artist::")) {
+      const firstDegree = new Set();
+      const secondDegree = new Set();
+
+      data.links.forEach(link => {
+        if (link.source.id === d.id) firstDegree.add(link.target.id);
+        if (link.target.id === d.id) firstDegree.add(link.source.id);
+      });
+
+      data.links.forEach(link => {
+        if (firstDegree.has(link.source.id)) secondDegree.add(link.target.id);
+        if (firstDegree.has(link.target.id)) secondDegree.add(link.source.id);
+      });
+
+      const allVisible = new Set([d.id, ...firstDegree, ...secondDegree]);
+
+      node.attr("display", n => allVisible.has(n.id) ? null : "none");
+      link.attr("display", l => allVisible.has(l.source.id) && allVisible.has(l.target.id) ? null : "none");
+    }
+  });
 
 function drag(simulation) {
   function dragstarted(event, d) {
@@ -133,6 +158,18 @@ function onHover(event, d) {
   popup.style.left = (event.clientX + 15) + "px";
   popup.style.top = (event.clientY + 15) + "px";
   popup.style.display = "block";
+
+  if (!d.id.startsWith("artist::")) {
+    const connected = new Set();
+    data.links.forEach(link => {
+      if (link.source.id === d.id) connected.add(link.target.id);
+      if (link.target.id === d.id) connected.add(link.source.id);
+    });
+
+    node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1);
+    link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#4C4646")
+        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1);
+  }
 }
 
 simulation.on("tick", () => {
@@ -146,41 +183,6 @@ simulation.on("tick", () => {
     .attr("cx", d => d.x)
     .attr("cy", d => d.y);
 });
-
-// Highlight on hover for tags
-node
-  .on("mouseover", function(event, d) {
-    onHover(event, d);
-    if (!d.id.startsWith("artist::")) {
-      const connected = new Set();
-      data.links.forEach(link => {
-        if (link.source.id === d.id) connected.add(link.target.id);
-        if (link.target.id === d.id) connected.add(link.source.id);
-      });
-
-      node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1);
-      link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#4C4646")
-          .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1);
-    }
-  })
-  .on("mouseout", function(event, d) {
-    d3.select("#popup").style("display", "none");
-    node.attr("opacity", 1);
-    link.attr("stroke", "#4C4646").attr("opacity", 1);
-  })
-  .on("click", function(event, d) {
-    event.stopPropagation();
-    if (!d.id.startsWith("artist::")) {
-      const connected = new Set();
-      data.links.forEach(link => {
-        if (link.source.id === d.id) connected.add(link.target.id);
-        if (link.target.id === d.id) connected.add(link.source.id);
-      });
-
-      node.attr("display", n => connected.has(n.id) || n.id === d.id ? null : "none");
-      link.attr("display", l => (l.source.id === d.id || l.target.id === d.id) ? null : "none");
-    }
-  });
 </script>
 </body>
 </html>
