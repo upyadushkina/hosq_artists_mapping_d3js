@@ -49,8 +49,13 @@ st.markdown(f"""
     header, footer {{
       background-color: {PAGE_BG_COLOR} !important;
     }}
-    section[data-testid="stSidebar"] * {{ font-family: '{TEXT_FONT}', sans-serif; }}
-    section[data-testid="stSidebar"] .stMultiSelect label,
+    section[data-testid="stSidebar"] {{
+      background-color: {SIDEBAR_BG_COLOR} !important;
+    }}
+    section[data-testid="stSidebar"] * {{
+      font-family: '{TEXT_FONT}', sans-serif;
+      color: {PAGE_TEXT_COLOR} !important;
+    }}
     section[data-testid="stSidebar"] h1, h2, h3 {{
       color: {PAGE_TEXT_COLOR} !important;
     }}
@@ -60,7 +65,9 @@ st.markdown(f"""
     }}
     .stCheckbox > label {{
       color: {PAGE_TEXT_COLOR} !important;
-      font-family: '{TEXT_FONT}', sans-serif;
+    }}
+    input[type="checkbox"]:checked + div {{
+      background-color: {SIDEBAR_TAG_BG_COLOR} !important;
     }}
   </style>
 """, unsafe_allow_html=True)
@@ -142,6 +149,10 @@ for _, row in df.iterrows():
 selected = {}
 st.sidebar.header("Filters")
 for category, options in filter_options.items():
+    if category == "role":
+        st.sidebar.subheader("Role")
+    elif category == "level":
+        st.sidebar.subheader("Level")
     if category in ["level", "role"]:
         selected[category] = [val for val in sorted(options) if st.sidebar.checkbox(val, key=f"{category}_{val}")]
     else:
