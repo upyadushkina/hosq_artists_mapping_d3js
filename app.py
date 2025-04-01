@@ -150,6 +150,8 @@ for category, options in filter_options.items():
         st.sidebar.subheader("Role")
     elif category == "level":
         st.sidebar.subheader("Level")
+    elif category == "seeking for":
+        st.sidebar.subheader("You can choose the artists who is seeking for...")
     if category in ["level", "role"]:
         selected[category] = [val for val in sorted(options) if st.sidebar.checkbox(val, key=f"{category}_{val}")]
     else:
