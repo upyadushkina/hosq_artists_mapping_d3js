@@ -125,7 +125,7 @@ for _, row in df.iterrows():
         "name": row['name'],
         "photo": photo_url,
         "telegram": row['telegram nickname'],
-        "email": row['email']
+        "email": row['email'],
         "country": country,
         "city": city,
         "role": row['role'],
