@@ -144,9 +144,9 @@ const labels = g.append("g")
   .data(data.nodes)
   .enter().append("text")
   .text(d => d.label)
-  .attr("font-size", 8)
+  .attr("font-size", 6)
   .attr("text-anchor", "middle")
-  .attr("dy", 10)
+  .attr("dy", 18)
   .attr("fill", "{{ popup_text }}")
   .attr("pointer-events", "none")
   .style("font-family", "Lexend");
@@ -212,7 +212,7 @@ simulation.on("tick", () => {
 
   labels
     .attr("x", d => d.x)
-    .attr("y", d => d.y + 18);
+    .attr("y", d => d.y + 10);
 
   if (popupNode) updatePopupPosition(popupNode);
 });
