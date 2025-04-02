@@ -66,12 +66,14 @@
 <div id='popup' class='popup' style='display:none;'></div>
 <script>
 const data = JSON.parse(atob('{{ b64_data }}'));
+let popupNode = null;
 
 const svg = d3.select("svg")
   .call(d3.zoom().scaleExtent([0.3, 4]).on("zoom", (event) => {
     g.attr("transform", event.transform);
   }))
   .on("click", () => {
+    popupNode = null;
     d3.select("#popup").style("display", "none");
     node.attr("display", null).attr("opacity", 1).attr("stroke", null).attr("stroke-width", null);
     link.attr("display", null).attr("stroke", "#322C2E").attr("opacity", 1);
@@ -110,24 +112,16 @@ const node = g.append("g")
   .call(drag(simulation))
   .on("mouseover", function(event, d) {
     onHover(event, d);
-    const connected = new Set();
-    data.links.forEach(link => {
-      if (link.source.id === d.id) connected.add(link.target.id);
-      if (link.target.id === d.id) connected.add(link.source.id);
-    });
-    node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
-    link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
-        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.2);
-    labels.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
+    popupNode = d;
   })
   .on("mouseout", function(event, d) {
-    d3.select("#popup").style("display", "none");
-    node.attr("opacity", 1);
-    link.attr("stroke", "#322C2E").attr("opacity", 1);
-    labels.attr("opacity", 1);
+    if (!popupNode || popupNode.id !== d.id) {
+      d3.select("#popup").style("display", "none");
+    }
   })
   .on("click", function(event, d) {
     event.stopPropagation();
+    popupNode = d;
     const firstDegree = new Set();
     const secondDegree = new Set();
     data.links.forEach(link => {
@@ -152,7 +146,7 @@ const labels = g.append("g")
   .text(d => d.label)
   .attr("font-size", 8)
   .attr("text-anchor", "middle")
-  .attr("dy", 18)
+  .attr("dy", 10)
   .attr("fill", "{{ popup_text }}")
   .attr("pointer-events", "none")
   .style("font-family", "Lexend");
@@ -181,36 +175,28 @@ function drag(simulation) {
 function onHover(event, d) {
   const popup = document.getElementById("popup");
   let html = "";
-
   if (d.id.startsWith("artist::")) {
     const artist = data.artists[d.id];
     html = `
       <strong>${artist.name}</strong><br>
       <img src="${artist.photo}" alt="photo"><br>
       ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram}</span></div>` : ''}
-      ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}
-    `;
+      ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}`;
   } else {
     html = `<div><strong>${d.label}</strong></div>`;
   }
-
   popup.innerHTML = html;
-  popup.style.left = (event.clientX + 15) + "px";
-  popup.style.top = (event.clientY + 15) + "px";
   popup.style.display = "block";
+  updatePopupPosition(d);
+}
 
-  if (!d.id.startsWith("artist::")) {
-    const connected = new Set();
-    data.links.forEach(link => {
-      if (link.source.id === d.id) connected.add(link.target.id);
-      if (link.target.id === d.id) connected.add(link.source.id);
-    });
-
-    node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1);
-    link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
-        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1);
-    labels.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1);
-  }
+function updatePopupPosition(d) {
+  const popup = document.getElementById("popup");
+  const transform = d3.zoomTransform(svg.node());
+  const x = d.x * transform.k + transform.x;
+  const y = d.y * transform.k + transform.y;
+  popup.style.left = (x + 15) + "px";
+  popup.style.top = (y + 15) + "px";
 }
 
 simulation.on("tick", () => {
@@ -227,6 +213,8 @@ simulation.on("tick", () => {
   labels
     .attr("x", d => d.x)
     .attr("y", d => d.y + 18);
+
+  if (popupNode) updatePopupPosition(popupNode);
 });
 
 document.getElementById("search-input").addEventListener("input", (e) => {
