@@ -72,26 +72,10 @@ const svg = d3.select("svg")
     g.attr("transform", event.transform);
   }))
   .on("click", () => {
-    //d3.select("#popup").style("display", "none");
-    //node.attr("display", null).attr("opacity", 1);
-    //link.attr("display", null).attr("stroke", "#322C2E").attr("opacity", 1);
-
     d3.select("#popup").style("display", "none");
-
-    // Сброс узлов
-    node
-      .attr("display", null)
-      .attr("opacity", 1)
-      .attr("stroke", null)
-      .attr("stroke-width", null);
-  
-    // Сброс связей
-    link
-      .attr("display", null)
-      .attr("stroke", "#322C2E")
-      .attr("opacity", 1);
-  
-    // Сброс поиска
+    node.attr("display", null).attr("opacity", 1).attr("stroke", null).attr("stroke-width", null);
+    link.attr("display", null).attr("stroke", "#322C2E").attr("opacity", 1);
+    labels.attr("display", null).attr("opacity", 1);
     const searchInput = document.getElementById("search-input");
     if (searchInput) {
       searchInput.value = "";
@@ -103,12 +87,10 @@ const height = window.innerHeight;
 
 const g = svg.append("g");
 
-// Размер графа
 const simulation = d3.forceSimulation(data.nodes)
   .force("link", d3.forceLink(data.links).id(d => d.id).distance(80))
   .force("charge", d3.forceManyBody().strength(-100))
   .force("center", d3.forceCenter(width / 1.7, height / 4))
-  // чем больше значение в strength(0.2), тем сильнее граф тянет узлы друг к другу
   .force("x", d3.forceX(width / 2).strength(0.2))
   .force("y", d3.forceY(height / 2).strength(0.2));
 
@@ -136,11 +118,13 @@ const node = g.append("g")
     node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
     link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
         .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.2);
+    labels.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
   })
   .on("mouseout", function(event, d) {
     d3.select("#popup").style("display", "none");
     node.attr("opacity", 1);
     link.attr("stroke", "#322C2E").attr("opacity", 1);
+    labels.attr("opacity", 1);
   })
   .on("click", function(event, d) {
     event.stopPropagation();
@@ -157,7 +141,21 @@ const node = g.append("g")
     const allVisible = new Set([d.id, ...firstDegree, ...secondDegree]);
     node.attr("display", n => allVisible.has(n.id) ? null : "none");
     link.attr("display", l => allVisible.has(l.source.id) && allVisible.has(l.target.id) ? null : "none");
+    labels.attr("display", n => allVisible.has(n.id) ? null : "none")
+          .attr("opacity", n => firstDegree.has(n.id) || n.id === d.id ? 1 : 0.5);
   });
+
+const labels = g.append("g")
+  .selectAll("text")
+  .data(data.nodes)
+  .enter().append("text")
+  .text(d => d.label)
+  .attr("font-size", 8)
+  .attr("text-anchor", "middle")
+  .attr("dy", 18)
+  .attr("fill", "{{ popup_text }}")
+  .attr("pointer-events", "none")
+  .style("font-family", "Lexend");
 
 function drag(simulation) {
   function dragstarted(event, d) {
@@ -191,7 +189,6 @@ function onHover(event, d) {
       <img src="${artist.photo}" alt="photo"><br>
       ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram}</span></div>` : ''}
       ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}
-
     `;
   } else {
     html = `<div><strong>${d.label}</strong></div>`;
@@ -212,6 +209,7 @@ function onHover(event, d) {
     node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1);
     link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
         .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1);
+    labels.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1);
   }
 }
 
@@ -225,8 +223,13 @@ simulation.on("tick", () => {
   node
     .attr("cx", d => d.x)
     .attr("cy", d => d.y);
+
+  labels
+    .attr("x", d => d.x)
+    .attr("y", d => d.y + 18);
 });
-  document.getElementById("search-input").addEventListener("input", (e) => {
+
+document.getElementById("search-input").addEventListener("input", (e) => {
   const query = e.target.value.toLowerCase();
   node.attr("stroke", d => {
     return d.id.startsWith("artist::") && d.label.toLowerCase().includes(query)
@@ -237,7 +240,6 @@ simulation.on("tick", () => {
       ? 3 : null;
   });
 });
-  
 </script>
 </body>
 </html>
