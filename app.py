@@ -121,17 +121,18 @@ for _, row in df.iterrows():
 
     photo_url = get_google_drive_image_url(row['photo url']) if row['photo url'] else DEFAULT_PHOTO
 
+    country = ''
+    city = ''
+    if row['country and city']:
+        parts = [p.strip() for p in row['country and city'].split(',')]
+        if len(parts) == 2:
+            country, city = parts
+    
     artist_info[artist_id] = {
         "name": row['name'],
         "photo": photo_url,
         "telegram": row['telegram nickname'],
         "email": row['email'],
-        country = ''
-        city = ''
-        if row['country and city']:
-            parts = [p.strip() for p in row['country and city'].split(',')]
-            if len(parts) == 2:
-                country, city = parts
         "country": country,
         "city": city,
         "role": row['role'],
