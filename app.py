@@ -132,6 +132,8 @@ for _, row in df.iterrows():
             parts = [p.strip() for p in row['country and city'].split(',')]
             if len(parts) == 2:
                 country, city = parts
+        "country": country,
+        "city": city,
         "role": row['role'],
         "style": row['style'],
         "tool": row['tool'],
