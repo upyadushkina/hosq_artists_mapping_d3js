@@ -204,7 +204,15 @@ function onHover(event, d) {
 
   
   } else {
-    html = `<div><strong>${d.label}</strong></div>`;
+    if (d.id.startsWith("seeking for::")) {
+      html = `
+        <div>
+          <span style="color: #4C4646;">seeking for:</span> 
+          <span style="color: var(--popup-text);">${d.label}</span>
+        </div>`;
+    } else {
+      html = `<div><strong>${d.label}</strong></div>`;
+    }
   }
   popup.innerHTML = html;
   popup.style.display = "block";
