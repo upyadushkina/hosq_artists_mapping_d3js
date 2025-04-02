@@ -126,6 +126,12 @@ for _, row in df.iterrows():
         "photo": photo_url,
         "telegram": row['telegram nickname'],
         "email": row['email']
+        "country": country,
+        "city": city,
+        "role": row['role'],
+        "style": row['style'],
+        "tool": row['tool'],
+        "level": row['level']
     }
 
     for field in multi_fields:
