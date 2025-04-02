@@ -138,7 +138,7 @@ const node = g.append("g")
         .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.2);
   })
   .on("mouseout", function(event, d) {
-    d3.select("#popup").style("display", "none");
+    // d3.select("#popup").style("display", "none");
     node.attr("opacity", 1);
     link.attr("stroke", "#322C2E").attr("opacity", 1);
   })
