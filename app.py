@@ -137,19 +137,19 @@ for _, row in df.iterrows():
                 add_link(artist_id, node_id)
                 filter_options[field].add(val)
 
-    if row['country and city']:
-        parts = [p.strip() for p in row['country and city'].split(',')]
-        if len(parts) == 2:
-            country, city = parts
-            country_id = f"country::{country}"
-            city_id = f"city::{city}"
-            add_node(country_id, country, 'country')
-            add_node(city_id, city, 'city')
-            add_link(artist_id, city_id)
-            add_link(artist_id, country_id)
-            add_link(city_id, country_id)
-            filter_options['country'].add(country)
-            filter_options['city'].add(city)
+    # if row['country and city']:
+    #     parts = [p.strip() for p in row['country and city'].split(',')]
+    #     if len(parts) == 2:
+    #         country, city = parts
+    #         country_id = f"country::{country}"
+    #         city_id = f"city::{city}"
+    #         add_node(country_id, country, 'country')
+    #         add_node(city_id, city, 'city')
+    #         add_link(artist_id, city_id)
+    #         add_link(artist_id, country_id)
+    #         add_link(city_id, country_id)
+    #         filter_options['country'].add(country)
+    #         filter_options['city'].add(city)
 
 # Sidebar filters
 selected = {}
