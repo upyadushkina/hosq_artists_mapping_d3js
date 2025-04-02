@@ -113,11 +113,21 @@ const node = g.append("g")
   .on("mouseover", function(event, d) {
     onHover(event, d);
     popupNode = d;
+    const connected = new Set();
+    data.links.forEach(link => {
+      if (link.source.id === d.id) connected.add(link.target.id);
+      if (link.target.id === d.id) connected.add(link.source.id);
+    });
+    node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.5);
+    link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
+        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.2);
   })
   .on("mouseout", function(event, d) {
     if (!popupNode || popupNode.id !== d.id) {
       d3.select("#popup").style("display", "none");
     }
+    node.attr("opacity", 1);
+    link.attr("stroke", "#322C2E").attr("opacity", 1);
   })
   .on("click", function(event, d) {
     event.stopPropagation();
@@ -188,6 +198,18 @@ function onHover(event, d) {
   popup.innerHTML = html;
   popup.style.display = "block";
   updatePopupPosition(d);
+
+  if (!d.id.startsWith("artist::")) {
+    const connected = new Set();
+    data.links.forEach(link => {
+      if (link.source.id === d.id) connected.add(link.target.id);
+      if (link.target.id === d.id) connected.add(link.source.id);
+    });
+
+    node.attr("opacity", n => connected.has(n.id) || n.id === d.id ? 1 : 0.1);
+    link.attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "#6A50FF" : "#322C2E")
+        .attr("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1);
+  }
 }
 
 function updatePopupPosition(d) {
