@@ -190,13 +190,13 @@ function onHover(event, d) {
 
     html = `
       <strong>${artist.name}</strong><br>
-      ${artist.role ? `<div><span style='color: var(--popup-text);'>Role:</span> <span style='color: #4C4646;'>${artist.role}</span></div>` : ''}
+      ${artist.role ? `<div><span style='color: #4C4646;'>${artist.role}</span></div>` : ''}
       <img src="${artist.photo}" alt="photo"><br>
       ${(artist.country || artist.city) ? `<div><span style='color: #6A50FF;'>${artist.country}${artist.city ? ', ' + artist.city : ''}</span></div>` : ''}
 
-      ${artist.style ? `<div><span style='color: var(--popup-text);'>Style:</span> <span style='color: #6A50FF;'>${artist.style}</span></div>` : ''}
-      ${artist.tool ? `<div><span style='color: var(--popup-text);'>Tool:</span> <span style='color: #6A50FF;'>${artist.tool}</span></div>` : ''}
-      ${artist.level ? `<div><span style='color: var(--popup-text);'>Level:</span> <span style='color: #6A50FF;'>${artist.level}</span></div>` : ''}
+      ${artist.style ? `<div><span style='color: var(--popup-text);'>Styles:</span> <span style='color: #4C4646;'>${artist.style}</span></div>` : ''}
+      ${artist.tool ? `<div><span style='color: var(--popup-text);'>Tools:</span> <span style='color: #4C4646;'>${artist.tool}</span></div>` : ''}
+      ${artist.level ? `<div><span style='color: var(--popup-text);'>Level:</span> <span style='color: #4C4646;'>${artist.level}</span></div>` : ''}
     
       ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram}</span></div>` : ''}
       ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}
