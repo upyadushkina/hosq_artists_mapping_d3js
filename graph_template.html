@@ -187,19 +187,13 @@ function onHover(event, d) {
   let html = "";
   if (d.id.startsWith("artist::")) {
     const artist = data.artists[d.id];
-    artist.country
-    artist.city
-    artist.role
-    artist.style
-    artist.tool
-    artist.level
 
     html = `
       <strong>${artist.name}</strong><br>
       ${artist.role ? `<div>${artist.role}</div>` : ''}
       <img src="${artist.photo}" alt="photo"><br>
       ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram}</span></div>` : ''}
-      ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}`;
+      ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}`
       ${artist.city ? `<div>${artist.city}</div>` : ''}
       ${artist.country ? `<div>${artist.country}</div>` : ''}
       ${artist.style ? `<div><b>Style:</b> ${artist.style}</div>` : ''}
