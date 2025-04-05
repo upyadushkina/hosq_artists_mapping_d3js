@@ -132,17 +132,37 @@ const node = g.append("g")
   .on("click", function(event, d) {
     event.stopPropagation();
     popupNode = d;
+    
+    // const firstDegree = new Set();
+    // const secondDegree = new Set();
+    // data.links.forEach(link => {
+    //   if (link.source.id === d.id) firstDegree.add(link.target.id);
+    //   if (link.target.id === d.id) firstDegree.add(link.source.id);
+    // });
+    // data.links.forEach(link => {
+    //   if (firstDegree.has(link.source.id)) secondDegree.add(link.target.id);
+    //   if (firstDegree.has(link.target.id)) secondDegree.add(link.source.id);
+    // });
+    // const allVisible = new Set([d.id, ...firstDegree, ...secondDegree]);
+
     const firstDegree = new Set();
     const secondDegree = new Set();
     data.links.forEach(link => {
       if (link.source.id === d.id) firstDegree.add(link.target.id);
       if (link.target.id === d.id) firstDegree.add(link.source.id);
     });
-    data.links.forEach(link => {
-      if (firstDegree.has(link.source.id)) secondDegree.add(link.target.id);
-      if (firstDegree.has(link.target.id)) secondDegree.add(link.source.id);
-    });
-    const allVisible = new Set([d.id, ...firstDegree, ...secondDegree]);
+    
+    let allVisible;
+    if (d.id.startsWith("artist::")) {
+      data.links.forEach(link => {
+        if (firstDegree.has(link.source.id)) secondDegree.add(link.target.id);
+        if (firstDegree.has(link.target.id)) secondDegree.add(link.source.id);
+      });
+      allVisible = new Set([d.id, ...firstDegree, ...secondDegree]);
+    } else {
+      allVisible = new Set([d.id, ...firstDegree]);
+    }
+    
     node.attr("display", n => allVisible.has(n.id) ? null : "none");
     link.attr("display", l => allVisible.has(l.source.id) && allVisible.has(l.target.id) ? null : "none");
     labels.attr("display", n => allVisible.has(n.id) ? null : "none")
