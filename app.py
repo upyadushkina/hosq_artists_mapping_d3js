@@ -78,22 +78,22 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # Load and process CSV
-df = pd.read_csv("Etudes Lab 1 artistis d3js.csv")
+df = pd.read_csv("Notations Lab DATABASE.csv")
 df.fillna('', inplace=True)
 
 category_colors = {
     'artist': NODE_NAME_COLOR,
-    'city': "#322C2E",
     'country': "#322C2E",
-    'professional field': "#6A50FF",
+    # 'country': "#322C2E",
+    'department': "#6A50FF",
     'role': "#F4C07C",
-    'style': "#B3A0EB",
-    'tool': "#EEC0E7",
-    'level': "#B1D3AA",
-    'seeking for': "#EC7F4D",
+    'discipline': "#B3A0EB",
+    # 'tool': "#EEC0E7",
+    # 'level': "#B1D3AA",
+    # 'seeking for': "#EC7F4D",
 }
 
-multi_fields = ['professional field', 'role', 'style', 'tool', 'level', 'seeking for']
+multi_fields = ['department', 'role', 'discipline']
 nodes, links, artist_info = [], [], {}
 node_ids, edge_ids = set(), set()
 filter_options = defaultdict(set)
@@ -121,24 +121,24 @@ for _, row in df.iterrows():
 
     photo_url = get_google_drive_image_url(row['photo url']) if row['photo url'] else DEFAULT_PHOTO
 
-    country = ''
-    city = ''
-    if row['country and city']:
-        parts = [p.strip() for p in row['country and city'].split(',')]
-        if len(parts) == 2:
-            country, city = parts
+    # country = ''
+    # city = ''
+    # if row['country and city']:
+    #    parts = [p.strip() for p in row['country and city'].split(',')]
+    #    if len(parts) == 2:
+    #        country, city = parts
     
     artist_info[artist_id] = {
         "name": row['name'],
         "photo": photo_url,
         "telegram": row['telegram nickname'],
         "email": row['email'],
-        "country": country,
-        "city": city,
+        "country": row['country and city'],
+        # "city": city,
         "role": row['role'],
-        "style": row['style'],
-        "tool": row['tool'],
-        "level": row['level']
+        "discipline": row['style'],
+        # "tool": row['tool'],
+        # "level": row['level']
     }
 
     for field in multi_fields:
@@ -170,11 +170,12 @@ st.sidebar.header("Filters")
 for category, options in filter_options.items():
     if category == "role":
         st.sidebar.subheader("Role")
-    elif category == "level":
-        st.sidebar.subheader("Level")
-    elif category == "seeking for":
-        st.sidebar.subheader("You can choose the artists who is seeking for...")
-    if category in ["level", "role"]:
+    # elif category == "level":
+    #    st.sidebar.subheader("Level")
+    # elif category == "seeking for":
+    #     st.sidebar.subheader("You can choose the artists who is seeking for...")
+    # if category in ["level", "role"]:
+    if category in ["role"]:
         selected[category] = [val for val in sorted(options) if st.sidebar.checkbox(val, key=f"{category}_{val}")]
     else:
         selected[category] = st.sidebar.multiselect(
