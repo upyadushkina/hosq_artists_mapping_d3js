@@ -48,9 +48,15 @@ st.markdown(f"""
     }}
     header, footer {{
         background-color: {PAGE_BG_COLOR} !important;
+        color: {PAGE_TEXT_COLOR} !important;
     }}
     section[data-testid="stSidebar"] {{
         background-color: {SIDEBAR_BG_COLOR} !important;
+        color: {PAGE_TEXT_COLOR} !important;
+    }}
+    section[data-testid="stSidebar"] * {{
+        color: {PAGE_TEXT_COLOR} !important;
+        font-family: '{TEXT_FONT}', sans-serif;
     }}
     </style>
 """, unsafe_allow_html=True)
@@ -117,9 +123,7 @@ for _, row in df.iterrows():
     if row['country and city']:
         location = row['country and city'].strip()
         loc_id = f"location::{location}"
-        add_node(loc_id, location, 'location')
-        add_link(artist_id, loc_id)
-        filter_options['location'].add(location)
+        # Removed location nodes from graph display
 
 # Filters
 selected = {}
