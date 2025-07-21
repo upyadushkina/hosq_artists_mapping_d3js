@@ -24,13 +24,12 @@ NODE_NAME_COLOR = "#4C4646"
 NODE_CITY_COLOR = "#D3DAE8"
 NODE_FIELD_COLOR = "#EEC0E7"
 NODE_ROLE_COLOR = "#F4C07C"
-EDGE_COLOR = "#322C2E"
+EDGE_COLOR = "#4C4646"
 HIGHLIGHT_EDGE_COLOR = "#6A50FF"
 TEXT_FONT = "Lexend"
 DEFAULT_PHOTO = "https://static.tildacdn.com/tild3532-6664-4163-b538-663866613835/hosq-design-NEW.png"
 POPUP_BG_COLOR = "#262123"
 POPUP_TEXT_COLOR = "#E8DED3"
-
 
 def get_google_drive_image_url(url):
     if "drive.google.com" in url and "/d/" in url:
@@ -38,66 +37,24 @@ def get_google_drive_image_url(url):
         return f"https://drive.google.com/thumbnail?id={file_id}"
     return url
 
-st.set_page_config(page_title="HOSQ Artist Graph", layout="wide")
-st.markdown(f"""
-  <style>
-    html, body, .stApp, .css-18e3th9, .css-1d391kg {{
-      background-color: {PAGE_BG_COLOR} !important;
-      color: {PAGE_TEXT_COLOR} !important;
-      font-family: '{TEXT_FONT}', sans-serif;
-    }}
-    header, footer {{
-      font-family: '{TEXT_FONT}', sans-serif;
-      background-color: {PAGE_BG_COLOR} !important;
-    }}
-    section[data-testid="stSidebar"] {{
-      font-family: '{TEXT_FONT}', sans-serif;
-      background-color: {SIDEBAR_BG_COLOR} !important;
-    }}
-    section[data-testid="stSidebar"] * {{
-      font-family: '{TEXT_FONT}', sans-serif;
-      color: {PAGE_TEXT_COLOR} !important;
-    }}
-    section[data-testid="stSidebar"] h1, h2, h3 {{
-      font-family: '{TEXT_FONT}', sans-serif;
-      color: {PAGE_TEXT_COLOR} !important;
-    }}
-    .stMultiSelect [data-baseweb="select"] input {{
-      font-family: '{TEXT_FONT}', sans-serif;
-      color: #4C4646 !important;
-    }}
-    .stMultiSelect [data-baseweb="tag"] {{
-      background-color: {SIDEBAR_TAG_BG_COLOR} !important;
-      font-family: '{TEXT_FONT}', sans-serif;
-      color: {SIDEBAR_TAG_TEXT_COLOR} !important;
-    }}
-    .stCheckbox > label {{
-      color: {PAGE_TEXT_COLOR} !important;
-    }}
-  </style>
-""", unsafe_allow_html=True)
+st.set_page_config(page_title="Notations Lab Graph", layout="wide")
 
-# Load and process CSV
-df = pd.read_csv("Etudes Lab 1 artistis d3js.csv")
+# Load CSV
+df = pd.read_csv("Notations Lab DATABASE - participants + team.csv")
 df.fillna('', inplace=True)
 
 category_colors = {
     'artist': NODE_NAME_COLOR,
-    'city': "#322C2E",
-    'country': "#322C2E",
-    'professional field': "#6A50FF",
-    'role': "#F4C07C",
-    'style': "#B3A0EB",
-    'tool': "#EEC0E7",
-    'level': "#B1D3AA",
-    'seeking for': "#EC7F4D",
+    'location': NODE_CITY_COLOR,
+    'discipline': NODE_FIELD_COLOR,
+    'role': NODE_ROLE_COLOR,
+    'department': PAGE_TEXT_COLOR,
 }
 
-multi_fields = ['professional field', 'role', 'style', 'tool', 'level', 'seeking for']
+multi_fields = ['discipline', 'role', 'department']
 nodes, links, artist_info = [], [], {}
 node_ids, edge_ids = set(), set()
 filter_options = defaultdict(set)
-
 artist_links_map = defaultdict(set)
 
 def add_node(id, label, group):
@@ -121,24 +78,15 @@ for _, row in df.iterrows():
 
     photo_url = get_google_drive_image_url(row['photo url']) if row['photo url'] else DEFAULT_PHOTO
 
-    country = ''
-    city = ''
-    if row['country and city']:
-        parts = [p.strip() for p in row['country and city'].split(',')]
-        if len(parts) == 2:
-            country, city = parts
-    
     artist_info[artist_id] = {
         "name": row['name'],
         "photo": photo_url,
         "telegram": row['telegram nickname'],
         "email": row['email'],
-        "country": country,
-        "city": city,
         "role": row['role'],
-        "style": row['style'],
-        "tool": row['tool'],
-        "level": row['level']
+        "discipline": row['discipline'],
+        "department": row['department'],
+        "location": row['country and city']
     }
 
     for field in multi_fields:
@@ -150,38 +98,21 @@ for _, row in df.iterrows():
                 add_link(artist_id, node_id)
                 filter_options[field].add(val)
 
-    # if row['country and city']:
-    #     parts = [p.strip() for p in row['country and city'].split(',')]
-    #     if len(parts) == 2:
-    #         country, city = parts
-    #         country_id = f"country::{country}"
-    #         city_id = f"city::{city}"
-    #         add_node(country_id, country, 'country')
-    #         add_node(city_id, city, 'city')
-    #         add_link(artist_id, city_id)
-    #         add_link(artist_id, country_id)
-    #         add_link(city_id, country_id)
-    #         filter_options['country'].add(country)
-    #         filter_options['city'].add(city)
+    if row['country and city']:
+        location = row['country and city'].strip()
+        loc_id = f"location::{location}"
+        add_node(loc_id, location, 'location')
+        add_link(artist_id, loc_id)
+        filter_options['location'].add(location)
 
-# Sidebar filters
+# Filters
 selected = {}
-st.sidebar.header("Filters")
 for category, options in filter_options.items():
-    if category == "role":
-        st.sidebar.subheader("Role")
-    elif category == "level":
-        st.sidebar.subheader("Level")
-    elif category == "seeking for":
-        st.sidebar.subheader("You can choose the artists who is seeking for...")
-    if category in ["level", "role"]:
-        selected[category] = [val for val in sorted(options) if st.sidebar.checkbox(val, key=f"{category}_{val}")]
-    else:
-        selected[category] = st.sidebar.multiselect(
-            label=category.title(),
-            options=sorted(options),
-            default=[]
-        )
+    selected[category] = st.sidebar.multiselect(
+        label=category.title(),
+        options=sorted(options),
+        default=[]
+    )
 
 def artist_passes_filter(artist_id):
     for cat, selected_vals in selected.items():
@@ -194,7 +125,6 @@ def artist_passes_filter(artist_id):
 
 visible_artist_ids = {a for a in artist_info if artist_passes_filter(a)}
 visible_related_ids = set(visible_artist_ids)
-
 for link in links:
     if link["source"] in visible_artist_ids:
         visible_related_ids.add(link["target"])
