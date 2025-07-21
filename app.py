@@ -39,8 +39,24 @@ def get_google_drive_image_url(url):
 
 st.set_page_config(page_title="Notations Lab Graph", layout="wide")
 
+st.markdown(f"""
+    <style>
+    html, body, .stApp, .css-18e3th9, .css-1d391kg {{
+        background-color: {PAGE_BG_COLOR} !important;
+        color: {PAGE_TEXT_COLOR} !important;
+        font-family: '{TEXT_FONT}', sans-serif;
+    }}
+    header, footer {{
+        background-color: {PAGE_BG_COLOR} !important;
+    }}
+    section[data-testid="stSidebar"] {{
+        background-color: {SIDEBAR_BG_COLOR} !important;
+    }}
+    </style>
+""", unsafe_allow_html=True)
+
 # Load CSV
-df = pd.read_csv("Notations Lab DATABASE.csv")
+df = pd.read_csv("Notations Lab DATABASE - participants + team.csv")
 df.fillna('', inplace=True)
 
 category_colors = {
