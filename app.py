@@ -68,7 +68,7 @@ df.fillna('', inplace=True)
 category_colors = {
     'artist': NODE_NAME_COLOR,
     'location': NODE_CITY_COLOR,
-    'discipline': NODE_FIELD_COLOR,
+    'discipline': "#E8DED3",
     'role': NODE_ROLE_COLOR,
     'department': PAGE_TEXT_COLOR,
 }
