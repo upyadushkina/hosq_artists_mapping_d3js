@@ -136,8 +136,8 @@ for _, row in df.iterrows():
         "country": row['country and city'],
         # "city": city,
         "role": row['role'],
-        "discipline": row['style'],
-        # "tool": row['tool'],
+        "discipline": row['discipline'],
+        "department": row['department'],
         # "level": row['level']
     }
 
