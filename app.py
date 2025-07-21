@@ -170,4 +170,4 @@ html_filled = html_template.replace("{{ b64_data }}", b64_data)
 html_filled = html_filled.replace("{{ popup_bg }}", POPUP_BG_COLOR)
 html_filled = html_filled.replace("{{ popup_text }}", POPUP_TEXT_COLOR)
 
-components.html(html_filled, height=1400, scrolling=False)
+components.html(html_filled, height=1600, scrolling=False)
