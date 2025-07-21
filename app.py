@@ -40,7 +40,7 @@ def get_google_drive_image_url(url):
 st.set_page_config(page_title="Notations Lab Graph", layout="wide")
 
 # Load CSV
-df = pd.read_csv("Notations Lab DATABASE - participants + team.csv")
+df = pd.read_csv("Notations Lab DATABASE.csv")
 df.fillna('', inplace=True)
 
 category_colors = {
