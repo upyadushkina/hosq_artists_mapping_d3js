@@ -93,7 +93,7 @@ category_colors = {
     # 'seeking for': "#EC7F4D",
 }
 
-multi_fields = ['department', 'role', 'discipline']
+multi_fields = ['department', 'role', 'discipline', 'instruments', 'skillset']
 nodes, links, artist_info = [], [], {}
 node_ids, edge_ids = set(), set()
 filter_options = defaultdict(set)
