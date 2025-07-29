@@ -89,11 +89,11 @@ category_colors = {
     'role': "#F4C07C",
     'discipline': "#E8DED3",
     'instruments': "#EEC0E7",
-    'skillset': "#B1D3AA",
+    'skill set': "#B1D3AA",
     # 'seeking for': "#EC7F4D",
 }
 
-multi_fields = ['department', 'role', 'discipline', 'instruments', 'skillset']
+multi_fields = ['department', 'role', 'discipline', 'instruments', 'skill set']
 nodes, links, artist_info = [], [], {}
 node_ids, edge_ids = set(), set()
 filter_options = defaultdict(set)
@@ -139,7 +139,7 @@ for _, row in df.iterrows():
         "discipline": row['discipline'],
         "department": row['department'],
         "instruments": row['instruments'],
-        "skillset": row['skill set']
+        "skill set": row['skill set']
     }
 
     for field in multi_fields:
