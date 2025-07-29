@@ -88,8 +88,8 @@ category_colors = {
     'department': "#6A50FF",
     'role': "#F4C07C",
     'discipline': "#E8DED3",
-    # 'tool': "#EEC0E7",
-    # 'level': "#B1D3AA",
+    'instruments': "#EEC0E7",
+    'skillset': "#B1D3AA",
     # 'seeking for': "#EC7F4D",
 }
 
@@ -138,7 +138,8 @@ for _, row in df.iterrows():
         "role": row['role'],
         "discipline": row['discipline'],
         "department": row['department'],
-        # "level": row['level']
+        "instruments": row['instruments'],
+        "skillset": row['skill set']
     }
 
     for field in multi_fields:
