@@ -128,29 +128,43 @@ for _, row in df.iterrows():
     #    if len(parts) == 2:
     #        country, city = parts
 
-    def clean_text(text):
-    if not isinstance(text, str):
-        return text
-    return (
-        text.replace("&", "&amp;")
-            .replace("<", "&lt;")
-            .replace(">", "&gt;")
-            .replace('"', "&quot;")
-            .replace("'", "&#39;")
-            .replace("@", "&#64;")
-    )
+    # def clean_text(text):
+    # if not isinstance(text, str):
+    #     return text
+    # return (
+    #     text.replace("&", "&amp;")
+    #         .replace("<", "&lt;")
+    #         .replace(">", "&gt;")
+    #         .replace('"', "&quot;")
+    #         .replace("'", "&#39;")
+    #         .replace("@", "&#64;")
+    # )
+
+    # artist_info[artist_id] = {
+    # "name": clean_text(row['name']),
+    # "photo": photo_url,
+    # "telegram": clean_text(row["telegram nickname"]),
+    # "email": clean_text(row["email"]),
+    # "country": clean_text(row['country and city']),
+    # "role": clean_text(row['role']),
+    # "discipline": clean_text(row['discipline']),
+    # "department": clean_text(row['department']),
+    # "instruments": clean_text(row['instruments']),
+    # "skill set": clean_text(row['skill set'])
+    # }
 
     artist_info[artist_id] = {
-    "name": clean_text(row['name']),
-    "photo": photo_url,
-    "telegram": clean_text(row["telegram nickname"]),
-    "email": clean_text(row["email"]),
-    "country": clean_text(row['country and city']),
-    "role": clean_text(row['role']),
-    "discipline": clean_text(row['discipline']),
-    "department": clean_text(row['department']),
-    "instruments": clean_text(row['instruments']),
-    "skill set": clean_text(row['skill set'])
+        "name": row['name'],
+        "photo": photo_url,
+        "telegram": clean_text(row["telegram nickname"]),
+        "email": clean_text(row["email"]),
+        "country": row['country and city'],
+        # "city": city,
+        "role": row['role'],
+        "discipline": row['discipline'],
+        "department": row['department'],
+        "instruments": row['instruments'],
+        "skill set": row['skill set']
     }
 
 
