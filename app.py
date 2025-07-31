@@ -153,6 +153,9 @@ for _, row in df.iterrows():
     # "skill set": clean_text(row['skill set'])
     # }
 
+    def clean_text(text):
+        return text.replace('@', '&#64;') if isinstance(text, str) else text
+
     artist_info[artist_id] = {
         "name": row['name'],
         "photo": photo_url,
