@@ -220,8 +220,10 @@ function onHover(event, d) {
       ${artist.tool ? `<div><span style='color: var(--popup-text);'>tools:</span> <span style='color: #4C4646;'>${artist.tool}</span></div>` : ''}
       ${artist.level ? `<div><span style='color: var(--popup-text);'>level:</span> <span style='color: #4C4646;'>${artist.level}</span></div>` : ''}
     
-      ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram}</span></div>` : ''}
-      ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email}</span></div>` : ''}
+      ${artist.telegram ? `<div><span style='color: var(--popup-text);'>telegram:</span> <span style='color: #6A50FF;'>${artist.telegram.replace('@', '&#64;')}</span></div>` : ''}
+      ${artist.email ? `<div><span style='color: var(--popup-text);'>email:</span> <span style='color: #6A50FF;'>${artist.email.replace('@', '&#64;')}</span>
+</div>` : ''}
+
 `;
 
   
