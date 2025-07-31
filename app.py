@@ -127,12 +127,15 @@ for _, row in df.iterrows():
     #    parts = [p.strip() for p in row['country and city'].split(',')]
     #    if len(parts) == 2:
     #        country, city = parts
+
+    def clean_text(text):
+        return text.replace('@', '&#64;') if isinstance(text, str) else text
     
     artist_info[artist_id] = {
         "name": row['name'],
         "photo": photo_url,
-        "telegram": row['telegram nickname'],
-        "email": row['email'],
+        "telegram": clean_text(row["telegram nickname"]),
+        "email": clean_text(row["email"]),
         "country": row['country and city'],
         # "city": city,
         "role": row['role'],
